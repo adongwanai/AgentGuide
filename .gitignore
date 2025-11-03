@@ -1,0 +1,9 @@
+# SpecStory auto-save files
+.specstory/
+
+# Cursor IDE configuration
+.cursorindexingignore
+
+# License file (if you want to keep it local only)
+LICENSE
+
