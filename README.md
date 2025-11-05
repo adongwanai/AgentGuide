@@ -30,7 +30,7 @@
 ## 📑 目录
 
 **🎯 核心内容**：
-- [💡 关于本项目](#-关于本项目) - Agent开发指南、LangChain教程、RAG系统、大模型面试
+- [💡 关于本项目](#-关于本项目) - Agent开发指南、转行大模型、高级RAG、大模型面试
 - [🚦 6步学习路径](#-从零到offer的完整路径快速导航) - 从岗位选择到拿Offer
 - [🔬 算法岗 vs 🛠️ 开发岗](#-第一步确定你的目标岗位) - 岗位选择决策树
 - [📚 学习路线图](#-第三步基于岗位的学习路线) - 算法岗10-15周 | 开发岗8-12周
@@ -57,7 +57,7 @@
 
 **`AgentGuide` 是什么？**
 
-> **AI Agent 开发学习指南 | LangChain 教程 | LangGraph 实战 | RAG 系统 | 大模型面试**
+> **AI Agent 开发学习指南 | 转行大模型 | LangGraph 实战 | 高级RAG  | 大模型面试**
 
 一份系统化、求职导向的 AI Agent 学习与面试指南，涵盖：
 - **Agent 开发**：LangChain、LangGraph、AutoGen、CrewAI、Swarm 框架教程
@@ -145,11 +145,6 @@
 
 ### 🎯 适合人群
 
-**技术背景**：
-- ✅ **算法工程师** | 大模型算法 | NLP工程师 | CV工程师
-- ✅ **后端工程师** | Python开发 | 全栈工程师 | 系统架构师
-- ✅ **在校学生** | 计算机专业 | 人工智能专业 | 软件工程
-
 **求职目标**：
 - ✅ AI Agent 算法工程师 | AI Agent 开发工程师 | RAG 系统工程师
 - ✅ LLM 应用工程师 | 大模型工程师 | 多模态算法工程师
@@ -186,7 +181,7 @@
 - ✅ XXXAgent（RAG方向）
 - ✅ XXXMulti-Agent（协作方向）
 - ✅ XXXAgent（高级方向）
-- ✅ 每个项目提供算法岗和开发岗两种写法
+- ✅ 持续收集高质量开源项目
 </td>
 <td>
 🔀 算法 × 开发双线通吃
@@ -405,9 +400,119 @@
 - 又有开发项目（完整系统、业务指标）
 - 可以同时投两类岗位，机会翻倍！
 
-详细对比见：[转行大模型热门方向准备指南](./docs/04-interview/06-career-transition.md)
+</details>
+
+---
+
+### 🎯 技术方向细分（重要！）
+
+<details>
+<summary><b>👉 点击查看 Agent 方向的细分岗位</b></summary>
+
+<br/>
+
+#### 🔬 算法线细分方向
+
+**1. 上下文工程算法工程师** ⭐⭐⭐⭐⭐ 最热门！
+
+**技术方向**：
+- **RAG 算法**：GraphRAG、Agentic RAG、Reranker 训练
+- **Agent 算法**：Memory 机制、规划算法优化、Multi-Agent 协作
+- **多模态算法**：跨模态对齐（CLIP改进）、多模态融合
+
+**项目示例**：
+- GraphRAG 检索算法优化（召回率 +12%）
+- Agent Memory 压缩算法（存储 -60%）
+- Agentic RAG 策略设计（准确率 +20%）
+
+**岗位数量**：⭐⭐⭐⭐（大厂+头部创业公司）
+
+---
+
+**2. 模型算法工程师** ⭐⭐
+
+**技术方向**：
+- Reasoning 算法（Long COT、工具调用 RL）
+- 对齐算法（RLHF、DPO、GRPO）
+- 模型架构（MoE、长文本、Attention 改进）
+
+**岗位数量**：⭐⭐（主要在大厂研究院）
+
+---
+
+#### 🛠️ 开发线细分方向
+
+**1. 上下文工程开发工程师** ⭐⭐⭐⭐⭐ 岗位最多！
+
+**技术方向**：
+- **RAG 系统**：企业知识库、智能客服、文档解析
+- **Agent 应用**：RPA 自动化、研究助手、工作流 Agent
+- **多模态系统**：图文检索、OCR pipeline、视觉问答
+
+**项目示例**：
+- 企业级 GraphRAG 知识问答系统（服务1000+员工）
+- Agent 驱动的 RPA 系统（自动化率80%，节省200万/年）
+
+**岗位数量**：⭐⭐⭐⭐⭐（所有 AI 公司都需要）
+
+---
+
+**2. AI Infra 开发工程师** ⭐⭐⭐
+
+**技术方向**：
+- 推理服务部署（vLLM、TGI、Triton）
+- 训练平台搭建（KubeFlow、Ray）
+- 模型服务化（API 网关、负载均衡、监控）
+
+**岗位数量**：⭐⭐⭐（大厂需求多）
 
 </details>
+
+<details>
+<summary><b>👉 Agent 开发工程师核心能力要求（大厂真实招聘）</b></summary>
+
+<br/>
+
+> 基于 OpenAI、DeepMind、Meta、蚂蚁等大厂真实 JD 总结
+
+#### 三层能力模型
+
+**Layer 1：后端与系统功底**（基础能力）
+- 大型分布式、高并发、高性能系统设计
+- 云原生 PaaS 平台、Kubernetes 架构理解
+- **价值**：Agent 系统本质是复杂分布式服务
+
+**Layer 2：Agent 核心技术**（重点能力）
+- 混合 Agent 架构（单 Agent vs Multi-Agent）
+- 上下文工程（动态打包、向量索引、信息检索）
+- 工具编排（Tool 设计、Function Calling）
+- 记忆与个性化（Memory 设计、Mem0、Zep）
+- 任务规划（Orchestration、Workflow）
+- 评估体系（如何证明 Agent 比人工更好？）
+
+**Layer 3：模型理解**（加分项）
+- 主流模型长短板（GPT-4/Claude/Llama 选择）
+- 微调能力（Function Call 微调、垂直领域适配）
+- 强化学习基础（Agent RL、DPO）
+
+#### 从"调包侠"到"真实项目"的关键转变
+
+**❌ 玩具项目**：
+- 只用 LangChain 跑个 demo
+- 没有评估、没有优化、没有生产化考虑
+- 面试一问就穿帮
+
+**✅ 真实项目**：
+- **具体业务场景**（智能客服、RPA、研究助手）
+- **完整技术栈**（文档解析 + 高级 RAG + Agentic 逻辑）
+- **量化评估**（构建测试集、使用 Ragas、持续追踪优化）
+- **生产化考虑**（成本控制、性能优化、可观测性、异常处理）
+
+</details>
+
+**📖 完整技术方向详解**：[转行大模型热门方向准备指南](./docs/04-interview/06-career-transition.md)
+
+> **💡 新手建议**：优先选择**上下文工程开发**（RAG/Agent 系统），岗位最多、最易落地
 
 ---
 
@@ -562,14 +667,14 @@
 
 <br/>
 
-**👉 [查看详细路线图](./docs/learning-roadmap-algorithm.md)**
+**👉 [查看详细路线图](./docs/05-roadmaps/learning-roadmap-algorithm.md)**
 
 </td>
 <td width="50%" align="center">
 
 ### 🛠️ **开发岗学习路线**
 
-**学习时长**：4-6 周  
+**学习时长**：8-12 周  
 **难度**：⭐⭐⭐  
 **产出**：完整系统 + 业务指标
 
@@ -586,7 +691,7 @@
 
 <br/>
 
-**👉 [查看详细路线图](./docs/learning-roadmap-development.md)**
+**👉 [查看详细路线图](./docs/05-roadmaps/learning-roadmap-development.md)**
 
 </td>
 </tr>
@@ -1119,8 +1224,8 @@ python quickstart_rag_agent.py
 - 🤝 [贡献指南 (CONTRIBUTING)](./CONTRIBUTING.md) - 如何参与贡献
 
 ### 🗺️ 学习路线
-- 🔬 [算法岗详细路线](./docs/learning-roadmap-algorithm.md) - 每日学习计划
-- 🛠️ [开发岗详细路线](./docs/learning-roadmap-development.md) - 每日学习计划
+- 🔬 [算法岗详细路线](./docs/05-roadmaps/learning-roadmap-algorithm.md) - 每日学习计划
+- 🛠️ [开发岗详细路线](./docs/05-roadmaps/learning-roadmap-development.md) - 每日学习计划
 
 ### 📂 资源导航
 - 🤖 [Agent 资源总览](./resources/agent/) - Agent 所有资源
