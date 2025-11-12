@@ -823,23 +823,25 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - [ ] [代码解释器 (Code Interpreter)：原理与实现](./docs/02-tech-stack/12-code-interpreter.md)
 - [ ] [网络浏览 (Web Browsing)：原理与实现](./docs/02-tech-stack/13-web-browsing.md)
 
-#### 2.5 上下文工程 (Context Engineering) - 高级优化 ⭐ 核心！
-- [x] [必看👍 上下文工程完全指南：6大修复技巧](./docs/02-tech-stack/14-context-engineering.md)
+#### 2.5 上下文工程 (Context Engineering) - Agent 开发的核心本质！⭐⭐⭐
 
-#### 2.6 Agent Memory - 记忆系统 ⭐ 核心！
+> **💡 重要提示**：上下文工程是 Agent 开发的核心，建议优先学习！
+
+- [x] [必看👍 业界最佳实践精华（600字快速入门）](./docs/02-tech-stack/context-engineering-practices.md)
+- [x] [必看👍 全网最全最优质的上下文工程资源合集](./docs/02-tech-stack/context-engineering-resources.md) 🔥
+- [x] [必看👍 上下文工程完全指南：7大核心组件详解](./docs/02-tech-stack/18-context-engineering-guide.md)
+- [x] [必看👍 长上下文陷阱与6大修复技巧](./docs/02-tech-stack/14-context-engineering.md)
 - [x] [必看👍 Agent Memory 完整教程：从原理到实战](./docs/02-tech-stack/15-agent-memory.md)
+- [x] [必看👍 12-Factor Agent 架构：从循环到工程化](./docs/02-tech-stack/12-factor-agent-architecture.md)
+- [x] [必看👍 Claude Code 最佳实践：顶级产品的工程经验](./docs/02-tech-stack/17-claude-code-best-practices.md)
 
-#### 2.7 模型微调 (Fine-tuning) - 算法岗必备 ⭐ 核心！
+**📖 更多学习资源**：查看 [02-tech-stack 完整学习路径](./docs/02-tech-stack/README.md)
+
+#### 2.6 模型微调 (Fine-tuning) - 算法岗必备 ⭐
 - [x] [必看👍 SFT 监督微调完全指南：从原理到实战](./docs/02-tech-stack/16-sft-finetuning.md)
 
-#### 2.8 开发工具与最佳实践 ⭐ 核心！
-- [x] [必看👍 Claude Code 最佳实践指南：从入门到精通](./docs/02-tech-stack/17-claude-code-best-practices.md)
-
-#### 2.9 Agent 架构设计 ⭐ 核心！
-- [x] [必看👍 12-Factor Agent 架构完整指南：从循环到工程](./docs/02-tech-stack/12-factor-agent-architecture.md)
-
-#### 2.10 上下文工程 (Context Engineering) ⭐ 核心！
-- [x] [必看👍 上下文工程完全指南：6大核心组件详解](./docs/02-tech-stack/18-context-engineering-guide.md)
+#### 2.7 失败经验与避坑指南 ⭐
+- [x] [真实项目的坑与教训](./docs/02-tech-stack/lessons-learned.md)
 
 ---
 
