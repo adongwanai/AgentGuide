@@ -8,7 +8,7 @@
     "level": "入门",
     "type": "指南",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/04-interview/10-mindset.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -20,7 +20,7 @@
     "level": "入门",
     "type": "指南",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/04-interview/07-job-hunting-guide.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -32,7 +32,7 @@
     "level": "入门",
     "type": "指南",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/04-interview/08-salary-negotiation.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -44,7 +44,7 @@
     "level": "入门",
     "type": "指南",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/04-interview/06-career-transition.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -56,7 +56,7 @@
     "level": "入门",
     "type": "指南",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/04-interview/09-hr-interview.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -68,7 +68,7 @@
     "level": "入门",
     "type": "路线",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/05-roadmaps/learning-roadmap-development.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -80,19 +80,19 @@
     "level": "入门",
     "type": "路线",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/05-roadmaps/learning-roadmap-algorithm.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
-    "id": "context-engineering-resources",
-    "title": "context-engineering-resources",
-    "description": "✴️ 全网最全最优质的上下文工程资源合集",
+    "id": "parlant-ai-agent-agent",
+    "title": "Parlant：如何让AI Agent真正\"靠谱\"？深度解析Agent合规保障方案",
+    "description": "> 作为大模型算法工程师，今天和大家聊聊AI Agent在生产环境中最头疼的问题：如何保证Agent不\"出格\"？",
     "category": "Agent",
     "tags": [],
     "level": "入门",
     "type": "教程",
-    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/context-engineering-resources.md",
-    "date": "2025-11-14",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/22-parlant-agent-compliance-deep-dive.md",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -104,7 +104,7 @@
     "level": "入门",
     "type": "教程",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/14-context-engineering.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -116,19 +116,7 @@
     "level": "入门",
     "type": "教程",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/README.md",
-    "date": "2025-11-14",
-    "featured": false
-  },
-  {
-    "id": "",
-    "title": "上下文工程：业界最佳实践精华",
-    "description": "> **核心观点**：上下文工程是 Agent 开发的本质，成功的 Agent 系统关键不在于调用什么模型，而在于如何设计系统来控制信息流向 LLM。",
-    "category": "Agent",
-    "tags": [],
-    "level": "入门",
-    "type": "教程",
-    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/context-engineering-practices.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -140,19 +128,7 @@
     "level": "入门",
     "type": "教程",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/15-agent-memory.md",
-    "date": "2025-11-14",
-    "featured": false
-  },
-  {
-    "id": "agent-ai",
-    "title": "Agent AI 企业转型的六大实战教训",
-    "description": "> **核心洞察**: 在 Agentic AI 革命一年后,一个教训非常清晰:要做好它需要付出艰苦的努力。",
-    "category": "Agent",
-    "tags": [],
-    "level": "入门",
-    "type": "教程",
-    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/lessons-learned.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -164,7 +140,19 @@
     "level": "入门",
     "type": "教程",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/12-factor-agent-architecture.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
+    "featured": false
+  },
+  {
+    "id": "13-context-engineering-resources",
+    "title": "13-context-engineering-resources",
+    "description": "✴️ 全网最全最优质的上下文工程资源合集",
+    "category": "Agent",
+    "tags": [],
+    "level": "入门",
+    "type": "教程",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/13-context-engineering-resources.md",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -176,7 +164,7 @@
     "level": "入门",
     "type": "教程",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/16-sft-finetuning.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -188,7 +176,7 @@
     "level": "入门",
     "type": "教程",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/17-claude-code-best-practices.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -200,7 +188,31 @@
     "level": "入门",
     "type": "教程",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/18-context-engineering-guide.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
+    "featured": false
+  },
+  {
+    "id": "agent-ai",
+    "title": "Agent AI 企业转型的六大实战教训",
+    "description": "> **核心洞察**: 在 Agentic AI 革命一年后,一个教训非常清晰:要做好它需要付出艰苦的努力。",
+    "category": "Agent",
+    "tags": [],
+    "level": "入门",
+    "type": "教程",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/23-lessons-learned.md",
+    "date": "2025-11-18",
+    "featured": false
+  },
+  {
+    "id": "",
+    "title": "上下文工程：业界最佳实践精华",
+    "description": "> **核心观点**：上下文工程是 Agent 开发的本质，成功的 Agent 系统关键不在于调用什么模型，而在于如何设计系统来控制信息流向 LLM。",
+    "category": "Agent",
+    "tags": [],
+    "level": "入门",
+    "type": "教程",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/02-tech-stack/11-context-engineering-practices.md",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -212,7 +224,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/learning-resources.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -224,7 +236,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/tools.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -236,7 +248,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/31篇LLM的经典论文速读版清单.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -248,7 +260,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -260,7 +272,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/ai-agent-production-challenges.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -272,7 +284,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/memory.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -284,7 +296,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/frameworks.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -296,7 +308,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/official-guides.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -308,7 +320,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/papers/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -320,7 +332,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/papers/agent_rl/Agent➕RL开源项目汇总.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -332,7 +344,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/papers/data_synthesis/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -344,7 +356,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/papers/agent_memory/Agent Memory 核心论文汇总.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -356,7 +368,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/papers/agent_memory/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -368,7 +380,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/projects.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -380,7 +392,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/vector-db.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -392,7 +404,7 @@
     "level": "入门",
     "type": "资源",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/document-parsing.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -404,7 +416,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/papers/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -416,7 +428,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/papers/multimodal_rag/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -428,7 +440,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/papers/graphrag/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -440,7 +452,7 @@
     "level": "入门",
     "type": "论文合集",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/papers/agentic_rag/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -452,7 +464,7 @@
     "level": "入门",
     "type": "项目索引",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/projects/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -464,7 +476,7 @@
     "level": "入门",
     "type": "项目索引",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/projects/04-end-to-end-projects/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -476,7 +488,7 @@
     "level": "入门",
     "type": "项目索引",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/projects/06-project-collections/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   },
   {
@@ -488,7 +500,7 @@
     "level": "入门",
     "type": "项目索引",
     "url": "https://github.com/adongwanai/AgentGuide/blob/main/projects/05-agent-workflows/README.md",
-    "date": "2025-11-14",
+    "date": "2025-11-18",
     "featured": false
   }
 ]
