@@ -656,6 +656,13 @@
 
 > **根据你在"第一步"的选择，选择对应的学习路线**
 
+### 🎯 快速导航
+
+**🚀 新手推荐**：
+- 📘 [**AgentGuide开源学习路线（简易版）**](./docs/05-roadmaps/AgentGuide开源学习路线（简易版本）.md) - **从零到Offer完整路径**，8-15周系统化学习方案，包含完整资源清单 ⭐⭐⭐
+
+**📋 详细路线**（按岗位分）：
+
 ### 🗺️ 选择你的学习路线
 
 <table>
@@ -1819,6 +1826,7 @@ python quickstart_rag_agent.py
 - 🤝 [贡献指南 (CONTRIBUTING)](./CONTRIBUTING.md) - 如何参与贡献
 
 ### 🗺️ 学习路线
+- 🚀 [AgentGuide开源学习路线（简易版）](./docs/05-roadmaps/AgentGuide开源学习路线（简易版本）.md) - 从零到Offer完整路径（8-15周）⭐ 新增
 - 🔬 [算法岗详细路线](./docs/05-roadmaps/learning-roadmap-algorithm.md) - 每日学习计划
 - 🛠️ [开发岗详细路线](./docs/05-roadmaps/learning-roadmap-development.md) - 每日学习计划
 
