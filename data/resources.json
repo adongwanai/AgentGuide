@@ -516,6 +516,18 @@
     "featured": false
   },
   {
+    "id": "agent-memory-21",
+    "title": "一口气读完Agent Memory的21篇论文：从理论到实践的完整指南",
+    "description": "> **Agent记忆系统全景图 | 含2025最新综述 | 从入门到精通 | 算法工程师与开发工程师必读**",
+    "category": "Agent",
+    "tags": [],
+    "level": "入门",
+    "type": "论文合集",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/papers/agent_memory/一口气读完agent memory的21篇核心论文.md",
+    "date": "2025-12-22",
+    "featured": false
+  },
+  {
     "id": "agent-memory",
     "title": "Agent Memory 核心论文解读",
     "description": "> **10篇必读论文 | 从入门到精通 AI Agent 记忆系统**",
