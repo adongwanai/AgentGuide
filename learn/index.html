@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgentGuide 学习文档</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg2: #111827;
+      --panel: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --primary: #60a5fa;
+      --border: #1f2937;
+      --code: #0b1020;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg), #060b16 35%, #060b16);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: 100vh;
+    }
+    aside {
+      border-right: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 16px;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .hint { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+    input[type="search"] {
+      width: 100%;
+      background: #0b1220;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 14px;
+      outline: none;
+    }
+    details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background: #0b1220;
+    }
+    summary {
+      cursor: pointer;
+      padding: 10px 12px;
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 600;
+      user-select: none;
+    }
+    .list { padding: 0 8px 8px 8px; }
+    .doc-link {
+      display: block;
+      color: #bfdbfe;
+      text-decoration: none;
+      font-size: 13px;
+      padding: 8px;
+      border-radius: 8px;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+    .doc-link:hover { background: rgba(96, 165, 250, 0.1); }
+    .doc-link.active {
+      background: rgba(96, 165, 250, 0.18);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+    main { padding: 24px 28px 80px; min-width: 0; }
+    .topbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .btn {
+      text-decoration: none;
+      color: #0b1220;
+      background: linear-gradient(135deg, #60a5fa, #22d3ee);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .path { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    article {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.72);
+      overflow: hidden;
+    }
+    article h1, article h2, article h3, article h4 { line-height: 1.35; }
+    article a { color: #7dd3fc; }
+    article img { max-width: 100%; height: auto; border-radius: 8px; }
+    article pre {
+      background: var(--code);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      overflow-x: auto;
+    }
+    article code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.9em;
+    }
+    article table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; }
+    article th, article td { border: 1px solid var(--border); padding: 8px 10px; }
+    article blockquote {
+      border-left: 4px solid #334155;
+      margin: 0;
+      padding: 2px 0 2px 12px;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.5);
+    }
+    .loading, .error { color: var(--muted); text-align: center; padding: 36px 12px; }
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; max-height: 45vh; }
+      main { padding: 16px 12px 40px; }
+      article { padding: 16px; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="brand">📚 AgentGuide 学习站</div>
+      <div class="hint">把仓库内 Markdown 转成网页阅读，不再跳 GitHub。</div>
+      <input id="search" type="search" placeholder="筛选文档..." />
+      <div id="menu"></div>
+    </aside>
+    <main>
+      <div class="topbar">
+        <a class="btn" id="homeLink" href="/">← 返回首页</a>
+        <span class="path" id="currentPath"></span>
+      </div>
+      <article id="content">
+        <div class="loading">正在加载文档...</div>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    const BASE = location.pathname.startsWith('/AgentGuide/') ? '/AgentGuide' : '';
+    const withBase = (p) => `${BASE}/${String(p).replace(/^\//, '')}`;
+    const normalizePath = (p) => {
+      const parts = [];
+      String(p).split('/').forEach(seg => {
+        if (!seg || seg === '.') return;
+        if (seg === '..') parts.pop(); else parts.push(seg);
+      });
+      return parts.join('/');
+    };
+
+    document.getElementById('homeLink').href = withBase('');
+
+    const allowedRoots = ['docs/', 'resources/', 'projects/', 'README.md', 'FAQ.md', 'PROJECT_SUMMARY.md', 'docs/archive/2.md'];
+    const isAllowed = (path) => allowedRoots.some(prefix => path === prefix || path.startsWith(prefix));
+
+    const menuEl = document.getElementById('menu');
+    const contentEl = document.getElementById('content');
+    const pathEl = document.getElementById('currentPath');
+    const searchEl = document.getElementById('search');
+
+    let docs = [];
+    let currentFile = '';
+
+    function groupDocs(items) {
+      const grouped = {};
+      items.forEach(item => {
+        if (!grouped[item.group]) grouped[item.group] = [];
+        grouped[item.group].push(item);
+      });
+      return grouped;
+    }
+
+    function getDefaultFile() {
+      return (docs.find(d => d.path === 'README.md') || docs[0] || {}).path || 'README.md';
+    }
+
+    function updateQuery(file) {
+      const url = new URL(location.href);
+      url.searchParams.set('file', file);
+      history.replaceState({}, '', url);
+    }
+
+    function parseRequestedFile() {
+      const f = new URLSearchParams(location.search).get('file');
+      if (!f) return getDefaultFile();
+      const decoded = decodeURIComponent(f);
+      return normalizePath(decoded);
+    }
+
+    function resolveRelative(current, href) {
+      if (!href) return href;
+      if (/^(https?:|mailto:|tel:|#)/i.test(href)) return href;
+      const baseDir = current.includes('/') ? current.slice(0, current.lastIndexOf('/') + 1) : '';
+      return normalizePath(href.startsWith('/') ? href.slice(1) : (baseDir + href));
+    }
+
+    function toLearnUrl(file) {
+      return `${withBase('learn/')}?file=${encodeURIComponent(file)}`;
+    }
+
+    function rewriteMarkdownLinks(markdown, current) {
+      const renderer = new marked.Renderer();
+
+      renderer.link = function({ href, title, tokens }) {
+        const text = this.parser.parseInline(tokens || []);
+        const resolved = resolveRelative(current, href || '');
+        let target = href;
+        let external = false;
+
+        if (/^(https?:|mailto:|tel:|#)/i.test(href || '')) {
+          external = /^https?:/i.test(href || '');
+          target = href;
+        } else if ((resolved || '').toLowerCase().endsWith('.md') && isAllowed(resolved)) {
+          target = toLearnUrl(resolved);
+        } else {
+          target = withBase(resolved);
+        }
+
+        const titleAttr = title ? ` title="${title}"` : '';
+        const rel = external ? ' rel="noopener" target="_blank"' : '';
+        return `<a href="${target}"${titleAttr}${rel}>${text}</a>`;
+      };
+
+      renderer.image = function({ href, title, text }) {
+        const resolved = resolveRelative(current, href || '');
+        const src = /^(https?:|data:)/i.test(href || '') ? href : withBase(resolved);
+        const titleAttr = title ? ` title="${title}"` : '';
+        return `<img src="${src}" alt="${text || ''}"${titleAttr} />`;
+      };
+
+      marked.setOptions({ breaks: true, gfm: true, headerIds: true, mangle: false });
+      return marked.parse(markdown, { renderer });
+    }
+
+    function renderMenu(filterText = '') {
+      const q = filterText.trim().toLowerCase();
+      const filtered = q
+        ? docs.filter(d => d.title.toLowerCase().includes(q) || d.path.toLowerCase().includes(q))
+        : docs;
+
+      const grouped = groupDocs(filtered);
+      menuEl.innerHTML = Object.entries(grouped).map(([group, items], idx) => `
+        <details ${idx < 2 ? 'open' : ''}>
+          <summary>${group} (${items.length})</summary>
+          <div class="list">
+            ${items.map(item => `<a class="doc-link ${item.path === currentFile ? 'active' : ''}" href="${toLearnUrl(item.path)}">${item.title}</a>`).join('')}
+          </div>
+        </details>
+      `).join('');
+    }
+
+    async function loadDoc(file) {
+      currentFile = file;
+      pathEl.textContent = file;
+      renderMenu(searchEl.value || '');
+      updateQuery(file);
+
+      if (!isAllowed(file)) {
+        contentEl.innerHTML = `<div class="error">非法或未收录的文件路径：${file}</div>`;
+        return;
+      }
+
+      contentEl.innerHTML = '<div class="loading">正在加载文档...</div>';
+      try {
+        const res = await fetch(withBase(file));
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        contentEl.innerHTML = rewriteMarkdownLinks(text, file);
+
+        // intercept learn links for SPA feel
+        contentEl.querySelectorAll('a[href*="learn/?file="]').forEach(a => {
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const url = new URL(a.href, location.origin);
+            const next = normalizePath(url.searchParams.get('file') || '');
+            if (next) loadDoc(next);
+          });
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (err) {
+        contentEl.innerHTML = `<div class="error">加载失败：${err.message}</div>`;
+      }
+    }
+
+    async function init() {
+      try {
+        const res = await fetch(withBase('data/learning-content.json'));
+        docs = await res.json();
+        const requested = parseRequestedFile();
+        const exists = docs.some(d => d.path === requested);
+        await loadDoc(exists ? requested : getDefaultFile());
+      } catch (err) {
+        contentEl.innerHTML = `<div class="error">无法加载目录索引：${err.message}</div>`;
+      }
+
+      searchEl.addEventListener('input', () => renderMenu(searchEl.value || ''));
+      window.addEventListener('popstate', () => {
+        const next = parseRequestedFile();
+        if (next && next !== currentFile) loadDoc(next);
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>

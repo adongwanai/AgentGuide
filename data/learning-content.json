@@ -1,0 +1,317 @@
+[
+  {
+    "path": "FAQ.md",
+    "title": "常见问题 FAQ",
+    "group": "快速开始"
+  },
+  {
+    "path": "PROJECT_SUMMARY.md",
+    "title": "项目总结",
+    "group": "快速开始"
+  },
+  {
+    "path": "README.md",
+    "title": "项目总览 README",
+    "group": "快速开始"
+  },
+  {
+    "path": "docs/02-tech-stack/11-context-engineering-practices.md",
+    "title": "上下文工程：业界最佳实践精华",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/12-factor-agent-architecture.md",
+    "title": "大厂都在用的12-Factor Agent架构，终于有人讲清楚了！",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/13-context-engineering-resources.md",
+    "title": "13-context-engineering-resources",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/14-context-engineering.md",
+    "title": "长文深度解析：大模型的\"上下文陷阱\"与6大修复技巧",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/15-agent-memory.md",
+    "title": "Agent Memory - 从原理到实战",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/16-sft-finetuning.md",
+    "title": "SFT（监督微调）实战经验分享（阿东玩AI）",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/17-claude-code-best-practices.md",
+    "title": "Claude Code 最佳实践指南",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/18-context-engineering-guide.md",
+    "title": "上下文工程完全指南:设计控制信息流向LLM的系统",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/19-context-engineering-tutorial-outline.md",
+    "title": "《上下文工程：从提示到系统的AI应用架构指南》",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/22-parlant-agent-compliance-deep-dive.md",
+    "title": "Parlant：如何让AI Agent真正\"靠谱\"？深度解析Agent合规保障方案",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/23-lessons-learned.md",
+    "title": "Agent AI 企业转型的六大实战教训",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/24-agent-sandbox-guide.md",
+    "title": "OpenClaw彻底带火了沙箱，桌面Agent落地必看",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/README.md",
+    "title": "技术栈：以上下文工程为核心的 Agent 开发",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/02-tech-stack/agent-evaluation-complete-guide.md",
+    "title": "AI Agent 评估完全指南",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/01-theory-questions.md",
+    "title": "AI Agent 面试题库 - 理论基础篇",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/02-rag-questions.md",
+    "title": "AI Agent 面试题库 - RAG 系统篇",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/03-agent-questions.md",
+    "title": "AI Agent 面试题库 - Agent 核心篇",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/04-coding-questions.md",
+    "title": "AI Agent 面试题库 - 编程实战篇",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/05-algorithm-specialized.md",
+    "title": "算法岗专项面试题库",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/06-development-specialized.md",
+    "title": "开发岗专项面试题库",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/07-career-transition.md",
+    "title": "07-career-transition",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/08-job-hunting-guide.md",
+    "title": "08-job-hunting-guide",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/09-salary-negotiation.md",
+    "title": "校招生谈薪实用指南",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/10-hr-interview.md",
+    "title": "HR 面试常见问题与应对技巧",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/11-mindset.md",
+    "title": "大模型秋招心态指南",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/12-company-interview-cases.md",
+    "title": "真实面经案例集锦",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/13-model-evaluation.md",
+    "title": "AI Agent 面试题库 - 模型评估与 Agent 评估篇",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/14-llm-future-trends.md",
+    "title": "AI Agent 面试题库 - LLM 前景与发展篇",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/15-open-discussion.md",
+    "title": "AI Agent 面试题库 - 开放性讨论篇",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/04-interview/16-llm-fundamentals.md",
+    "title": "大模型基础必考题（107题）",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/05-roadmaps/AgentGuide开源学习路线（简易版本）.md",
+    "title": "🚀 大模型 / Agent 全栈学习路线",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/05-roadmaps/learning-roadmap-algorithm.md",
+    "title": "AI Agent 算法工程师学习路线图（研究型）",
+    "group": "学习文档"
+  },
+  {
+    "path": "docs/05-roadmaps/learning-roadmap-development.md",
+    "title": "AI Agent 开发工程师学习路线图（工程落地版）",
+    "group": "学习文档"
+  },
+  {
+    "path": "projects/04-end-to-end-projects/README.md",
+    "title": "Curated End-to-End Agent Projects",
+    "group": "项目实战"
+  },
+  {
+    "path": "projects/05-agent-workflows/README.md",
+    "title": "优质 Workflow 项目",
+    "group": "项目实战"
+  },
+  {
+    "path": "projects/06-project-collections/README.md",
+    "title": "优质 Agent 项目集合",
+    "group": "项目实战"
+  },
+  {
+    "path": "projects/README.md",
+    "title": "AI Agent Projects & Examples",
+    "group": "项目实战"
+  },
+  {
+    "path": "resources/31篇LLM的经典论文速读版清单.md",
+    "title": "LLM经典论文速读版，看完感觉自己通透了",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/README.md",
+    "title": "Awesome Agent - AI Agent 开发核心资源",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/ai-agent-production-challenges.md",
+    "title": "AI Agent 生产环境实践：挑战与解决方案",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/frameworks.md",
+    "title": "Agent 开发框架对比",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/memory.md",
+    "title": "Agent Memory 资源精选",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/official-guides.md",
+    "title": "AI Agent 权威学习指南",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/papers/README.md",
+    "title": "Agent Papers",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/papers/agent_memory/Agent Memory 核心论文汇总.md",
+    "title": "Agent Memory 核心论文解读",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/papers/agent_memory/README.md",
+    "title": "Agent Memory Papers",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/papers/agent_memory/一口气读完agent memory的21篇核心论文.md",
+    "title": "一口气读完Agent Memory的21篇论文：从理论到实践的完整指南",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/papers/agent_rl/Agent➕RL开源项目汇总.md",
+    "title": "Agent➕RL开源项目汇总",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/agent/papers/data_synthesis/README.md",
+    "title": "Data Synthesis Papers",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/learning-resources.md",
+    "title": "learning-resources",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/rag/document-parsing.md",
+    "title": "文档解析工具精选",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/rag/papers/README.md",
+    "title": "RAG Papers",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/rag/papers/agentic_rag/README.md",
+    "title": "Agentic RAG 论文汇总",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/rag/papers/agentic_rag/agentic_rag.md",
+    "title": "agentic_rag",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/rag/papers/graphrag/README.md",
+    "title": "GraphRAG Papers",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/rag/papers/multimodal_rag/README.md",
+    "title": "Multimodal RAG Papers",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/rag/projects.md",
+    "title": "🔥 2025年最全RAG知识库项目汇总 | 从入门到精通的150+开源项目清单",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/rag/vector-db.md",
+    "title": "向量数据库选型指南",
+    "group": "资源库"
+  },
+  {
+    "path": "resources/tools.md",
+    "title": "AI Agent 开发者工具箱",
+    "group": "资源库"
+  },
+  {
+    "path": "docs/archive/2.md",
+    "title": "LLM & VLM & Agent 面试问题总结",
+    "group": "归档"
+  }
+]
