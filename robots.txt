@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://adongwanai.github.io/AgentGuide/sitemap.xml
