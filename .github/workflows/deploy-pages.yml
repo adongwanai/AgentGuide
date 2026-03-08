@@ -3,10 +3,13 @@ name: Deploy static site to GitHub Pages
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - 'research/**'
+      - 'interview/**'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -69,14 +72,6 @@ jobs:
           mkdir -p interview
           cp -r external/InterviewGuide/dist/* interview/
 
-      - name: Commit generated sub-sites if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add research/ interview/
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update external sites"
-          git push || echo "No changes to push"
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
@@ -88,5 +83,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - id: deployment
         uses: actions/deploy-pages@v4
