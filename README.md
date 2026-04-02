@@ -385,6 +385,7 @@
 | **hello-agents（Datawhale）** | 《从零开始构建智能体》，16章，含MCP实战、DeepResearch复现、多Agent协同 | [GitHub](https://github.com/datawhalechina/hello-agents) |
 | **OpenClaw** | 生产级个人AI助手框架，支持Telegram/Discord/Slack等 | [GitHub](https://github.com/openclaw/openclaw) |
 | **Anthropic官方：Building Effective Agents** | Anthropic工程团队出的Agent设计原则，面试必读 | [链接](https://www.anthropic.com/engineering/building-effective-agents) |
+| **Vibe Coding 教程** | 从零掌握AI协作编程，Cursor/Claude Code实操指南，Vibe Coding面试攻略 | [链接](https://adongwanai.github.io/vibecoding/) |
 
 ---
 
