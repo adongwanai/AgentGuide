@@ -954,7 +954,10 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 | **推理层** | vLLM、TGI、量化技术 | PagedAttention、GPTQ/AWQ 量化、推理优化 |
 | **对齐层** | RLHF、PPO、DPO | Reward Model、策略优化、人类偏好对齐 |
 
-📖 [深入阅读：Transformer 架构详解](./docs/01-theory/03-transformer.md)
+📖 [深入阅读：Transformer 架构详解](./docs/01-theory/03-transformer.md)  
+📖 [DeepSeek 系列完整深度笔记](./docs/01-theory/10-deepseek-series.md) 🆕  
+📖 [LLaMA 系列完整深度笔记](./docs/01-theory/11-llama-series.md) 🆕  
+📖 [Qwen 系列深度学习笔记](./docs/01-theory/12-qwen-series.md) 🆕
 
 </td>
 </tr>
@@ -1162,7 +1165,8 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - 自我修正机制训练
 
 📖 [完整指南：Agent 强化学习](./docs/02-tech-stack/21-agent-reinforcement-learning.md)  
-📖 [实战：SFT 监督微调](./docs/02-tech-stack/16-sft-finetuning.md)
+📖 [实战：SFT 监督微调](./docs/02-tech-stack/16-sft-finetuning.md)  
+📖 [Post-Training 完整面试指南](./docs/02-tech-stack/25-post-training-complete-guide.md) 🆕
 
 </td>
 <td width="50%">
@@ -1722,6 +1726,9 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
   - RAG系统：文档切块、混合检索、Reranker
   - 推理优化：KV Cache、Beam Search、LoRA
   - **总计**: **34题** ⬆️ 新增11道Transformer核心组件手撕题
+- [x] [💻 大模型手撕刷题路线](./docs/04-interview/17-coding-exercises.md) 🆕
+  - 分阶段刷题：神经网络基础算子 → Attention 机制 → 位置编码 → 优化技术
+  - 按难度分级，系统化刷题指南
 
 </td>
 </tr>
