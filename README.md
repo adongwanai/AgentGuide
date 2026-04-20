@@ -45,6 +45,7 @@
 
 **🎯 核心内容**：
 - [💡 关于本项目](#-关于本项目) - Agent开发指南、转行大模型、高级RAG、大模型面试
+- [🆕 求职新范式](#-求职新范式做出什么--学过什么) - 1-2-5框架、个人品牌、投递策略
 - [🚦 6步学习路径](#-从零到offer的完整路径快速导航) - 从岗位选择到拿Offer
 - [🔬 算法岗 vs 🛠️ 开发岗](#-第一步确定你的目标岗位) - 岗位选择决策树
 - [📚 学习路线图](#-第三步基于岗位的学习路线) - 算法岗10-15周 | 开发岗8-12周
@@ -243,11 +244,20 @@
 
 ## 🚦 从零到Offer的完整路径（快速导航）
 
-> **👋 新来的同学看这里！按照这6个步骤，8-10周拿到Offer！**
+> **👋 新来的同学看这里！先看新范式，再按步骤执行，8-10周拿到Offer！**
 
 <table>
 <tr>
-<td align="center" width="16.6%">
+<td align="center" width="14.3%">
+
+**🆕 新范式**
+
+[求职新范式](#-求职新范式做出什么--学过什么)
+
+做出什么 > 学过什么
+
+</td>
+<td align="center" width="14.3%">
 
 **🎯 第一步**
 
@@ -256,7 +266,7 @@
 算法 vs 开发？
 
 </td>
-<td align="center" width="16.6%">
+<td align="center" width="14.3%">
 
 **💡 第二步**
 
@@ -265,7 +275,7 @@
 如何准备？
 
 </td>
-<td align="center" width="16.6%">
+<td align="center" width="14.3%">
 
 **📚 第三步**
 
@@ -274,7 +284,7 @@
 学什么？
 
 </td>
-<td align="center" width="16.6%">
+<td align="center" width="14.3%">
 
 **💼 第四步**
 
@@ -283,7 +293,7 @@
 做什么？
 
 </td>
-<td align="center" width="16.6%">
+<td align="center" width="14.3%">
 
 **🎓 第五步**
 
@@ -292,7 +302,7 @@
 技术细节
 
 </td>
-<td align="center" width="16.6%">
+<td align="center" width="14.3%">
 
 **🎯 第六步**
 
@@ -308,6 +318,77 @@
 > 1. **一定要先完成"第一步"和"第二步"** - 确定方向再学习！  
 > 2. **"第四步"实战项目最重要** - 简历的核心竞争力！  
 > 3. **学习时对照"第六步"面试题** - 知道学的东西面试怎么考！
+
+---
+
+## 🆕 求职新范式：做出什么 > 学过什么
+
+> **⚡ 求职规则已经变了。2026年，HC:投递比约1:200，核心问题不再是"我够不够格"，而是"我用什么方式让自己被看见"。**
+
+### 1-2-5 求职框架
+
+| 维度 | 内容 |
+|:---|:---|
+| **1个原则** | 从"我会什么"转向"我做出了什么" |
+| **2条轨道** | Agent开发（工程落地）vs Agent算法（研究创新） |
+| **5步链路** | 简历 → 投递 → 模拟面试 → Vibe Coding → 成果展示 |
+
+> **工具不再是壁垒，你用工具做出的东西才是。**
+
+### 旧方式 vs 新范式
+
+| 环节 | 旧方式 | 新范式 |
+|:---|:---|:---|
+| 简历 | 一份通用简历打天下 | AI读JD，动态生成针对性版本 |
+| 投递 | 手动上传，逐一投递 | 一键全网投，AI做适配分析 |
+| 模拟面试 | 背八股，刷题库 | AI扮演面试官，无限迭代实战 |
+| Vibe Coding | 手写算法题 | AI协作设计Agent系统 |
+| 成果展示 | PDF+截图 | 个人站+在线demo+社区影响力 |
+
+### 个人品牌：让面试官主动找你
+
+**个人网站必备要素（免费部署：Vercel/GitHub Pages，5分钟上线）：**
+- 每个项目一个页面 + **在线可访问的demo链接**
+- 技术Blog：至少3篇有深度的原理解析
+- 社区数据：GitHub Star数 / 真实用户数
+- 时间线里程碑
+
+**简历项目描述公式：**
+> ❌ 「参与开发了一个AI客服系统」
+> ✅ 「基于LangGraph + MCP构建多Agent客服系统，工具调用成功率94%，响应时长从3.2s降至0.8s，日处理10万+对话」
+
+### 投递策略：AI筛简历时代的人工突围
+
+招聘方也在用AI筛简历——两个AI在对话，人的主动触达反而更稀缺。
+
+**核心目标公司（5-10家）走人工路线：**
+1. LinkedIn找具体的Hiring Manager或Team Lead
+2. 提前关注他们的开源项目/技术Blog
+3. 带着具体问题主动联系（不是「请问还招人吗？」）
+4. 目标：一个warm intro，不是冷申请
+
+**时机窗口：** 3-6月提前批竞争烈度比8-9月低30-40%，往往是真正的机会窗口。
+
+**AI辅助投递工具：**
+- [Auto Job Apply](https://zread.ai/loks666/get_jobs) - 开源自动投递简历工具，支持批量投递与AI简历适配
+
+### 说几句实话
+
+- **语言不是门槛，设计才是。** Python/TypeScript AI都能帮你写。但Agent状态机怎么设计、Memory何时截断、工具调用失败如何fallback——这些必须你自己想清楚、讲明白。
+- **AI工具人人都有，判断力才是壁垒。** 会用Cursor写代码不算竞争力。当AI给你一个错误的Agent设计，你能30秒内发现并说清楚为什么错——这才是L5和L3的分水岭。
+- **分享即异步面试。** 一篇深度Blog、一个有Star的仓库，相当于提前通过了一轮面试。
+- **拿结果说话。** 不是"我学过LangChain"，是"我用LangGraph做了一个有300个真实用户的工具"。
+
+### 新增优质资源
+
+| 资源 | 简介 | 链接 |
+|:---|:---|:---|
+| **Learn Claude Code** | 从零构建迷你Claude Code，12节渐进式，覆盖工具调用/子Agent/上下文压缩/多Agent协作 | [GitHub](https://github.com/shareAI-lab/learn-claude-code) |
+| **claw0** | 10章10个核心概念~7000行Python，从while循环到生产级Agent网关 | [GitHub](https://github.com/shareAI-lab/claw0) |
+| **hello-agents（Datawhale）** | 《从零开始构建智能体》，16章，含MCP实战、DeepResearch复现、多Agent协同 | [GitHub](https://github.com/datawhalechina/hello-agents) |
+| **OpenClaw** | 生产级个人AI助手框架，支持Telegram/Discord/Slack等 | [GitHub](https://github.com/openclaw/openclaw) |
+| **Anthropic官方：Building Effective Agents** | Anthropic工程团队出的Agent设计原则，面试必读 | [链接](https://www.anthropic.com/engineering/building-effective-agents) |
+| **Vibe Coding 教程** | 从零掌握AI协作编程，Cursor/Claude Code实操指南，Vibe Coding面试攻略 | [链接](https://adongwanai.github.io/vibecoding/) |
 
 ---
 
