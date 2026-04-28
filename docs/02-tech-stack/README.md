@@ -43,6 +43,17 @@
     └── 18-context-engineering-guide.md - 输出格式控制
 ```
 
+### 📊 评估与质量保障
+
+```
+Agent 评估体系
+├── 评估方法论
+│   └── agent-evaluation-complete-guide.md - Agent 评估完全指南
+│
+└── 评估工具 (Evaluation Harness)
+    └── 26-agent-evaluation-harness-guide.md - Harness 完全指南
+```
+
 ---
 
 ## 📖 学习路径
@@ -126,6 +137,20 @@
 - 按顺序完整学习所有文档
 - 同时准备算法和工程项目
 - 机会翻倍！
+
+---
+
+### 📊 评估能力路径（1周）
+
+**目标**：掌握 Agent/LLM 评估的完整工具链
+
+1. **[agent-evaluation-complete-guide.md](./agent-evaluation-complete-guide.md)** ⭐ **必读**
+   - 评估方法论、评分器设计、非确定性处理
+   - 适合：建立评估思维
+
+2. **[26-agent-evaluation-harness-guide.md](./26-agent-evaluation-harness-guide.md)** ⭐ **必读**
+   - 主流 Harness 工具对比、架构设计、实战搭建
+   - 适合：选型和使用评估工具
 
 ---
 
@@ -278,6 +303,44 @@
 - ✅ 面试准备（讲失败经验）
 
 **学习时间**：30 分钟
+
+---
+
+### 📊 评估文档（2篇）
+
+#### 9. [agent-evaluation-complete-guide.md](./agent-evaluation-complete-guide.md)
+**一句话总结**：Agent 评估的方法论与思维体系
+
+**核心内容**：
+- 评估方法论：为什么评估、评估什么、怎么评估
+- 评分器设计：LLM-as-Judge、规则评分、人工评分
+- 非确定性处理：如何应对 LLM 输出的随机性
+- 评估指标体系设计
+
+**适合场景**：
+- ✅ 建立评估思维和方法论
+- ✅ 设计 Agent 评估方案
+- ✅ 面试中讨论质量保障
+
+**学习时间**：1-2 小时
+
+---
+
+#### 10. [26-agent-evaluation-harness-guide.md](./26-agent-evaluation-harness-guide.md)
+**一句话总结**：主流评估工具对比与实战搭建指南
+
+**核心内容**：
+- 主流 Harness 工具对比（LangSmith、Braintrust、Promptfoo 等）
+- 评估框架的架构设计
+- 实战搭建：从零搭建评估流水线
+- 与 CI/CD 集成的最佳实践
+
+**适合场景**：
+- ✅ 评估工具选型
+- ✅ 搭建自动化评估系统
+- ✅ 工程岗展示质量保障能力
+
+**学习时间**：2-3 小时
 
 ---
 

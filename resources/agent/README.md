@@ -25,6 +25,7 @@
 - [记忆模块](#-记忆模块-memory)
 - [GUI Agent / Web Agent](#️-gui-agent--web-agent)
 - [评估 Benchmark](#-评估-benchmark)
+- [评估工具 (Evaluation Harness)](#-评估工具-evaluation-harness)
 - [必读论文](#-必读论文)
 - [学习资源](#-学习资源)
 - [相关文档](#-相关文档)
@@ -240,6 +241,21 @@
 | **AgentBench** | Agent 综合能力评估，涵盖多种任务类型 | [GitHub](https://github.com/THUDM/AgentBench) |
 | **WebArena** | Web Agent 评估，真实网站交互测试 | [官网](https://webarena.dev/) |
 | **ToolBench** | 工具使用评估，测试 API 调用能力 | [GitHub](https://github.com/OpenBMB/ToolBench) |
+
+---
+
+## 🛠️ 评估工具 (Evaluation Harness)
+
+> **详细工具对比见**：[Evaluation Harness 工具选型指南](./evaluation-harness.md)
+
+### 快速选型
+
+| 场景 | 推荐工具 | 说明 |
+|------|---------|------|
+| 学术研究 | lm-evaluation-harness / OpenCompass | 支持 200+ 标准任务 |
+| 工程开发 | Promptfoo / DeepEval | 轻量、易集成 CI/CD |
+| Agent 评估 | AgentBench / WebArena | 真实环境交互测试 |
+| RAG 评估 | RAGAs / TruLens | 专注检索增强生成质量 |
 
 ---
 
