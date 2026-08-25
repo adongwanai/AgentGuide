@@ -1,4 +1,7 @@
 # AgentGuide
+
+[![Listed on TakoAPI](https://img.shields.io/badge/Listed%20on-TakoAPI-7c3aed)](https://takoapi.com/agents/adongwanai-agentguide)
+
 [![1764666915027.png](https://free.picui.cn/free/2025/12/02/692eadf2be3ac.png)](https://free.picui.cn/free/2025/12/02/692eadf2be3ac.png)
 
 <div align="center">
