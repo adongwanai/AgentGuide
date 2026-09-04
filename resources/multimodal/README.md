@@ -1,3 +1,12 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - 多模态
+  - RAG
+---
+
 # Multimodal RAG 与文档智能资源
 
 > 目标：把 PDF、扫描件、图表、表格、公式、图片和网页等混合内容，变成 Agent/RAG 系统可检索、可引用、可评测的知识。
@@ -8,9 +17,9 @@
 
 | 顺序 | 文档 | 解决什么问题 |
 |:---:|:---|:---|
-| 1 | [多模态 RAG 管线](./multimodal-rag-pipeline.md) | 从文件进入系统到答案生成的完整链路 |
+| 1 | [多模态 RAG 管线](../../docs/02-tech-stack/28-multimodal-rag-pipeline.md) | 从文件进入系统到答案生成的完整链路 |
 | 2 | [工具与项目清单](./tools-and-projects.md) | Docling、MinerU、ColPali、RAG-Anything 等怎么选 |
-| 3 | [评测清单](./evaluation-checklist.md) | 怎么证明系统真的读懂了图表、表格和版面 |
+| 3 | [评测清单](../../docs/03-practice/07-multimodal-rag-evaluation-checklist.md) | 怎么证明系统真的读懂了图表、表格和版面 |
 
 ## 一张图看管线
 
@@ -55,3 +64,15 @@
 - [ColPali](https://arxiv.org/abs/2407.01449)：用视觉语言模型直接对文档页面图像做多向量检索。
 - [RAG-Anything](https://github.com/HKUDS/RAG-Anything)：一体化多模态文档 RAG 框架，覆盖文本、图片、表格、公式等。
 - [ViDoRe Benchmark](https://huggingface.co/vidore)：视觉文档检索评测集。
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [多模态 RAG 工具与项目清单](./tools-and-projects.md) | 资源清单 | 已发布 | 通用 | 多模态、RAG、框架工具 |
+<!-- AUTO-GENERATED-CONTENT:END -->

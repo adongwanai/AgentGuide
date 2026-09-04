@@ -1,3 +1,13 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - 基础模型
+  - 多模态
+  - 模型训练
+---
+
 # Qwen 系列模型深度学习笔记
 
 > 覆盖范围：Qwen1 → Qwen1.5 → Qwen2 → Qwen2.5 → Qwen3 → Qwen3.5

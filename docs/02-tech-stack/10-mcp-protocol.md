@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - MCP
+---
+
 # MCP 协议详解
 
 > MCP（Model Context Protocol）可以理解为 Agent 连接外部工具和数据源的标准接口层。它解决的不是“模型更聪明”，而是“工具怎么被发现、描述、调用和治理”。

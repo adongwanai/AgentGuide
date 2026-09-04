@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       # tests/site_static_smoke.test.sh 需要 node --check 校验 assets/site.js
       - uses: actions/setup-node@v7
@@ -32,6 +34,20 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.11'
+
+      - name: Regenerate content indexes
+        run: python scripts/manage_content_catalog.py --write
+
+      - name: Regenerate public data
+        run: python scripts/generate_resources.py
+
+      - name: Generated files are current
+        run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain --untracked-files=all)"
+
+      - name: Content metadata checks
+        run: python tests/content_metadata.test.py
 
       - name: Markdown local-link checks
         run: python tests/markdown_links.test.py

@@ -1,3 +1,13 @@
+---
+type: 研究专题
+status: 已发布
+level: 通用
+topic:
+  - 科研
+  - Agent
+  - 基础模型
+---
+
 # 从前沿 Lab JD 与战略看 2026 年值得重投入的 AI 研究方向
 
 > [!IMPORTANT]

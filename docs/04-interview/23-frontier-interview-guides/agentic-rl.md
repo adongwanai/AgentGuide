@@ -1,3 +1,12 @@
+---
+type: 求职指南
+status: 已发布
+level: 高阶
+topic:
+  - 面试求职
+  - Agent
+---
+
 # Agentic RL 面试指南
 
 > Agentic RL 的增量不只是“把 GRPO 用到 Agent 上”，而是把长轨迹、环境交互、稀疏反馈、信用分配和训练基础设施同时纳入设计。
@@ -182,7 +191,6 @@ def rollout(task, policy, environment, max_steps):
 
 ## 📚 扩展阅读
 
-- [Agent 强化学习完整指南](../../02-tech-stack/21-agent-reinforcement-learning.md)
 - [Post-training 完整指南](../../02-tech-stack/25-post-training-complete-guide.md)
 - [Agent Evaluation Harness](../../02-tech-stack/26-agent-evaluation-harness-guide.md)
 - [数据合成备战手册](../18-agent-interview-playbooks/data-synthesis-playbook.md)

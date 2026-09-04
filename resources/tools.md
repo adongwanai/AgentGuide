@@ -1,3 +1,12 @@
+---
+type: 资源清单
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 框架工具
+---
+
 # AI Agent 开发者工具箱
 
 > **工欲善其事，必先利其器！精选 Agent 开发必备工具**

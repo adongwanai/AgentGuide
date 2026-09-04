@@ -12,6 +12,8 @@ grep -qF '<meta property="og:image" content="https://adongwanai.github.io/AgentG
 grep -qF 'application/ld+json' "$ROOT_DIR/index.html"
 grep -qF 'data/resources.json' "$ROOT_DIR/assets/site.js"
 grep -qF 'data-github-forks' "$ROOT_DIR/index.html"
+grep -qF '<option value="通用">通用</option>' "$ROOT_DIR/index.html"
+grep -qF "a.status === '已发布'" "$ROOT_DIR/assets/site.js"
 
 python3 - "$ROOT_DIR/data/resources.json" <<'PY'
 import json
@@ -25,6 +27,7 @@ ids = [item["id"] for item in resources]
 assert len(resources) >= 100, f"resources.json only has {len(resources)} items"
 assert len(ids) == len(set(ids))
 assert all(item["category"] and item["type"] and item["level"] for item in resources)
+assert all(item["status"] in {"已发布", "建设中"} for item in resources)
 assert any(item["id"] == "external-learn-workbuddy" for item in resources)
 PY
 

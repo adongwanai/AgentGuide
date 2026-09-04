@@ -1,3 +1,13 @@
+---
+type: 教程
+status: 已发布
+level: 高阶
+topic:
+  - Coding Agent
+  - 安全
+  - Agent
+---
+
 #  OpenClaw彻底带火了沙箱，桌面Agent落地必看
 
 > 阿东最近做桌面 Agent 项目时，几个信号让我重新审视了架构设计

@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 待补充
+level: 入门
+topic:
+  - 基础模型
+---
+
 # Transformer 架构详解
 
 > 🚧 本文档正在编写中，敬请期待...

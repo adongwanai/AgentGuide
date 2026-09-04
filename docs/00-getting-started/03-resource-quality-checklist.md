@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 已发布
+level: 入门
+topic:
+  - Agent
+---
+
 # Resource Quality Checklist：高质量资源筛选清单
 
 > Agent 资料很多，但真正值得花时间的资源通常有共同特征：可运行、可验证、可追溯、能解释失败。

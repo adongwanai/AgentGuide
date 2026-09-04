@@ -1,3 +1,12 @@
+---
+type: 求职指南
+status: 已发布
+level: 高阶
+topic:
+  - 面试求职
+  - 评测
+---
+
 # 数据与评测面试指南
 
 > 数据决定系统见过什么，评测决定团队相信什么。两者必须一起设计，否则很容易优化一个并不代表真实目标的分数。
@@ -161,4 +170,4 @@
 - [数据合成备战手册](../18-agent-interview-playbooks/data-synthesis-playbook.md)
 - [模型评估题库](../13-model-evaluation.md)
 - [Agent Evaluation Harness 完整指南](../../02-tech-stack/26-agent-evaluation-harness-guide.md)
-- [多模态评测清单](../../../resources/multimodal/evaluation-checklist.md)
+- [多模态评测清单](../../03-practice/07-multimodal-rag-evaluation-checklist.md)

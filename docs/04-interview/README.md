@@ -1,3 +1,13 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - 面试求职
+  - Agent
+  - 基础模型
+---
+
 # AI / Agent 面试与求职导航
 
 > 不知道先刷哪一份题库？从这里开始。目标不是背完所有答案，而是把知识、项目证据和表达组织成一套能经受追问的系统。
@@ -152,3 +162,56 @@
 - [HR 面试攻略](./10-hr-interview.md)
 - [谈薪指南](./09-salary-negotiation.md)
 - [面试心态](./11-mindset.md)
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [AI Agent 面试题库 - 理论基础篇](./01-theory-questions.md) | 题库 | 已发布 | 进阶 | 面试求职、基础模型、模型训练 |
+| [AI Agent 面试题库 - RAG 系统篇](./02-rag-questions.md) | 题库 | 已发布 | 进阶 | 面试求职、RAG |
+| [AI Agent 面试题库 - Agent 核心篇](./03-agent-questions.md) | 题库 | 已发布 | 进阶 | 面试求职、Agent |
+| [AI Agent 面试题库 - 编程实战篇](./04-coding-questions.md) | 题库 | 已发布 | 进阶 | 面试求职、基础模型、Agent |
+| [算法岗专项面试题库](./05-algorithm-specialized.md) | 题库 | 已发布 | 高阶 | 面试求职、模型训练、科研 |
+| [开发岗专项面试题库](./06-development-specialized.md) | 题库 | 已发布 | 高阶 | 面试求职、推理部署、项目实战 |
+| [0. 岗位类型选择指南⭐（必读）](./07-career-transition.md) | 求职指南 | 已发布 | 入门 | 面试求职 |
+| [一、秋招核心考察点](./08-job-hunting-guide.md) | 求职指南 | 已发布 | 入门 | 面试求职 |
+| [校招生谈薪实用指南](./09-salary-negotiation.md) | 求职指南 | 已发布 | 入门 | 面试求职 |
+| [HR 面试常见问题与应对技巧](./10-hr-interview.md) | 求职指南 | 已发布 | 入门 | 面试求职 |
+| [大模型秋招心态指南](./11-mindset.md) | 求职指南 | 已发布 | 入门 | 面试求职、基础模型 |
+| [真实面经案例集锦](./12-company-interview-cases.md) | 求职指南 | 已发布 | 高阶 | 面试求职 |
+| [AI Agent 面试题库 - 模型评估与 Agent 评估篇](./13-model-evaluation.md) | 题库 | 已发布 | 高阶 | 面试求职、评测 |
+| [AI Agent 面试题库 - LLM 前景与发展篇](./14-llm-future-trends.md) | 题库 | 已发布 | 进阶 | 面试求职、基础模型 |
+| [AI Agent 面试题库 - 开放性讨论篇](./15-open-discussion.md) | 题库 | 已发布 | 进阶 | 面试求职、Agent |
+| [大模型基础必考题（107题）](./16-llm-fundamentals.md) | 题库 | 已发布 | 入门 | 面试求职、基础模型 |
+| [第一阶段：神经网络基础算子](./17-coding-exercises.md) | 题库 | 已发布 | 进阶 | 面试求职、模型训练 |
+| [Agent 评测 / Benchmark 彻底备战手册（补充模块对应版）](./18-agent-interview-playbooks/agent-evaluation-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、评测、Agent |
+| [Agent Harness 彻底备战手册（补充模块对应版）](./18-agent-interview-playbooks/agent-harness-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [Agent Memory 彻底备战手册（补充模块对应版）](./18-agent-interview-playbooks/agent-memory-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、记忆、Agent |
+| [Agent Skills / 程序性记忆 彻底备战手册（补充模块对应版）](./18-agent-interview-playbooks/agent-skills-procedural-memory-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、记忆、Agent |
+| [Agentic RAG / Deep Research 彻底备战手册（补充模块对应版）](./18-agent-interview-playbooks/agentic-rag-deep-research-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、RAG、Agent |
+| [Claude Code 源码分析 彻底备战手册](./18-agent-interview-playbooks/claude-code-source-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Coding Agent、Agent |
+| [数据合成 / Data Pipeline 彻底备战手册（补充模块对应版）](./18-agent-interview-playbooks/data-synthesis-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [Hermes Agent 自进化 彻底备战手册](./18-agent-interview-playbooks/hermes-self-evolution-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [OpenClaw 源码分析 彻底备战手册](./18-agent-interview-playbooks/openclaw-source-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Coding Agent、Agent |
+| [AI Agent 面试备战手册合集](./18-agent-interview-playbooks/README.md) | 入口页 | 已发布 | 通用 | 面试求职、Agent、项目实战 |
+| [STAR 法则 / 面试话术 彻底备战手册](./18-agent-interview-playbooks/star-storytelling-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [1000篇小红书AI算法岗面经：难度递增整合版](./19-xiaohongshu-ai-algorithm-interview-bank.md) | 题库 | 已发布 | 进阶 | 面试求职、模型训练 |
+| [AI Agent 简历编写指南](./20-resume-guide.md) | 求职指南 | 已发布 | 入门 | 面试求职、Agent |
+| [AI Agent 项目讲述技巧](./21-storytelling.md) | 求职指南 | 已发布 | 入门 | 面试求职、项目实战、Agent |
+| [算法题：传统算法与AI手撕分类版](./22-algorithm-ai-coding-question-bank.md) | 题库 | 已发布 | 进阶 | 面试求职、模型训练 |
+| [Agentic RL 面试指南](./23-frontier-interview-guides/agentic-rl.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [AI Infra 面试指南](./23-frontier-interview-guides/ai-infra.md) | 求职指南 | 已发布 | 高阶 | 面试求职、推理部署 |
+| [Coding Agent 面试指南](./23-frontier-interview-guides/coding-agent.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Coding Agent、Agent |
+| [数据与评测面试指南](./23-frontier-interview-guides/data-and-evaluation.md) | 求职指南 | 已发布 | 高阶 | 面试求职、评测 |
+| [图像生成面试指南](./23-frontier-interview-guides/image-generation.md) | 求职指南 | 已发布 | 高阶 | 面试求职、多模态 |
+| [项目深挖：BFS 主线 × DFS 追问](./23-frontier-interview-guides/project-deep-dive.md) | 求职指南 | 已发布 | 高阶 | 面试求职、项目实战 |
+| [2026 AI 前沿面试专题](./23-frontier-interview-guides/README.md) | 入口页 | 已发布 | 通用 | 面试求职、科研、基础模型 |
+| [自进化 Agent 面试指南](./23-frontier-interview-guides/self-evolving-agents.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [语音生成面试指南](./23-frontier-interview-guides/speech-generation.md) | 求职指南 | 已发布 | 高阶 | 面试求职、多模态 |
+| [世界模型面试指南](./23-frontier-interview-guides/world-models.md) | 求职指南 | 已发布 | 高阶 | 面试求职、具身智能 |
+<!-- AUTO-GENERATED-CONTENT:END -->

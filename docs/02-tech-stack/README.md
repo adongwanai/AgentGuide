@@ -1,3 +1,13 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 上下文工程
+  - 框架工具
+---
+
 # 技术栈：以上下文工程为核心的 Agent 开发
 
 ## 核心理念
@@ -516,3 +526,33 @@ Agent Harness 工程
 - 加入学习社群讨论
 
 **让我们一起把 AgentGuide 做得更好！** 🚀
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [MCP 协议详解](./10-mcp-protocol.md) | 教程 | 已发布 | 进阶 | MCP |
+| [上下文工程：业界最佳实践精华](./11-context-engineering-practices.md) | 教程 | 已发布 | 进阶 | 上下文工程、项目实战 |
+| [大厂都在用的12-Factor Agent架构，终于有人讲清楚了！](./12-factor-agent-architecture.md) | 教程 | 已发布 | 进阶 | Agent、上下文工程、项目实战 |
+| [🎯 一、核心概念入门（建立框架）](./13-context-engineering-resources.md) | 教程 | 已发布 | 进阶 | 框架工具 |
+| [长文深度解析：大模型的"上下文陷阱"与6大修复技巧](./14-context-engineering.md) | 教程 | 已发布 | 进阶 | 上下文工程、RAG |
+| [Agent Memory - 从原理到实战](./15-agent-memory.md) | 教程 | 已发布 | 进阶 | Agent、记忆 |
+| [SFT（监督微调）实战经验分享（阿东玩AI）](./16-sft-finetuning.md) | 教程 | 已发布 | 进阶 | 模型训练、基础模型 |
+| [Claude Code 最佳实践指南](./17-claude-code-best-practices.md) | 教程 | 已发布 | 进阶 | Coding Agent |
+| [上下文工程完全指南:设计控制信息流向LLM的系统](./18-context-engineering-guide.md) | 教程 | 已发布 | 进阶 | 上下文工程、项目实战、基础模型 |
+| [《上下文工程：从提示到系统的AI应用架构指南》](./19-context-engineering-tutorial-outline.md) | 教程 | 已发布 | 进阶 | 上下文工程、项目实战 |
+| [Parlant：如何让AI Agent真正"靠谱"？深度解析Agent合规保障方案](./22-parlant-agent-compliance-deep-dive.md) | 教程 | 已发布 | 高阶 | Agent、安全 |
+| [Agent AI 企业转型的六大实战教训](./23-lessons-learned.md) | 教程 | 已发布 | 进阶 | Agent、项目实战 |
+| [OpenClaw彻底带火了沙箱，桌面Agent落地必看](./24-agent-sandbox-guide.md) | 教程 | 已发布 | 高阶 | Coding Agent、安全、Agent |
+| [LLM Post-Training 面试笔记](./25-post-training-complete-guide.md) | 教程 | 已发布 | 高阶 | 模型训练、基础模型 |
+| [Agent Evaluation Harness 完全指南 —— 让你的 Agent 评估不再玄学 🎯](./26-agent-evaluation-harness-guide.md) | 教程 | 已发布 | 高阶 | Agent、评测、框架工具 |
+| [Agent Harness Engineering：把裸模型变成能干活的系统](./27-agent-harness-engineering.md) | 教程 | 已发布 | 高阶 | Agent、上下文工程、MCP |
+| [多模态 RAG 管线](./28-multimodal-rag-pipeline.md) | 教程 | 已发布 | 进阶 | 多模态、RAG |
+| [向量数据库选型指南](./29-vector-database-selection.md) | 教程 | 已发布 | 进阶 | RAG、框架工具 |
+| [AI Agent 评估完全指南](./agent-evaluation-complete-guide.md) | 教程 | 已发布 | 高阶 | Agent、评测 |
+<!-- AUTO-GENERATED-CONTENT:END -->

@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 待补充
+level: 进阶
+topic:
+  - Agent
+---
+
 # AgentBench 详解
 
 > 🚧 本文档正在编写中，敬请期待...

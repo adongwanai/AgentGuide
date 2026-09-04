@@ -1,3 +1,13 @@
+---
+type: 题库
+status: 已发布
+level: 进阶
+topic:
+  - 面试求职
+  - 基础模型
+  - Agent
+---
+
 # AI Agent 面试题库 - 编程实战篇
 
 ## 📚 适用对象

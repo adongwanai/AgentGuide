@@ -1,3 +1,12 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 项目实战
+---
+
 # AgentGuide 快速开始
 
 > 目标：用最短路径建立 AI Agent 的全局认知，并把学习推进到“能做项目、能评测、能写进简历”。
@@ -11,7 +20,6 @@
 | 1 | [Agent 学习地图](./01-agent-map.md) | 区分 chatbot、workflow、agent、multi-agent、coding agent、computer-use agent |
 | 2 | [前 7 天学习计划](./02-first-7-days.md) | 每天学什么、做什么、交付什么 |
 | 3 | [高质量资源筛选清单](./03-resource-quality-checklist.md) | 判断一个 GitHub 项目/教程/论文是否值得投入时间 |
-| 4 | [仓库补洞地图](./04-repo-gap-map.md) | 本仓库当前空目录和后续可补内容优先级 |
 
 ## 一张图看学习路径
 
@@ -39,4 +47,18 @@
 - 完全新手：先读 `01-agent-map.md`，不要急着装框架。
 - 已会 API 调用：直接读 `02-first-7-days.md`，把 toy demo 推到有 eval 的项目。
 - 准备求职：重点读 `03-resource-quality-checklist.md` 和 `projects/` 下三个项目蓝图。
-- 仓库维护者：读 `04-repo-gap-map.md`，按优先级继续补空缺内容。
+- 仓库维护者：查看 [内容 Backlog](../../BACKLOG.md)，按原路径继续补空缺内容。
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [Agent Learning Map：Agent 学习地图](./01-agent-map.md) | 教程 | 已发布 | 入门 | Agent |
+| [First 7 Days：前 7 天学习计划](./02-first-7-days.md) | 教程 | 已发布 | 入门 | Agent |
+| [Resource Quality Checklist：高质量资源筛选清单](./03-resource-quality-checklist.md) | 教程 | 已发布 | 入门 | Agent |
+<!-- AUTO-GENERATED-CONTENT:END -->

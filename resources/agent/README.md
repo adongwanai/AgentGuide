@@ -1,3 +1,12 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 框架工具
+---
+
 # Awesome Agent - AI Agent 开发核心资源
 
 > **精选** AI Agent 开发的**核心资源**（只推荐最重要的！）
@@ -44,7 +53,6 @@
 - **特点**：状态管理、可视化工作流、灵活编排
 - **适合场景**：复杂 Agent 工作流、Multi-Agent 系统
 - **学习难度**：⭐⭐⭐⭐
-- **AgentGuide 教程**：[LangGraph 核心概念](../../docs/02-tech-stack/04-langchain-guide.md)
 
 ### 2. AutoGen ⭐⭐⭐⭐⭐
 
@@ -309,7 +317,7 @@
 
 #### 1. AI Agent 生产环境实践：挑战与解决方案 ⭐⭐⭐⭐⭐ 强烈推荐
 
-- **文档**：[ai-agent-production-challenges.md](./ai-agent-production-challenges.md)
+- **文档**：[Agent 生产环境实践](../../docs/03-practice/06-agent-production-challenges.md)
 - **核心内容**：基于 12+ 个生产级 Agent 的实战经验
 - **关键点**：误差累积、成本问题、工具工程、系统集成
 - **适合人群**：想要构建生产级 Agent 的开发者
@@ -396,3 +404,24 @@
 **💡 提示**：本文档专注于 Agent 开发的核心资源。如需更全面的 LLM 资源，请访问 [Awesome-Awesome-LLM](https://github.com/adongwanai/Awesome-Awesome-LLM)。
 
 **⭐ Star 支持**：如果这个资源对你有帮助，欢迎给项目点个 Star！
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [🧪 Evaluation Harness - AI 评估工具箱](./evaluation-harness.md) | 资源清单 | 已发布 | 通用 | Agent、评测、框架工具 |
+| [Agent 开发框架对比](./frameworks.md) | 资源清单 | 已发布 | 通用 | Agent、多智能体、框架工具 |
+| [Agent Memory 资源精选](./memory.md) | 资源清单 | 已发布 | 通用 | Agent、记忆 |
+| [AI Agent 权威学习指南](./official-guides.md) | 资源清单 | 已发布 | 通用 | Agent、框架工具 |
+| [Agent Memory 核心论文解读](<./papers/agent_memory/Agent Memory 核心论文汇总.md>) | 论文清单 | 已发布 | 进阶 | Agent、科研、记忆 |
+| [Agent Memory Papers](./papers/agent_memory/README.md) | 入口页 | 已发布 | 通用 | Agent、科研、记忆 |
+| [一口气读完Agent Memory的21篇论文：从理论到实践的完整指南](<./papers/agent_memory/一口气读完agent memory的21篇核心论文.md>) | 论文清单 | 已发布 | 进阶 | Agent、科研、记忆 |
+| [引言](./papers/agent_rl/Agent➕RL开源项目汇总.md) | 论文清单 | 已发布 | 进阶 | Agent、科研、项目实战 |
+| [Agent RL Papers](./papers/agent_rl/README.md) | 入口页 | 已发布 | 通用 | Agent、科研 |
+| [Agent Papers](./papers/README.md) | 入口页 | 已发布 | 通用 | Agent、科研 |
+<!-- AUTO-GENERATED-CONTENT:END -->

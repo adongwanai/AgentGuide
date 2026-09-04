@@ -1,3 +1,12 @@
+---
+type: 资源清单
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 框架工具
+---
+
 # AI Agent 权威学习指南
 
 > 本指南旨在汇总并梳理来自业界领先公司（如 Anthropic, OpenAI, Google）及主流开源社区的 AI Agent 开发最佳实践、官方文档与核心资源，为算法工程师和开发者提供一份系统化的学习路线图。
@@ -290,7 +299,7 @@
 ## 🔗 内部相关文档
 - [Agent 开发框架对比](./frameworks.md)
 - [Agent 资源总览](./README.md)
-- [AI Agent 生产环境实践](./ai-agent-production-challenges.md)
+- [AI Agent 生产环境实践](../../docs/03-practice/06-agent-production-challenges.md)
 ---
 ## 📌 文档信息
 

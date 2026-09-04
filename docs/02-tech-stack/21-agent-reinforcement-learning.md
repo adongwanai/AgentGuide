@@ -1,3 +1,12 @@
+---
+type: 教程
+status: 待补充
+level: 高阶
+topic:
+  - 模型训练
+  - Agent
+---
+
 # Agent 强化学习
 
 > 🚧 本文档正在编写中，敬请期待...

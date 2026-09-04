@@ -22,14 +22,15 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Generate resources
+      - name: Generate content indexes and resources
         run: |
+          python scripts/manage_content_catalog.py --write
           python scripts/generate_resources.py
 
       - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/resources.json sitemap.xml || true
+          git add BACKLOG.md docs projects resources data/resources.json sitemap.xml || true
           git commit -m "chore: update resources index" || echo "no changes"
           git push || echo "skip push"
