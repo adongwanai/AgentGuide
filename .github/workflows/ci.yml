@@ -29,6 +29,13 @@ jobs:
         with:
           node-version: '22'
 
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+
+      - name: Markdown local-link checks
+        run: python tests/markdown_links.test.py
+
       - name: Static site smoke checks
         run: bash tests/site_static_smoke.test.sh
 

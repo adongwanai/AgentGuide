@@ -39,17 +39,25 @@
 >
 > 💪 **AgentGuide 的独特价值**：不是简单的资源堆砌，而是**系统化 + 求职导向 + 实战验证**的完整解决方案！
 
+## 🧭 按目标进入
+
+| 🛠️ 开发岗路线 | 🔬 算法岗路线 | 🔥 科研前沿专题 |
+| :-- | :-- | :-- |
+| 面向工程落地与系统实践 | 面向原理、算法与实验能力 | 面向 Agent 前沿研究方向 |
+| [进入开发岗学习路线](./docs/05-roadmaps/learning-roadmap-development.md) | [进入算法岗学习路线](./docs/05-roadmaps/learning-roadmap-algorithm.md) | [进入科研前沿专题](./docs/06-research-frontiers/README.md) |
+
+[📚 查看完整文档导航](./docs/README.md)
+
 ## 📑 目录
 
 **🎯 核心内容**：
-- [🔥 2026 AI 研究方向专题](./docs/06-research-frontiers/README.md) - 长程 Harness、自进化、Agentic RL 与 Verifier 的高 ROI 研究地图
 - [💡 关于本项目](#-关于本项目) - Agent开发指南、转行大模型、高级RAG、大模型面试
 - [🆕 求职新范式](#-求职新范式做出什么--学过什么) - 1-2-5框架、个人品牌、投递策略
 - [🧭 Agent 求职通关 Todo List](#-agent-求职通关-todo-list新增) - 当前优先级、8阶段学习产出、项目落地5步法
 - [🚦 6步学习路径](#-从零到offer的完整路径快速导航) - 从岗位选择到拿Offer
 - [🔬 算法岗 vs 🛠️ 开发岗](#-第一步确定你的目标岗位) - 岗位选择决策树
 - [📚 学习路线图](#-第三步基于岗位的学习路线) - 算法岗10-15周 | 开发岗8-12周
-- [💼 实战项目](#-第四步完成实战项目可写进简历) - 开源优质项目合集+N X Agent项目
+- [💼 实战项目](#-第四步完成实战项目可写进简历) - 开源优质项目合集 + Agent 项目
 - [📖 技术教程](#-第五步系统学习-agent-技术技术准备) - LangGraph、RAG、上下文工程、监督微调、强化学习
 - [🎯 面试题库](#-第六步面试准备与-offer-冲刺) - 1500+题/面经、系统设计、编程题
 - [🔥 2026 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/) - 自进化 Agent、Agentic RL、AI Infra、Coding Agent、世界模型、图像/语音生成
@@ -57,9 +65,7 @@
 **🛠️ 快速导航**：
 - ⭐ 阿东作品推荐：[**learn-workbuddy**](https://github.com/adongwanai/learn-workbuddy) - 从 0 搭建 WorkBuddy-style Desktop Agent Harness，clean-room 教学复现 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计和真实模型评测
 - [🚀 10分钟快速开始](#-快速开始) | [💬 加入学习社群](#-联系作者--加入社群) | [❓ 常见问题](./FAQ.md)
-- [🧭 新手快速开始](./docs/00-getting-started/README.md) | [🧭 2026 Agent 求职路线](./docs/05-roadmaps/agent-job-ready-roadmap-2026.md) | [🛠️ Agent 项目落地方法](./docs/03-practice/05-ship-agent-project.md) | [🧩 Agent Harness Engineering](./docs/02-tech-stack/27-agent-harness-engineering.md)
-- [🧭 面试与求职导航](./docs/04-interview/README.md) | [🔥 2026 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/) | [💻 算法+AI手撕题库](./docs/04-interview/22-algorithm-ai-coding-question-bank.md) | [📋 小红书AI算法岗面经](./docs/04-interview/19-xiaohongshu-ai-algorithm-interview-bank.md)
-- [📄 Paper Agent](./projects/01-paper-agent/README.md) | [🧳 Travel Agent](./projects/02-travel-agent/README.md) | [🌐 Web Agent](./projects/03-web-agent/README.md) | [🖼️ Multimodal RAG](./resources/multimodal/README.md)
+- [🧭 新手快速开始](./docs/00-getting-started/README.md) | [📚 完整文档导航](./docs/README.md) | [💼 项目导航](./projects/README.md)
 
 ---
 
@@ -198,11 +204,8 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 </tr>
 <tr>
 <td>
-💼 n个简历级实战项目
+💼 简历级实战项目
 
-- ✅ XXXAgent（RAG方向）
-- ✅ XXXMulti-Agent（协作方向）
-- ✅ XXXAgent（高级方向）
 - ✅ 持续收集高质量开源项目
 </td>
 <td>
@@ -422,7 +425,7 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 | **会 LLM 应用** | 重点补 Agent Loop、Tool Use、Context Engineering、Eval，不要只停留在 API 调用 |
 | **想做项目** | 直接进入 [实战项目](#-第四步完成实战项目可写进简历)，按“Spec → Coding → Eval → 复盘”推进 |
 | **准备面试** | 对照 [面试题库](#-第六步面试准备与-offer-冲刺)，重点准备 Agent Loop、工具设计、记忆、评测、可靠性 |
-| **只想找资料** | 看 [技术教程](#-第五步系统学习-agent-技术技术准备) 和 [资源导航](#-资源导航)，优先读官方文档、工程博客和可运行项目 |
+| **只想找资料** | 看 [技术教程](#-第五步系统学习-agent-技术技术准备) 和 [资源导航](./docs/README.md#项目与资源)，优先读官方文档、工程博客和可运行项目 |
 
 ### What To Learn Now
 
@@ -942,13 +945,13 @@ graph TD
 
 > **这是最重要的一步！没有项目，一切都是空谈！**
 
-AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
+AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - ✅ 完整的代码实现
 - ✅ 系统架构设计
 - ✅ **算法岗和开发岗两种简历写法**
 - ✅ 面试时如何讲解
 
-**👉 直接跳转到实战项目**：[点击这里查看n个项目](#32-简历级实战项目-)
+**👉 直接跳转到实战项目**：[点击这里查看项目](#-简历级实战项目-)
 
 ---
 
@@ -961,8 +964,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 ### 📊 技术能力四层模型
 
 我们将 Agent 技术划分为**四大能力层级**，每个层级对应不同的学习模块：
-我来创建一个三列的内容导航表格：
-
 ## 📑 内容导航
 
 
@@ -1032,8 +1033,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
   - AutoGPT（自主规划）
   - Multi-Agent（协作涌现）
 
-📖 [阅读：Agent 技术演进史](./docs/01-theory/02-agent-history.md)
-
 </td>
 </tr>
 <tr>
@@ -1051,7 +1050,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 | **推理层** | vLLM、TGI、量化技术 | PagedAttention、GPTQ/AWQ 量化、推理优化 |
 | **对齐层** | RLHF、PPO、DPO | Reward Model、策略优化、人类偏好对齐 |
 
-📖 [深入阅读：Transformer 架构详解](./docs/01-theory/03-transformer.md)  
 📖 [DeepSeek 系列完整深度笔记](./docs/01-theory/10-deepseek-series.md) 🆕  
 📖 [LLaMA 系列完整深度笔记](./docs/01-theory/11-llama-series.md) 🆕  
 📖 [Qwen 系列深度学习笔记](./docs/01-theory/12-qwen-series.md) 🆕
@@ -1097,7 +1095,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - Strategy Adjustment（策略调整）
 
 📖 [实战教程：手撕 ReAct](./docs/01-theory/04-react-framework.md)  
-📖 [实战教程：规划与执行](./docs/01-theory/05-cot-and-planning.md)
 
 </td>
 <td width="50%">
@@ -1117,9 +1114,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - **Coze/扣子**：字节跳动，快速搭建
 - **n8n**：工作流自动化神器
 
-📖 [框架对比：如何选择？](./docs/02-tech-stack/04-langchain-guide.md)  
-📖 [Multi-Agent 框架详解](./docs/02-tech-stack/06-multi-agent-frameworks.md)
-
 </td>
 </tr>
 <tr>
@@ -1131,10 +1125,10 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 
 | 框架 | 核心特性 | 适用场景 | 学习资源 |
 |:-----|:---------|:---------|:---------|
-| **LangGraph** | 图导向、状态管理、循环控制 | 复杂工作流、需要精确控制的场景 | [📖 完整教程](./docs/02-tech-stack/04-langchain-guide.md) |
-| **AutoGen** | 多 Agent 对话、角色扮演 | 团队协作、复杂任务分解 | [📖 实战指南](./docs/02-tech-stack/06-multi-agent-frameworks.md) |
-| **AgentScope** | 消息驱动、灵活扩展 | 国内场景、中文优化 | [📖 快速上手](./docs/02-tech-stack/07-agentscope.md) |
-| **CrewAI** | 角色分工、层级管理 | 企业级应用、流程自动化 | [📖 企业实战](./docs/02-tech-stack/06-multi-agent-frameworks.md) |
+| **LangGraph** | 图导向、状态管理、循环控制 | 复杂工作流、需要精确控制的场景 | — |
+| **AutoGen** | 多 Agent 对话、角色扮演 | 团队协作、复杂任务分解 | — |
+| **AgentScope** | 消息驱动、灵活扩展 | 国内场景、中文优化 | — |
+| **CrewAI** | 角色分工、层级管理 | 企业级应用、流程自动化 | — |
 
 **模块7：自研 Agent 框架设计原理**
 
@@ -1143,8 +1137,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - 工具注册与动态加载系统
 - 异常处理与重试策略
 - 可观测性与日志追踪
-
-📖 [实战项目：打造自己的 Agent 框架](./docs/02-tech-stack/22-build-your-agent-framework.md)
 
 </td>
 </tr>
@@ -1190,9 +1182,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - **Modular RAG**：模块化可组合架构
 - **Agentic RAG**：智能体驱动的自主检索
 - **Multimodal RAG**：跨模态理解与检索
-
-📖 [完整教程：RAG 系统开发指南](./docs/02-tech-stack/20-rag-full-pipeline.md)  
-📖 [向量数据库选型](./docs/02-tech-stack/08-vector-db-basics.md)
 
 </td>
 <td width="50%">
@@ -1261,7 +1250,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - 规划能力增强训练
 - 自我修正机制训练
 
-📖 [完整指南：Agent 强化学习](./docs/02-tech-stack/21-agent-reinforcement-learning.md)  
 📖 [实战：SFT 监督微调](./docs/02-tech-stack/16-sft-finetuning.md)  
 📖 [Post-Training 完整面试指南](./docs/02-tech-stack/25-post-training-complete-guide.md) 🆕
 
@@ -1299,7 +1287,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - 🛠️ 工具选择避坑指南
 
 📖 [评估指南：科学评估 Agent](./docs/01-theory/09-evaluation-metrics.md)
-📖 [AgentBench 详解](./docs/01-theory/08-agent-bench.md)
 📖 [🔥 **AI Agent 评估完全指南** (Anthropic官方万字长文)](./docs/02-tech-stack/agent-evaluation-complete-guide.md) ⭐ **必读**
 
 </td>
@@ -1325,7 +1312,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - 权限控制与沙盒隔离
 - 人机协作边界（Human-in-the-loop）
 
-📖 [完整指南：高可用 RAG 系统](./docs/03-practice/02-high-availability-rag.md)  
 📖 [安全性指南](./docs/03-practice/03-agent-security.md)
 
 ---
@@ -1765,8 +1751,6 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 - ✅ 算法岗 + 开发岗双版本简历描述
 - ✅ 面试讲解准备材料
 
-📖 [毕业设计完整指南](./docs/03-practice/04-graduation-project.md)
-
 </details>
 
 ---
@@ -1974,32 +1958,13 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 
 # 第二步：学习核心框架 ReAct
 阅读：docs/01-theory/04-react-framework.md
-
-# 第三步：快速上手 LangChain
-阅读：docs/02-tech-stack/04-langchain-guide.md
-
-# 第四步：跑通第一个 Agent
-git clone https://github.com/adongwanai/AgentGuide.git
-cd AgentGuide/examples
-python quickstart_agent.py
 ```
 
 ### 2️⃣ 如果你是开发背景（10 分钟快速入门）
 
 ```bash
-# 第一步：快速上手 LangChain
-阅读：docs/02-tech-stack/04-langchain-guide.md
-
-# 第二步：理解 Agent 核心概念
+# 第一步：理解 Agent 核心概念
 阅读：docs/01-theory/01-what-is-agent.md
-
-# 第三步：学习向量数据库
-阅读：docs/02-tech-stack/08-vector-db-basics.md
-
-# 第四步：搭建第一个 RAG Agent
-git clone https://github.com/adongwanai/AgentGuide.git
-cd AgentGuide/examples
-python quickstart_rag_agent.py
 ```
 
 ---
@@ -2098,35 +2063,6 @@ python quickstart_rag_agent.py
 - 💬 **反馈** 你的建议和意见（提 Issue 或 PR）
 
 **你的每一个 Star 都是我持续更新的动力！🚀**
-
----
-
-## 📝 更多文档
-
-### 📚 项目文档
-- ❓ [常见问题 (FAQ)](./FAQ.md) - 14个常见问题解答
-- 📊 [项目总结 (PROJECT_SUMMARY)](./PROJECT_SUMMARY.md) - 项目定位与核心优势
-- 🤝 [贡献指南 (CONTRIBUTING)](./CONTRIBUTING.md) - 如何参与贡献
-
-### 🗺️ 学习路线
-- 🧭 [2026 Agent 求职通关路线](./docs/05-roadmaps/agent-job-ready-roadmap-2026.md) - Agent Loop、Harness、Skills、Eval、项目产出的可执行路线 ⭐ 新增
-- 🚀 [AgentGuide开源学习路线（简易版）](./docs/05-roadmaps/AgentGuide开源学习路线（简易版本）.md) - 从零到Offer完整路径（8-15周）⭐ 新增
-- 🔬 [算法岗详细路线](./docs/05-roadmaps/learning-roadmap-algorithm.md) - 每日学习计划
-- 🧠 [前沿算法岗位完整学习指南](./docs/05-roadmaps/algorithm-complete-learning-guide.md) - 覆盖算法岗位能力栈、实践任务和交付标准
-- 🤖 [具身智能与 VLA 完整学习指南](./docs/05-roadmaps/embodied-ai-vla-learning-guide.md) - 面向 VLA/机器人岗位的系统学习路线
-- 🛠️ [开发岗详细路线](./docs/05-roadmaps/learning-roadmap-development.md) - 每日学习计划
-
-### 💼 实战方法
-- 🛠️ [如何落地一个可写进简历的 Agent 项目](./docs/03-practice/05-ship-agent-project.md) - Spec、AI 编程环境、项目理解 Skill、Eval 和消融实验
-- 🧩 [Agent Harness Engineering](./docs/02-tech-stack/27-agent-harness-engineering.md) - Agent Harness 七层模型与可靠性六件套
-
-### 📂 资源导航
-- 🤖 [Agent 资源总览](./resources/agent/) - Agent 所有资源
-- 📊 [RAG 资源总览](./resources/rag/) - RAG 所有资源
-- 🛠️ [开发工具箱](./resources/tools.md) - 效率工具推荐
-- 📚 [精选学习资源](./resources/learning-resources.md) - 课程、教程、书籍汇总
-- 💻 [算法+AI手撕题库](./docs/04-interview/22-algorithm-ai-coding-question-bank.md) - 传统算法与 AI 手撕分类版
-- 📋 [小红书AI算法岗面经题库](./docs/04-interview/19-xiaohongshu-ai-algorithm-interview-bank.md) - 难度递增整合版
 
 ---
 

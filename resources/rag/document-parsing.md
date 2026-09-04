@@ -1282,7 +1282,6 @@ PDF文件
 ## 13. 相关文档
 
 - [向量数据库选型](./vector-db.md)
-- [Embedding 模型选择](./embedding.md)
 - [返回 RAG 资源总览](./README.md)
 
 
