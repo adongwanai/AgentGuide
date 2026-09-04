@@ -151,6 +151,22 @@
 - RAG 与 tool use 如何结合。
 - 文档/数据库/知识库连接器生态。
 
+### [agent-interview](https://github.com/11XuX/agent-interview)
+
+**定位**：同一个文献综述业务的三种 Agent 形态实现与对照，可当 LangGraph 入门材料。
+
+**适合学习**：
+
+- 同一业务下 workflow / ReAct / agent harness 三种形态的代码规模与成本差异
+- LangGraph 的 Send 扇出、双回边、`interrupt` 与 checkpointer 恢复语义
+- 引用可追溯的设计：证据同时保留 paper_id / section / quote，使"引文是否逐字来自原文"成为可用代码 100% 判定的硬约束
+
+**重点看**：
+
+- 三形态并列的目录结构 —— 同一业务一个要 18 个文件、一个 33 行，不对称本身是结论
+- `nodes/review.py` 的两层校验：能用代码查死的（引用真伪、引文是否为原文子串）不交给模型
+- `docs/eval-design.md` 的评测方法论：先枚举失败模式再倒推指标
+
 ## Web / Computer-Use Agent
 
 ### [BrowserGym](https://github.com/ServiceNow/BrowserGym)

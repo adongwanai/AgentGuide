@@ -159,6 +159,15 @@ outputs/paper-agent/<run-id>/
 
 > 构建论文研读 Agent，接入 arXiv、Semantic Scholar 和 PDF 解析工具，使用分层 context builder 管理 query、候选论文、证据片段和生成草稿；为每条综述结论保留 paper/page/section 引用，设计 20 条主题检索和单篇精读 eval case，统计相关性、引用准确率、幻觉率和平均成本。
 
+## 社区实现
+
+- [agent-interview](https://github.com/11XuX/agent-interview)：按本蓝图实现的完整项目，同一业务用三种 Agent 形态各写一遍（写死的 workflow / 裸 ReAct / deepagents harness），附三形态对照跑分数据。
+
+  - 架构与本蓝图一一对应：Planner → Paper Search Tools → Paper Ranker → PDF Reader → Evidence Store → Synthesis Agent → Review Agent
+  - 数据源用 Europe PMC 的 `fullTextXML` 接口，直接返回带 `<sec><title>` 的结构化全文，**免去 PDF 解析**（PyMuPDF / Docling 那一层可以整块跳过）
+  - 21 个 commit 一步一个 LangGraph 概念，可 `git checkout` 逐步走，适合当 LangGraph 入门材料
+  - 实测结论：文献密集的题上写死的 workflow 引用密度是 agent 形态的 2 倍以上；交叉领域的题上 workflow 会撞死循环上限并**静默降级**（交出看似正常实则敷衍的短报告），agent 形态则能自适应但 token 成本随轮次二次增长
+
 ## 参考项目与资料
 
 - [GPT Researcher](https://github.com/assafelovic/gpt-researcher)：开源深度研究 Agent，适合学习 research report pipeline。
