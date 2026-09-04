@@ -3,9 +3,6 @@ name: Deploy static site to GitHub Pages
 on:
   push:
     branches: ["main"]
-    paths-ignore:
-      - 'research/**'
-      - 'interview/**'
   workflow_dispatch:
 
 permissions:
@@ -22,26 +19,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: "22"
+          cache: npm
           cache-dependency-path: |
-            external/ai-research-ebook/package-lock.json
-            external/InterviewGuide/package-lock.json
+            apps/ai-research-ebook/package-lock.json
+            apps/InterviewGuide/package-lock.json
 
-      - name: Install dependencies for research ebook
-        working-directory: external/ai-research-ebook
+      - name: Check tracked content indexes
+        run: python scripts/manage_content_catalog.py --check
+
+      - name: Generate resources and sitemap
+        run: python scripts/generate_resources.py
+
+      - name: Install dependencies for research site
+        working-directory: apps/ai-research-ebook
         run: npm ci
 
       - name: Install dependencies for InterviewGuide
-        working-directory: external/InterviewGuide
+        working-directory: apps/InterviewGuide
         run: npm ci
 
-      - name: Build research ebook with custom base path
-        working-directory: external/ai-research-ebook
+      - name: Build research site
+        working-directory: apps/ai-research-ebook
         env:
           SITE_URL: https://adongwanai.github.io
           BASE_PATH: /AgentGuide/research
@@ -50,8 +59,8 @@ jobs:
           GITHUB_REPOSITORY_URL: https://github.com/adongwanai/AgentGuide
         run: npm run build
 
-      - name: Build InterviewGuide with custom base path
-        working-directory: external/InterviewGuide
+      - name: Build InterviewGuide
+        working-directory: apps/InterviewGuide
         env:
           SITE_URL: https://adongwanai.github.io
           BASE_PATH: /AgentGuide/interview
@@ -60,15 +69,18 @@ jobs:
           GITHUB_REPOSITORY: adongwanai/AgentGuide
         run: npm run build
 
-      - name: Prepare static deployment artifact
+      - name: Assemble deployment artifact
         run: |
-          rm -rf site-dist
           mkdir -p site-dist/assets site-dist/data site-dist/research site-dist/interview
-          cp index.html 404.html robots.txt sitemap.xml site.webmanifest .nojekyll site-dist/
+          cp index.html 404.html robots.txt site.webmanifest .nojekyll site-dist/
           cp -r assets/. site-dist/assets/
           cp data/resources.json site-dist/data/resources.json
-          cp -r external/ai-research-ebook/dist/. site-dist/research/
-          cp -r external/InterviewGuide/dist/. site-dist/interview/
+          cp sitemap.xml site-dist/sitemap.xml
+          cp -r apps/ai-research-ebook/dist/. site-dist/research/
+          cp -r apps/InterviewGuide/dist/. site-dist/interview/
+
+      - name: Smoke-test deployment artifact
+        run: python tests/pages_assembly.test.py site-dist
 
       - uses: actions/upload-pages-artifact@v5
         with:
