@@ -356,6 +356,52 @@
     "external": false
   },
   {
+    "id": "doc-resources-agent-frameworks-md",
+    "title": "Agent 开发框架对比",
+    "description": "只推荐最核心的 5-7 个框架（面试会问、项目会用的）。",
+    "category": "资源合集",
+    "tags": [
+      "Agent",
+      "Memory",
+      "评测",
+      "面试",
+      "项目实战"
+    ],
+    "level": "入门",
+    "type": "资源清单",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/frameworks.md",
+    "sourcePath": "resources/agent/frameworks.md",
+    "date": "2026-09-04",
+    "readingMinutes": 3,
+    "wordCount": 1124,
+    "status": "已完善",
+    "featured": false,
+    "external": false
+  },
+  {
+    "id": "doc-docs-readme-md",
+    "title": "AgentGuide 文档导航",
+    "description": "本页只整理现有内容入口。按目标选择路线，或按主题查找文档",
+    "category": "技术栈",
+    "tags": [
+      "Agent",
+      "RAG",
+      "上下文工程",
+      "Memory",
+      "MCP"
+    ],
+    "level": "入门",
+    "type": "深度教程",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/README.md",
+    "sourcePath": "docs/README.md",
+    "date": "2026-09-04",
+    "readingMinutes": 2,
+    "wordCount": 556,
+    "status": "已完善",
+    "featured": false,
+    "external": false
+  },
+  {
     "id": "doc-docs-04-interview-23-frontier-interview-guides-agentic-rl-md",
     "title": "Agentic RL 面试指南",
     "description": "Agentic RL 的增量不只是“把 GRPO 用到 Agent 上”，而是把长轨迹、环境交互、稀疏反馈、信用分配和训练基础设施同时纳入设计",
@@ -374,6 +420,29 @@
     "date": "2026-09-04",
     "readingMinutes": 5,
     "wordCount": 1674,
+    "status": "已完善",
+    "featured": false,
+    "external": false
+  },
+  {
+    "id": "doc-resources-tools-md",
+    "title": "AI Agent 开发者工具箱",
+    "description": "工欲善其事，必先利其器！精选 Agent 开发必备工具。",
+    "category": "资源合集",
+    "tags": [
+      "Agent",
+      "RAG",
+      "Memory",
+      "模型训练",
+      "多模态"
+    ],
+    "level": "高阶",
+    "type": "资源清单",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/tools.md",
+    "sourcePath": "resources/tools.md",
+    "date": "2026-09-04",
+    "readingMinutes": 4,
+    "wordCount": 1443,
     "status": "已完善",
     "featured": false,
     "external": false
@@ -425,6 +494,29 @@
     "external": false
   },
   {
+    "id": "doc-docs-pr1-cleanup-log-md",
+    "title": "PR 1 内容清理日志",
+    "description": "本日志记录 PR 1 中删除或改向的内容。原始位置均以起始提交 2e39b3bfe022d4e8225f3a22dff7da154cb4bf7d 为准；完整原文可通过 Git 历史和 PR diff 查看",
+    "category": "技术栈",
+    "tags": [
+      "Agent",
+      "RAG",
+      "面试",
+      "项目实战",
+      "科研"
+    ],
+    "level": "进阶",
+    "type": "深度教程",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/PR1-CLEANUP-LOG.md",
+    "sourcePath": "docs/PR1-CLEANUP-LOG.md",
+    "date": "2026-09-04",
+    "readingMinutes": 3,
+    "wordCount": 1180,
+    "status": "已完善",
+    "featured": false,
+    "external": false
+  },
+  {
     "id": "doc-docs-04-interview-23-frontier-interview-guides-world-models-md",
     "title": "世界模型面试指南",
     "description": "会生成逼真视频不自动等于拥有可用于决策的世界模型。面试的关键是：状态表示什么、怎样预测动作后果、误差如何影响规划、怎样闭环验证",
@@ -443,6 +535,29 @@
     "date": "2026-09-04",
     "readingMinutes": 5,
     "wordCount": 1828,
+    "status": "已完善",
+    "featured": false,
+    "external": false
+  },
+  {
+    "id": "doc-resources-rag-vector-db-md",
+    "title": "向量数据库选型指南",
+    "description": "只推荐生产环境验证过的 5 个核心向量库。",
+    "category": "资源合集",
+    "tags": [
+      "Agent",
+      "RAG",
+      "面试",
+      "科研",
+      "部署"
+    ],
+    "level": "进阶",
+    "type": "资源清单",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/vector-db.md",
+    "sourcePath": "resources/rag/vector-db.md",
+    "date": "2026-09-04",
+    "readingMinutes": 2,
+    "wordCount": 607,
     "status": "已完善",
     "featured": false,
     "external": false
@@ -489,6 +604,29 @@
     "date": "2026-09-04",
     "readingMinutes": 4,
     "wordCount": 1532,
+    "status": "已完善",
+    "featured": false,
+    "external": false
+  },
+  {
+    "id": "doc-resources-rag-document-parsing-md",
+    "title": "文档解析工具精选",
+    "description": "只推荐生产环境验证的 5 个核心工具。",
+    "category": "资源合集",
+    "tags": [
+      "RAG",
+      "模型训练",
+      "多模态",
+      "项目实战",
+      "科研"
+    ],
+    "level": "进阶",
+    "type": "资源清单",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/document-parsing.md",
+    "sourcePath": "resources/rag/document-parsing.md",
+    "date": "2026-09-04",
+    "readingMinutes": 13,
+    "wordCount": 5006,
     "status": "已完善",
     "featured": false,
     "external": false
@@ -677,29 +815,6 @@
     "external": false
   },
   {
-    "id": "doc-resources-tools-md",
-    "title": "AI Agent 开发者工具箱",
-    "description": "工欲善其事，必先利其器！精选 Agent 开发必备工具。",
-    "category": "资源合集",
-    "tags": [
-      "Agent",
-      "RAG",
-      "Memory",
-      "模型训练",
-      "多模态"
-    ],
-    "level": "高阶",
-    "type": "资源清单",
-    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/tools.md",
-    "sourcePath": "resources/tools.md",
-    "date": "2026-08-04",
-    "readingMinutes": 4,
-    "wordCount": 1443,
-    "status": "已完善",
-    "featured": false,
-    "external": false
-  },
-  {
     "id": "doc-docs-04-interview-20-resume-guide-md",
     "title": "AI Agent 简历编写指南",
     "description": "简历不是经历流水账，而是让面试官相信你能从 0 到 1 交付 Agent 系统的证据链",
@@ -764,29 +879,6 @@
     "date": "2026-08-04",
     "readingMinutes": 2,
     "wordCount": 426,
-    "status": "已完善",
-    "featured": false,
-    "external": false
-  },
-  {
-    "id": "doc-resources-rag-vector-db-md",
-    "title": "向量数据库选型指南",
-    "description": "只推荐生产环境验证过的 5 个核心向量库。",
-    "category": "资源合集",
-    "tags": [
-      "Agent",
-      "RAG",
-      "面试",
-      "项目实战",
-      "科研"
-    ],
-    "level": "进阶",
-    "type": "资源清单",
-    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/vector-db.md",
-    "sourcePath": "resources/rag/vector-db.md",
-    "date": "2026-08-04",
-    "readingMinutes": 2,
-    "wordCount": 622,
     "status": "已完善",
     "featured": false,
     "external": false
@@ -2567,29 +2659,6 @@
     "external": false
   },
   {
-    "id": "doc-resources-agent-frameworks-md",
-    "title": "Agent 开发框架对比",
-    "description": "只推荐最核心的 5-7 个框架（面试会问、项目会用的）。",
-    "category": "资源合集",
-    "tags": [
-      "Agent",
-      "Memory",
-      "评测",
-      "面试",
-      "项目实战"
-    ],
-    "level": "入门",
-    "type": "资源清单",
-    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/agent/frameworks.md",
-    "sourcePath": "resources/agent/frameworks.md",
-    "date": "2025-11-06",
-    "readingMinutes": 3,
-    "wordCount": 1132,
-    "status": "已完善",
-    "featured": false,
-    "external": false
-  },
-  {
     "id": "doc-resources-rag-papers-agentic-rag-readme-md",
     "title": "Agentic RAG 论文汇总",
     "description": "本文档汇总了 RAG 与推理、智能体结合的前沿研究论文。",
@@ -2700,29 +2769,6 @@
     "date": "2025-11-05",
     "readingMinutes": 8,
     "wordCount": 2959,
-    "status": "已完善",
-    "featured": false,
-    "external": false
-  },
-  {
-    "id": "doc-resources-rag-document-parsing-md",
-    "title": "文档解析工具精选",
-    "description": "只推荐生产环境验证的 5 个核心工具。",
-    "category": "资源合集",
-    "tags": [
-      "RAG",
-      "模型训练",
-      "多模态",
-      "项目实战",
-      "科研"
-    ],
-    "level": "进阶",
-    "type": "资源清单",
-    "url": "https://github.com/adongwanai/AgentGuide/blob/main/resources/rag/document-parsing.md",
-    "sourcePath": "resources/rag/document-parsing.md",
-    "date": "2025-11-05",
-    "readingMinutes": 13,
-    "wordCount": 5011,
     "status": "已完善",
     "featured": false,
     "external": false
