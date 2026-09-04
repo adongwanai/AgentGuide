@@ -1,9 +1,5 @@
 name: CI
 
-# 运行仓库内已有的校验脚本（tests/）。
-# 这些脚本在 2026-03 修复 /interview/ 404 时写下，用于锁住当时的修复，
-# 但此前没有任何工作流引用它们。
-
 on:
   push:
     branches: ["main"]
@@ -18,42 +14,160 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  checks:
-    name: Static checks
+  content-checks:
+    name: Content and repository checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      # tests/site_static_smoke.test.sh 需要 node --check 校验 assets/site.js
       - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: "22"
 
       - uses: actions/setup-python@v7
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Regenerate content indexes
-        run: python scripts/manage_content_catalog.py --write
+      - name: Check tracked content indexes
+        run: python scripts/manage_content_catalog.py --check
 
-      - name: Regenerate public data
+      - name: Generate deployment data
         run: python scripts/generate_resources.py
-
-      - name: Generated files are current
-        run: |
-          git diff --exit-code
-          test -z "$(git status --porcelain --untracked-files=all)"
 
       - name: Content metadata checks
         run: python tests/content_metadata.test.py
 
-      - name: Markdown local-link checks
+      - name: Repository local-link checks
         run: python tests/markdown_links.test.py
 
-      - name: Static site smoke checks
-        run: bash tests/site_static_smoke.test.sh
+      - name: Root site smoke checks
+        run: python tests/site_static_smoke.test.py
 
-      - name: InterviewGuide / research integration checks
-        run: bash tests/interviewguide_external_integration.test.sh
+      - name: Repository automation checks
+        run: python tests/repository_automation.test.py
+
+      - name: Upload generated deployment data
+        uses: actions/upload-artifact@v7
+        with:
+          name: public-data
+          path: |
+            data/resources.json
+            sitemap.xml
+          if-no-files-found: error
+          retention-days: 1
+
+  research-build:
+    name: Research site build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: apps/ai-research-ebook/package-lock.json
+
+      - name: Install dependencies
+        working-directory: apps/ai-research-ebook
+        run: npm ci
+
+      - name: Build research site
+        working-directory: apps/ai-research-ebook
+        env:
+          SITE_URL: https://adongwanai.github.io
+          BASE_PATH: /AgentGuide/research
+          GITHUB_USERNAME: adongwanai
+          GITHUB_REPO: AgentGuide
+          GITHUB_REPOSITORY_URL: https://github.com/adongwanai/AgentGuide
+        run: npm run build
+
+      - name: Upload research site
+        uses: actions/upload-artifact@v7
+        with:
+          name: research-site
+          path: apps/ai-research-ebook/dist/
+          if-no-files-found: error
+          retention-days: 1
+
+  interview-test-build:
+    name: InterviewGuide test and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: apps/InterviewGuide/package-lock.json
+
+      - name: Install dependencies
+        working-directory: apps/InterviewGuide
+        run: npm ci
+
+      - name: Run InterviewGuide tests
+        working-directory: apps/InterviewGuide
+        run: npm test
+
+      - name: Build InterviewGuide
+        working-directory: apps/InterviewGuide
+        env:
+          SITE_URL: https://adongwanai.github.io
+          BASE_PATH: /AgentGuide/interview
+          GITHUB_USERNAME: adongwanai
+          GITHUB_REPO: AgentGuide
+          GITHUB_REPOSITORY: adongwanai/AgentGuide
+        run: npm run build
+
+      - name: Upload InterviewGuide
+        uses: actions/upload-artifact@v7
+        with:
+          name: interview-site
+          path: apps/InterviewGuide/dist/
+          if-no-files-found: error
+          retention-days: 1
+
+  pages-assembly:
+    name: Assemble and smoke-test Pages
+    runs-on: ubuntu-latest
+    needs: [content-checks, research-build, interview-test-build]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Download generated deployment data
+        uses: actions/download-artifact@v7
+        with:
+          name: public-data
+          path: .ci-artifacts/public-data
+
+      - name: Download research site
+        uses: actions/download-artifact@v7
+        with:
+          name: research-site
+          path: .ci-artifacts/research
+
+      - name: Download InterviewGuide
+        uses: actions/download-artifact@v7
+        with:
+          name: interview-site
+          path: .ci-artifacts/interview
+
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p site-dist/assets site-dist/data site-dist/research site-dist/interview
+          cp index.html 404.html robots.txt site.webmanifest .nojekyll site-dist/
+          cp -r assets/. site-dist/assets/
+          cp .ci-artifacts/public-data/data/resources.json site-dist/data/resources.json
+          cp .ci-artifacts/public-data/sitemap.xml site-dist/sitemap.xml
+          cp -r .ci-artifacts/research/. site-dist/research/
+          cp -r .ci-artifacts/interview/. site-dist/interview/
+
+      - name: Smoke-test assembled Pages tree
+        run: python tests/pages_assembly.test.py site-dist

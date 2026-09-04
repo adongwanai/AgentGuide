@@ -46,13 +46,6 @@ EXPECTED_BACKLOG = {
 
 EXPECTED_ARCHIVED = {
     "docs/00-getting-started/04-repo-gap-map.md",
-    "projects/04-end-to-end-projects/README.md",
-    "projects/05-agent-workflows/README.md",
-    "projects/06-project-collections/README.md",
-    "resources/agent/ai-agent-production-challenges.md",
-    "resources/multimodal/evaluation-checklist.md",
-    "resources/multimodal/multimodal-rag-pipeline.md",
-    "resources/rag/vector-db.md",
 }
 
 EXPECTED_MOVED_TYPES = {

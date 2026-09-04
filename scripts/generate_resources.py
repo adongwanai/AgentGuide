@@ -324,11 +324,11 @@ def sitemap_urls():
     """
     site_date = git_date(ROOT / "index.html")
 
-    research_content = ROOT / "external/ai-research-ebook/src/content/docs"
+    research_content = ROOT / "apps/ai-research-ebook/src/content/docs"
     research_pages = sorted(research_content.rglob("*.mdx")) if research_content.exists() else []
     research_date = newest_git_date(research_pages, site_date)
 
-    interview_data = ROOT / "external/InterviewGuide/src/data"
+    interview_data = ROOT / "apps/InterviewGuide/src/data"
     questions_path = interview_data / "questions.json"
     categories_path = interview_data / "categories.json"
     companies_path = interview_data / "companies.json"
