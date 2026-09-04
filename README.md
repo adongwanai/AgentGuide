@@ -380,9 +380,6 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 
 **时机窗口：** 3-6月提前批竞争烈度比8-9月低30-40%，往往是真正的机会窗口。
 
-**AI辅助投递工具：**
-- [Auto Job Apply](https://zread.ai/loks666/get_jobs) - 开源自动投递简历工具，支持批量投递与AI简历适配
-
 ### 说几句实话
 
 - **语言不是门槛，设计才是。** Python/TypeScript AI都能帮你写。但Agent状态机怎么设计、Memory何时截断、工具调用失败如何fallback——这些必须你自己想清楚、讲明白。
@@ -2043,9 +2040,10 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 **如何加入？**
 
-1. **方式一**：Star 本项目后，在 [Issues](https://github.com/adongwanai/AgentGuide/issues) 中评论"申请加群"
-2. **方式二**：关注公众号「阿东玩AI」，回复「AgentGuide」获取入群二维码
-3. **方式三**：[小红书@阿东玩AI](https://www.xiaohongshu.com/user/profile/5f310fd50000000001009df5)，私信"加群"
+1. 关注公众号「阿东玩AI」，回复「AgentGuide」获取入群二维码
+2. [小红书@阿东玩AI](https://www.xiaohongshu.com/user/profile/5f310fd50000000001009df5)，私信"加群"
+
+GitHub Issues 仅用于可复现的仓库问题和有明确交付物的核心改进，不处理加群申请。
 
 
 **🎁 社群福利**：Agent 学习路线图 PDF + 面试题库 + 项目代码模板 + 大厂内推机会
