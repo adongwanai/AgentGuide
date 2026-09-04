@@ -1,3 +1,12 @@
+---
+type: 题库
+status: 已发布
+level: 进阶
+topic:
+  - 面试求职
+  - Agent
+---
+
 # AI Agent 面试题库 - 开放性讨论篇
 
 ## 📚 适用对象

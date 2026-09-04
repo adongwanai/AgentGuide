@@ -1,3 +1,13 @@
+---
+type: 教程
+status: 已发布
+level: 高阶
+topic:
+  - Agent
+  - 评测
+  - 框架工具
+---
+
 # Agent Evaluation Harness 完全指南 —— 让你的 Agent 评估不再玄学 🎯
 
 > **写给谁的？** AI Agent 算法工程师、开发工程师，以及所有被"Agent 评估到底怎么做"折磨到头秃的同学。

@@ -216,7 +216,7 @@
 
             const scoreDiff = (scores.get(b.id) || 0) - (scores.get(a.id) || 0);
             if (scoreDiff !== 0) return scoreDiff;
-            if (a.status !== b.status) return a.status === '已完善' ? -1 : 1;
+            if (a.status !== b.status) return a.status === '已发布' ? -1 : 1;
             return String(b.date).localeCompare(String(a.date)) || a.title.localeCompare(b.title, 'zh-CN');
         });
     }

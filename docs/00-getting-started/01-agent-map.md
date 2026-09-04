@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 已发布
+level: 入门
+topic:
+  - Agent
+---
+
 # Agent Learning Map：Agent 学习地图
 
 > Agent 不是一个库名，而是一类系统设计：模型在受控环境里观察状态、选择动作、调用工具、接收反馈，并在必要时请求人类介入。

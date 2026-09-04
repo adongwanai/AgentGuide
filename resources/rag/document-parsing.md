@@ -1,3 +1,13 @@
+---
+type: 资源清单
+status: 已发布
+level: 通用
+topic:
+  - RAG
+  - 多模态
+  - 框架工具
+---
+
 # 文档解析工具精选
 
 > **只推荐生产环境验证的 5 个核心工具**
@@ -1281,7 +1291,7 @@ PDF文件
 
 ## 13. 相关文档
 
-- [向量数据库选型](./vector-db.md)
+- [向量数据库选型](../../docs/02-tech-stack/29-vector-database-selection.md)
 - [返回 RAG 资源总览](./README.md)
 
 

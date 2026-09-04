@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 已归档
+level: 入门
+topic:
+  - Agent
+---
+
 # Repo Gap Map：仓库补洞地图
 
 > 本文记录对当前仓库空目录和占位内容的盘点，并给出后续补充优先级。
@@ -27,9 +35,9 @@
 | P0 | `docs/01-theory/09-evaluation-metrics.md` | 任务成功率、轨迹评分、成本、延迟、安全指标 |
 | P1 | `docs/02-tech-stack/04-langchain-guide.md` | LangChain 与 LangGraph 的边界，现代用法 |
 | P1 | `docs/02-tech-stack/06-multi-agent-frameworks.md` | AutoGen、CrewAI、Swarm、Magentic-One 对比 |
-| P1 | `docs/02-tech-stack/14-mcp-protocol.md` | MCP 架构、server/client、权限和安全 |
+| P1 | `docs/02-tech-stack/10-mcp-protocol.md` | MCP 架构、server/client、权限和安全 |
 | P1 | `docs/02-tech-stack/20-rag-full-pipeline.md` | 文档解析、chunk、embedding、rerank、eval |
-| P1 | `docs/02-tech-stack/22-build-your-agent-framework.md` | 从零手写 agent loop、tool registry、trace |
+| P1 | `docs/02-tech-stack/build-your-agent-framework.md` | 从零手写 agent loop、tool registry、trace |
 | P2 | `docs/03-practice/02-high-availability-rag.md` | 生产级 RAG 可用性、缓存、降级、监控 |
 | P2 | `docs/03-practice/03-agent-security.md` | Prompt injection、权限、sandbox、secret 管理 |
 | P2 | `docs/03-practice/04-graduation-project.md` | 毕设选题、范围控制、评测和论文写法 |
@@ -48,7 +56,7 @@
 
 1. `docs/01-theory/01-what-is-agent.md`
 2. `docs/01-theory/04-react-framework.md`
-3. `docs/02-tech-stack/14-mcp-protocol.md`
+3. `docs/02-tech-stack/10-mcp-protocol.md`
 4. `docs/03-practice/03-agent-security.md`
 
 这四篇补完后，仓库会形成“概念 -> loop -> 协议 -> 安全 -> 项目”的更完整闭环。

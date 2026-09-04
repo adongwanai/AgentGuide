@@ -1,3 +1,13 @@
+---
+type: 资源清单
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 评测
+  - 框架工具
+---
+
 # 🧪 Evaluation Harness - AI 评估工具箱
 
 > **精选** LLM / Agent / RAG 评估框架与工具，帮你快速选型、高效评测
@@ -108,7 +118,7 @@ def test_agent_tool_call():
 - [Agent 评估完全指南](./README.md#-评估-benchmark) - 评估 Benchmark 汇总
 - [Agent 开发框架](./frameworks.md) - 框架选型指南
 - [Agent 记忆系统](./memory.md) - 记忆模块设计
-- [AI Agent 生产实践](./ai-agent-production-challenges.md) - 生产环境经验
+- [AI Agent 生产实践](../../docs/03-practice/06-agent-production-challenges.md) - 生产环境经验
 
 ### 学习路线
 

@@ -1,3 +1,13 @@
+---
+type: 项目蓝图
+status: 已发布
+level: 进阶
+topic:
+  - 项目实战
+  - Coding Agent
+  - 评测
+---
+
 # Web Agent：浏览器任务自动化与评测
 
 > 项目目标：构建一个只操作公开网页的 Web Agent，完成信息查找、表单填写、页面导航等任务，并通过截图、DOM 和 trace 复盘失败。

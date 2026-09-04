@@ -1,3 +1,13 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - 面试求职
+  - 科研
+  - 基础模型
+---
+
 # 2026 AI 前沿面试专题
 
 > 从大规模面经与专题笔记中提炼出的高信号复习入口：不追求“题越多越好”，而是帮助你快速建立知识地图、回答框架和项目证据。
@@ -87,3 +97,23 @@
 - [AI Agent 项目讲述技巧](../21-storytelling.md)
 - [2026 Agent 求职路线](../../05-roadmaps/agent-job-ready-roadmap-2026.md)
 - [2026 AI 研究方向](../../06-research-frontiers/01-ai-research-directions-expanded.md)
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [Agentic RL 面试指南](./agentic-rl.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [AI Infra 面试指南](./ai-infra.md) | 求职指南 | 已发布 | 高阶 | 面试求职、推理部署 |
+| [Coding Agent 面试指南](./coding-agent.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Coding Agent、Agent |
+| [数据与评测面试指南](./data-and-evaluation.md) | 求职指南 | 已发布 | 高阶 | 面试求职、评测 |
+| [图像生成面试指南](./image-generation.md) | 求职指南 | 已发布 | 高阶 | 面试求职、多模态 |
+| [项目深挖：BFS 主线 × DFS 追问](./project-deep-dive.md) | 求职指南 | 已发布 | 高阶 | 面试求职、项目实战 |
+| [自进化 Agent 面试指南](./self-evolving-agents.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [语音生成面试指南](./speech-generation.md) | 求职指南 | 已发布 | 高阶 | 面试求职、多模态 |
+| [世界模型面试指南](./world-models.md) | 求职指南 | 已发布 | 高阶 | 面试求职、具身智能 |
+<!-- AUTO-GENERATED-CONTENT:END -->

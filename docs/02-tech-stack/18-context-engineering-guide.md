@@ -1,3 +1,13 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - 上下文工程
+  - 项目实战
+  - 基础模型
+---
+
 # 上下文工程完全指南:设计控制信息流向LLM的系统
 
 > **核心理念**: 上下文工程是设计架构的学科,在正确的时间向LLM提供正确的信息。这不是改变模型本身,而是构建连接模型与外部世界的桥梁。
@@ -27,7 +37,8 @@
 **问题的本质不在于模型的智能,而在于它从根本上是断开连接的。**
 
 这种隔离是其核心架构限制的直接结果:**上下文窗口**。上下文窗口是模型的活动工作内存——保存当前任务指令和信息的有限空间。每个字、数字、标点符号都会消耗这个窗口中的空间。就像白板一样,一旦满了,旧信息就会被擦除以为新指令腾出空间,重要细节可能会丢失。
-![](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/df7e1dd2d6fb4d12557ee907c2eec8075b638d925435d224a38843c688ba396f.jpg)
+
+![上下文工程系统架构](../../figures/context-engineering-system.png)
 
 这个流程图展示了**智能 Agent 系统的工作流程**，包含用户交互、记忆管理、Agent 决策、工具调用等环节，步骤如下：
 
@@ -71,7 +82,6 @@
 **定义**: 编排如何以及何时使用信息的决策系统。
 
 
-![](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/c852f67e804d920084f34926939263c396b4cfd3be28be895ae1fefc4de7775e.jpg)
 #### 什么是Agent?
 
 在大语言模型的上下文中,AI Agent是一个能够:
@@ -81,20 +91,17 @@
 3. **自适应使用工具**: 从可用工具中选择并以未明确编程的方式组合它们
 4. **基于结果修改方法**: 当一种策略不起作用时,可以尝试不同的方法
 
-![](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/51fc62d5607c390ad49ad16c1bda6cb23827ca873f78e1e25becc92d79389d45.jpg)
 #### Agent架构类型
 
 **单Agent架构**:
 - 尝试自己处理所有任务
 - 适用于中等复杂度的工作流
 
-![单Agent架构](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/e88a4ddf4cf3e2635b738e63b411d19c49427fc79023e04fd6aeff076a6bbef7.jpg)
 
 **多Agent架构**:
 - 在专门的Agent之间分配工作
 - 允许复杂的工作流但引入协调挑战
 
-![多Agent架构](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/e527950b67920c530e603c4aff520750ef8a50d1389e2d35639ed915906732d2.jpg)
 
 #### 上下文窗口的挑战
 
@@ -104,28 +111,23 @@ LLM具有有限的信息容量,因为上下文窗口一次只能容纳这么多�
 - 哪些应该外部存储并在需要时检索
 - 哪些可以总结或压缩以节省空间
 - 为推理和规划保留多少空间
-![](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/8ebbf01083ef17c574545dde8a3b84828909a736816c5f09543f263e42d2145f.jpg)
 #### 常见的上下文错误类型
 
 **上下文污染(Context Poisoning)**:
 - 错误或幻觉信息进入上下文
 - 因为Agent重用和构建该上下文,这些错误会持续并复合
-![](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/433b21a62cea8ffe30c2e93024aabd73306a43f40051ab7f925030a2d6a81566.jpg)
 
 **上下文干扰(Context Distraction)**:
 - Agent被过多的过去信息(历史、工具输出、摘要)负担
 - 过度依赖重复过去的行为而不是新鲜推理
-- ![](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/9bca936d5709ad019bea07c02c4c273bdab476eb26584348df6bee708836f594.jpg)
 
 **上下文混乱(Context Confusion)**:
 - 不相关的工具或文档挤满上下文
 - 分散模型注意力并导致使用错误的工具或指令
-![](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/44e16e8cfd49e763b2f147f7715d91496bc6a167b317d4ddb96e590d817a6b61.jpg)
 
 **上下文冲突(Context Clash)**:
 - 上下文中的矛盾信息误导Agent
 - 使其陷入冲突假设之间
-![](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/44e16e8cfd49e763b2f147f7715d91496bc6a167b317d4ddb96e590d817a6b61.jpg)
 #### Agent的核心策略和任务
 
 Agent能够有效编排上下文系统,因为它们能够以动态方式进行推理和决策:
@@ -138,7 +140,6 @@ Agent能够有效编排上下文系统,因为它们能够以动态方式进行�
 6. **动态工具选择**: 只过滤和加载与任务相关的工具
 7. **多源综合**: 组合来自多个源的信息,解决冲突并产生连贯的答案
 
-![不同类型的Agent在上下文工程系统中的功能](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/085e32cc2ebf373a77de31e2fef9c232f3f8516311c28a3c2f6ec1098ee791d3.jpg)
 1. **监督者统筹**：
     
     - 用户请求先到监督者层的`Planning`模块，规划任务后，通过`Route to Specialized`分配给专业 Agent。
@@ -183,7 +184,6 @@ Agent能够有效编排上下文系统,因为它们能够以动态方式进行�
 
 将原始用户查询转换为更有效的检索版本。
 
-![查询重写流程](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/d5d8f53972aacf6e7573915509c85b6d58b982f7b5e9680baca60d20034e0c5a.jpg)
 
 **工作原理**:
 - **重构不清楚的问题**: 将模糊或形式不佳的用户输入转换为精确、信息密集的术语
@@ -194,7 +194,6 @@ Agent能够有效编排上下文系统,因为它们能够以动态方式进行�
 
 从单个用户输入生成多个相关查询来增强检索。
 
-![查询扩展流程](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/e9613e9d19173cae56f6e710dfa0e951564c88817865685253b15afddaea806a.jpg)
 
 **需要注意的挑战**:
 - **查询漂移**: 扩展的查询可能偏离用户的原始意图
@@ -205,7 +204,6 @@ Agent能够有效编排上下文系统,因为它们能够以动态方式进行�
 
 将复杂、多方面的问题分解为更简单、集中的子查询。
 
-![查询分解流程](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/ea13dd601826b0bcaf2be617dfd4d1f9dde5657bdbdfaae05859a800604afa01.jpg)
 
 **过程**包括两个主要阶段:
 1. **分解阶段**: LLM分析原始复杂查询并将其分解为更小、集中的子查询
@@ -215,7 +213,6 @@ Agent能够有效编排上下文系统,因为它们能够以动态方式进行�
 
 查询Agent是查询增强的最高级形式,使用AI Agent智能处理整个查询处理管道。
 
-![查询Agent架构](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/413441a4f206ef6da7f19f9da5984ec72b08875319ccba4b003dae0449b932a1.jpg)
 这个流程图展示了**智能 Agent 处理用户查询的完整流程**，核心是 “动态分析→精准检索→评估优化→生成反馈” 的闭环逻辑，具体拆解如下：
 
  一、核心流程步骤
@@ -257,7 +254,6 @@ Agent能够有效编排上下文系统,因为它们能够以动态方式进行�
 
 LLM的能力取决于它能访问的信息。虽然LLM在海量数据集上训练,但它们缺乏对你特定私有文档和训练完成后创建的任何信息的了解。
 
-![RAG架构](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/83d98474a0cf62bfe3394ed4793af5a693b2c18653859e2b61ce0af005035d4d.jpg)
 
 **挑战**: 原始文档数据集几乎总是太大而无法放入LLM有限的上下文窗口。我们必须找到完美的片段——包含用户查询答案的单个段落或部分。
 
@@ -267,7 +263,6 @@ LLM的能力取决于它能访问的信息。虽然LLM在海量数据集上训�
 
 分块是你为检索系统性能做出的最重要决定。
 
-![分块策略矩阵](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/d047c89c6a8d7768ba13a34e485680912da7bfcef9c9f1deaf742c15fa6674f2.jpg)
 
 设计分块策略时,必须平衡两个竞争优先级:
 
@@ -279,7 +274,6 @@ LLM的能力取决于它能访问的信息。虽然LLM在海量数据集上训�
 #### 简单分块技术
 
 **固定大小分块(Fixed-Size Chunking)**:
-![固定大小分块](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/c792ee589ab789f6f8bfdd40fab414f7701474288a48793a938bd954915ce992.jpg)
 
 **递归分块(Recursive Chunking)**:
 - 使用优先级分隔符列表分割文本
@@ -294,24 +288,18 @@ LLM的能力取决于它能访问的信息。虽然LLM在海量数据集上训�
 - 基于含义而不是分隔符分割文本
 
 **基于LLM的分块(LLM-Based Chunking)**:
-![LLM分块](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/38e46b06e6be9d998b7d54fe519b22f79c022fc1d8a6db6f5d3b64dcc42e5eb3.jpg)
 
 **Agentic分块**:
-![Agentic分块](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/cb580a2dd585687041549517a36bff67e83164fbceb141b3480b934a95b3f990.jpg)
 
 **层次分块(Hierarchical Chunking)**:
-![层次分块](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/c417065f4f166f7f6541832880c70bd4d5f50380b650c8a3c239c2250488e29b.jpg)
 
 **延迟分块(Late Chunking)**:
-![延迟分块](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/f999e4b4af937efe351cb78efd736fd8a08c9f650131f99ea77f77bf40ee4294.jpg)
 
 #### 预分块 vs 后分块
 
 **预分块(Pre-Chunking)**:
-![预分块流程](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/ca9e669e815e5549e8b4807f8f8fa433224643d58e64add0df89c833eaa5c786.jpg)
 
 **后分块(Post-Chunking)**:
-![后分块流程](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/0640b36b605261a566de2082693e561c59ab9f12f786a1740809f2c1a886ac22.jpg)
 这个图展示了**RAG（检索增强生成）系统的核心工作流程**，分为 “预处理→语义检索→增强生成” 三个阶段，具体如下：
 
  一、核心模块与流程
@@ -340,10 +328,8 @@ LLM的能力取决于它能访问的信息。虽然LLM在海量数据集上训�
 #### 经典提示技术
 
 **思维链(Chain of Thought, CoT)**:
-![CoT示例](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/746d32ba43a68f992b2d3afb73fede6052d4c6c8c1c627684f4c19463743d0f4.jpg)
 
 **少样本提示(Few-Shot Prompting)**:
-![Few-shot示例](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/faadb6a458899736c4801d4f0097afcb9da7601cedc96795b3fbeb5cd1860a68.jpg)
 
 **结合CoT和Few-shot**:
 
@@ -364,10 +350,8 @@ LLM的能力取决于它能访问的信息。虽然LLM在海量数据集上训�
 #### 高级提示策略
 
 **思维树(Tree of Thoughts, ToT)**:
-![ToT示例](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/7cf13b2a073a3aa7dcfc344eb3e380aa32eb68188ca7d1c44ca14f78ff601e58.jpg)
 
 **ReAct提示**:
-![ReAct框架](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/bbb3c83e784ba4459ffc1f8328efd9eb4e96b27e0c1e9eac35b08a87288cdb0b.jpg)
 
 ---
 
@@ -376,7 +360,6 @@ LLM的能力取决于它能访问的信息。虽然LLM在海量数据集上训�
 **定义**: 给你的应用程序历史感和从交互中学习能力的系统。
 
 
-![Karpathy的类比](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/6734cb97bad47256b858e88f4d1107560a563b2bbb3caad1f782be80a0879bba.jpg)
 这个图展示了**以大语言模型（LLM）为核心的 “智能计算系统” 架构**，把 LLM 类比成 “新一代计算机”，替代了传统 CPU 的核心角色，具体拆解如下：
 
 一、核心模块：LLM（大语言模型）
@@ -435,13 +418,10 @@ LLM 是系统的 “大脑”，同时承担了 ** 计算（类似 CPU）、临�
 #### 有效记忆管理的关键原则
 
 **修剪和细化**:
-![记忆修剪](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/98dfe89bbe328ee350f68c167c0840aada50b46dd8e60f3dd2490df111fcc4ce.jpg)
 
 **选择性存储**:
-![选择性存储](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/488278520dd2dd398111698354d99ffdc3d9cb03ed414c08d8450b1145348eae.jpg)
 
 **掌握检索的艺术**:
-![记忆检索优化](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/74f1e86909ece36d7e9c1a0a41ba6aa0db8c6468cc63de8efb8c6faacf4e45cc.jpg)
 
 ---
 
@@ -449,7 +429,6 @@ LLM 是系统的 “大脑”，同时承担了 ** 计算（类似 CPU）、临�
 
 如果记忆给Agent自我意识,那么工具就是给它超能力的东西。
 
-![工具集成概念](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/f3f7f9dcb519e9682438c5fc538771fc41d99e377c9faed968f6fe9300c57a94.jpg)
 
 #### 从提示到行动的演变
 
@@ -481,14 +460,12 @@ Agent需要知道它拥有哪些工具。这通常通过在系统提示中提供
 **2. 工具选择和规划(思考)**:
 面对用户请求时,Agent必须推理是否需要工具。如果需要,是哪一个?对于复杂任务,它甚至可能需要将多个工具链在一起,形成计划(例如,"首先,在网上搜索天气;然后,使用电子邮件工具发送摘要")。
 
-![工具选择](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/cff6fea22bbef7d903f37f1fb759dab5a1a1bab97cf33cf539137dead8a7b4b2.jpg)
 
 在这里,决策Agent正确分析了传入的请求并选择了product_agent工具。
 
 **3. 参数制定(行动)**:
 一旦选择了工具,Agent必须弄清楚传递什么参数给它。如果工具是`get_weather(city, date)`,Agent需要从用户的查询中提取"旧金山"和"明天"并正确格式化它们。这也可以是带有使用工具所需信息的结构化请求或API调用。
 
-![参数制定](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/fc58cb57ba51d99005e7df6a3d7756fb73f580872d77f9136ebe2513568d3558.jpg)
 
 在这种情况下,product_agent需要一个文本查询来搜索产品集合。注意Agent如何在生成初始导致错误的格式错误参数后自我修正(自我修复)(编排的另一个关键部分)。
 
@@ -496,7 +473,6 @@ Agent需要知道它拥有哪些工具。这通常通过在系统提示中提供
 执行工具后,输出("观察")被反馈到上下文窗口中。然后Agent反思这个输出以决定下一步。工具成功了吗?它产生了回答用户查询所需的信息吗?还是返回了需要不同方法的错误?
 
 
-![反思观察2](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/7c809b370b0444a739bedfbee6f5c29161bc3579d3802ce11db010a30e41e86a.jpg)
 
 如你所见,编排通过这个强大的反馈循环发生,通常称为**思考-行动-观察循环(Thought-Action-Observation Cycle)**。
 
@@ -508,7 +484,6 @@ Agent需要知道它拥有哪些工具。这通常通过在系统提示中提供
 #### 工具使用的下一个前沿
 
 **传统集成 vs MCP方法**:
-![传统集成 vs MCP方法](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/c0a0b2c5db6b23dc230ebd263a271050df29c28d48e67307a99485c498d4e3e3.jpg)
 
 ---
 
@@ -516,7 +491,6 @@ Agent需要知道它拥有哪些工具。这通常通过在系统提示中提供
 
 上下文工程不仅仅是提示大语言模型、构建检索系统或设计AI架构。它是关于构建在各种用途和用户中可靠工作的互联、动态系统。
 
-![简单提示工程 vs 上下文工程](https://cdn-mineru.openxlab.org.cn/result/2025-11-06/670cedc5-9554-4d29-a213-d1c3ec0d969f/6bbd38a502ba3f349cd249c6fcf657f5b5e909a5f6b83388f4da0fa989430af0.jpg)
 
 上下文工程由以下组件组成:
 

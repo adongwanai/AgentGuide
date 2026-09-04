@@ -1,3 +1,12 @@
+---
+type: 题库
+status: 已发布
+level: 进阶
+topic:
+  - 面试求职
+  - 基础模型
+---
+
 # AI Agent 面试题库 - LLM 前景与发展篇
 
 ## 📚 适用对象

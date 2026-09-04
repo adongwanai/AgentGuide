@@ -1,3 +1,12 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - Agent
+  - 框架工具
+---
+
 # 手撕 ReAct 框架
 
 > ReAct = Reasoning + Acting。它让模型在推理和行动之间交替：先判断下一步，再调用工具，再根据观察结果继续。

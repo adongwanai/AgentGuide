@@ -1,3 +1,13 @@
+---
+type: 求职指南
+status: 已发布
+level: 高阶
+topic:
+  - 面试求职
+  - Coding Agent
+  - Agent
+---
+
 # Coding Agent 面试指南
 
 > Coding Agent 的难点不是“会生成代码”，而是在陌生仓库中可靠完成定位、修改、验证和交付，并让每一步都可恢复、可审计。
@@ -157,4 +167,3 @@ flowchart LR
 - [Claude Code 源码分析手册](../18-agent-interview-playbooks/claude-code-source-playbook.md)
 - [Agent Harness 手册](../18-agent-interview-playbooks/agent-harness-playbook.md)
 - [Agent Harness Engineering](../../02-tech-stack/27-agent-harness-engineering.md)
-- [构建自己的 Agent Framework](../../02-tech-stack/22-build-your-agent-framework.md)

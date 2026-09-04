@@ -1,0 +1,54 @@
+name: 核心改进建议
+description: 提议与现有学习路线或项目直接相关、可验收的改进
+title: "[Proposal] "
+body:
+  - type: markdown
+    attributes:
+      value: 建议应解决现有用户问题，并形成可运行、可评测或可验证的交付物。
+  - type: input
+    id: target
+    attributes:
+      label: 对应模块
+      description: 请填写现有学习路线、项目或功能入口。
+      placeholder: projects/01-paper-agent
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 当前问题
+      description: 说明目标用户、使用场景和现有缺口。
+    validations:
+      required: true
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: 建议交付物与验收方式
+      description: 说明准备提交什么，以及如何证明它有效。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 依据
+      description: 提供官方文档、论文、复现记录或测试结果等一手证据。
+    validations:
+      required: true
+  - type: dropdown
+    id: affiliation
+    attributes:
+      label: 是否与推荐的项目或服务存在利益关系
+      options:
+        - 否
+        - 是，已在上方完整披露
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前检查
+      options:
+        - label: 我已搜索现有 Issue，确认没有重复提案。
+          required: true
+        - label: 该建议不是单纯增加外链、广告或项目曝光。
+          required: true

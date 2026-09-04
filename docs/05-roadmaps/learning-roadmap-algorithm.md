@@ -1,3 +1,13 @@
+---
+type: 路线图
+status: 已发布
+level: 通用
+topic:
+  - 面试求职
+  - Agent
+  - 模型训练
+---
+
 # AI Agent 算法工程师学习路线图（研究型）
 
 > **目标岗位**：AI Agent 算法工程师（研究/创新型）  
@@ -285,7 +295,7 @@
 | ------ | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | 22     | 检索算法基础 (BM25)    | 教程: [BM25 from scratch](https://www.pinecone.io/learn/series/bm25/bm25-pragmatic-guide/)<br>论文: [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)                                                                                                    | 理解 TF-IDF 和 BM25 的原理，并手动实现                                 |
 | 23     | DPR 与密集检索        | 论文: [DPR](https://arxiv.org/abs/2004.04906)<br>教程: [Sentence Transformers](https://www.sbert.net/)<br>论文: [ColBERT](https://arxiv.org/abs/2004.12832)                                                                                                     | 掌握双编码器架构，并使用 Sentence Transformers 训练一个模型                  |
-| 24     | Reranker 与混合检索   | 教程: [LlamaIndex Reranking](https://docs.llamaindex.ai/en/stable/examples/node_postprocessor/CohereRerank.html)<br>论文: [Modular RAG](https://arxiv.org/pdf/2407.21059)<br>技术: [RAG Techniques](https://github.com/NirDiamant/RAG_Techniques)               | 理解 Reranker 的作用，并实现一个 BM25 + Embedding 的混合检索流程             |
+| 24     | Reranker 与混合检索   | 教程: [LlamaIndex Cohere Rerank](https://developers.llamaindex.ai/python/examples/node_postprocessor/coherererank/)<br>论文: [Modular RAG](https://arxiv.org/pdf/2407.21059)<br>技术: [RAG Techniques](https://github.com/NirDiamant/RAG_Techniques)               | 理解 Reranker 的作用，并实现一个 BM25 + Embedding 的混合检索流程             |
 | 25     | GraphRAG 技术解读    | 报告: [Microsoft GraphRAG](https://www.microsoft.com/en-us/research/project/graphrag/)<br>博客: [GraphRAG 详解](https://aka.ms/graphrag-blog)<br>实现: [LightRAG](https://github.com/HKUDS/LightRAG), [nano-GraphRAG](https://github.com/gusye1234/nano-graphrag) | 理解其基于图的社群检测、摘要和问答流程                                        |
 | 26     | RAG 评估体系         | 文档: [RAGAs 评估框架](https://docs.ragas.io/en/latest/index.html)<br>工具: [FlashRAG](https://github.com/RUC-NLPIR/FlashRAG)<br>概览: [Awesome Evaluation](https://github.com/WangRongsheng/awesome-LLM-resources#%E8%AF%84%E4%BC%B0-evaluation)                   | 学习 Faithfulness, Answer Relevancy 等 RAG 评估指标，并用 RAGAs 进行评估 |
 | 27     | Self-RAG 论文精读    | 论文: [Self-RAG](https://arxiv.org/abs/2310.11511)<br>相关: [CRAG](https://arxiv.org/abs/2401.15884), [Adaptive-RAG](https://arxiv.org/abs/2403.14403)                                                                                                        | 学习如何通过 "reflection tokens" 让 LLM 自主决定何时检索、检索什么内容           |
@@ -572,4 +582,3 @@
 ---
 
 ## 👉 返回主文档：[README.md](../../README.md)
-

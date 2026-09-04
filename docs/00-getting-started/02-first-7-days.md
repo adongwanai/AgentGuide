@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 已发布
+level: 入门
+topic:
+  - Agent
+---
+
 # First 7 Days：前 7 天学习计划
 
 > 这不是“收藏 100 个链接”的计划，而是一周内做出最小 Agent 项目骨架的执行清单。

@@ -1,3 +1,13 @@
+---
+type: 论文清单
+status: 已发布
+level: 进阶
+topic:
+  - Agent
+  - 科研
+  - 记忆
+---
+
 # Agent Memory 核心论文解读
 
 > **10篇必读论文 | 从入门到精通 AI Agent 记忆系统**

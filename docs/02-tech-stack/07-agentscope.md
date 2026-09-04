@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 待补充
+level: 入门
+topic:
+  - 框架工具
+---
+
 # AgentScope 入门
 
 > 🚧 本文档正在编写中，敬请期待...

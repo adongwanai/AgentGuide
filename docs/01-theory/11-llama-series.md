@@ -1,3 +1,12 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - 基础模型
+  - 模型训练
+---
+
 # LLaMA 系列完整深度笔记
 
 > 覆盖 LLaMA1 → LLaMA2 → CodeLlama → LLaMA3 → LLaMA4

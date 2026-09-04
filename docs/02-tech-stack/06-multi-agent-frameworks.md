@@ -1,3 +1,13 @@
+---
+type: 教程
+status: 待补充
+level: 进阶
+topic:
+  - 多智能体
+  - 框架工具
+  - Agent
+---
+
 # Multi-Agent 框架详解
 
 > 🚧 本文档正在编写中，敬请期待...

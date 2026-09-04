@@ -1,3 +1,12 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - 基础模型
+  - 模型训练
+---
+
 # DeepSeek 系列完整深度笔记
 
 > 覆盖范围：DeepSeek-V1 → V2 → V3 → R1 → Prover-V2 → V3.2 → DualPath → Engram

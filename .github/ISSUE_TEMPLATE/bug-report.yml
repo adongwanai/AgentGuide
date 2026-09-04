@@ -1,0 +1,49 @@
+name: 仓库问题
+description: 报告可复现的链接、图片、内容、网站或自动化问题
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: 感谢反馈。请提供准确位置和复现信息，方便直接验证和修复。
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 问题类型
+      options:
+        - 链接或图片失效
+        - 文档内容错误
+        - 网站功能异常
+        - 构建或自动化异常
+        - 其他核心问题
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: 问题位置
+      description: 请填写文件路径、网页地址或功能入口。
+      placeholder: docs/02-tech-stack/example.md
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤与实际结果
+      description: 写明如何触发问题，以及你实际看到的结果。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前检查
+      options:
+        - label: 我已搜索现有 Issue，确认没有重复报告。
+          required: true
+        - label: 这不是加群、泛泛咨询或第三方推广请求。
+          required: true

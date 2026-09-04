@@ -1,3 +1,12 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - 项目实战
+  - Agent
+---
+
 # AI Agent Projects & Examples
 
 > 项目区的目标不是堆 demo，而是帮助你做出能运行、能评测、能复盘、能写进简历的 Agent 项目。
@@ -9,9 +18,8 @@
 | 1 | [Paper Agent](./01-paper-agent/) | 论文检索、PDF 解析、证据引用、综述生成 |
 | 2 | [Travel Agent](./02-travel-agent/) | 多约束规划、工具组合、human-in-the-loop |
 | 3 | [Web Agent](./03-web-agent/) | 浏览器操作、截图/DOM trace、网页任务评测 |
-| 4 | [End-to-End Projects](./04-end-to-end-projects/README.md) | 高质量开源 Agent 项目导航 |
-| 5 | [Agent Workflow Projects](./05-agent-workflows/README.md) | Dify、n8n、Flowise、Coze 等 workflow 案例 |
-| 6 | [Agent Project Collections](./06-project-collections/README.md) | 更大的项目合集与灵感库 |
+
+外部开源项目与 Workflow 清单统一收录在 [resources/project-catalogs/](../resources/project-catalogs/README.md)。
 
 ## 三个主项目怎么选
 
@@ -29,3 +37,17 @@
 - 有 20 条以上 eval case。
 - README 能让别人 clone 后跑通最小 demo。
 - 简历表达能讲清楚架构、指标和 trade-off。
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [Paper Agent：论文研读与综述助手](./01-paper-agent/README.md) | 项目蓝图 | 已发布 | 进阶 | 项目实战、RAG、科研 |
+| [Travel Agent：可解释的旅行规划助手](./02-travel-agent/README.md) | 项目蓝图 | 已发布 | 进阶 | 项目实战、Agent |
+| [Web Agent：浏览器任务自动化与评测](./03-web-agent/README.md) | 项目蓝图 | 已发布 | 进阶 | 项目实战、Coding Agent、评测 |
+<!-- AUTO-GENERATED-CONTENT:END -->

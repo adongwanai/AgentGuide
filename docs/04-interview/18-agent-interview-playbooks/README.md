@@ -1,4 +1,14 @@
-﻿# AI Agent 面试备战手册合集
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - 面试求职
+  - Agent
+  - 项目实战
+---
+
+# AI Agent 面试备战手册合集
 
 > 这组资料用于把 AgentGuide 的面试题库、项目讲述和技术教程串成可复习、可表达、可追问的专题手册。
 
@@ -105,3 +115,24 @@ python docs/04-interview/examples/resume_storytelling_check.py --mode story
 - [大厂真实面经](../12-company-interview-cases.md)
 - [Agent Evaluation Harness 完全指南](../../02-tech-stack/26-agent-evaluation-harness-guide.md)
 - [Agent Memory 完整指南](../../02-tech-stack/15-agent-memory.md)
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [Agent 评测 / Benchmark 彻底备战手册（补充模块对应版）](./agent-evaluation-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、评测、Agent |
+| [Agent Harness 彻底备战手册（补充模块对应版）](./agent-harness-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [Agent Memory 彻底备战手册（补充模块对应版）](./agent-memory-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、记忆、Agent |
+| [Agent Skills / 程序性记忆 彻底备战手册（补充模块对应版）](./agent-skills-procedural-memory-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、记忆、Agent |
+| [Agentic RAG / Deep Research 彻底备战手册（补充模块对应版）](./agentic-rag-deep-research-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、RAG、Agent |
+| [Claude Code 源码分析 彻底备战手册](./claude-code-source-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Coding Agent、Agent |
+| [数据合成 / Data Pipeline 彻底备战手册（补充模块对应版）](./data-synthesis-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [Hermes Agent 自进化 彻底备战手册](./hermes-self-evolution-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+| [OpenClaw 源码分析 彻底备战手册](./openclaw-source-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Coding Agent、Agent |
+| [STAR 法则 / 面试话术 彻底备战手册](./star-storytelling-playbook.md) | 求职指南 | 已发布 | 高阶 | 面试求职、Agent |
+<!-- AUTO-GENERATED-CONTENT:END -->

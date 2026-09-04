@@ -1,3 +1,11 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - Coding Agent
+---
+
 # Claude Code 最佳实践指南
 
 > 你的 Claude Code 完整操作手册 - 从入门到精通

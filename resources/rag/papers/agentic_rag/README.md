@@ -1,3 +1,13 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - RAG
+  - 科研
+  - Agent
+---
+
 # Agentic RAG 论文汇总
 
 > 本文档汇总了 RAG 与推理、智能体结合的前沿研究论文
@@ -178,7 +188,6 @@ RAG（检索增强生成）+ 推理增强 + 智能体系统（Agentic Systems）
 
 - [RAG 资源汇总](../../README.md)
 - [RAG 论文总览](../README.md)
-- [多模态 RAG 论文](../multimodal_rag/README.md)
 
 ### 外部资源
 
@@ -249,3 +258,15 @@ RAG（检索增强生成）+ 推理增强 + 智能体系统（Agentic Systems）
 ---
 
 **⭐ 如果这个资源对你有帮助，欢迎 Star 支持！**
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [目录](./agentic_rag.md) | 论文清单 | 已发布 | 进阶 | RAG、科研 |
+<!-- AUTO-GENERATED-CONTENT:END -->
