@@ -369,7 +369,6 @@ Step 4: 其他框架按需学习
 ### AgentGuide 其他章节
 
 - [LangChain 核心概念与实战](../../docs/02-tech-stack/04-langchain-guide.md)
-- [LlamaIndex 核心概念与实战](../../docs/02-tech-stack/05-llamaindex-guide.md)
 - [AutoGen/CrewAI 多智能体框架详解](../../docs/02-tech-stack/06-multi-agent-frameworks.md)
 
 ---

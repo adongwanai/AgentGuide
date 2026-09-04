@@ -213,12 +213,7 @@ results = collection.query(query_texts=["query"], n_results=5)
 ## 📝 相关文档
 
 - [RAG 框架对比](../agent/frameworks.md)
-- [Embedding 模型选择](./embedding.md)
 - [返回 RAG 资源总览](./README.md)
-
----
-
-**👉 AgentGuide 教程**：[向量数据库实战](../../docs/02-tech-stack/09-vector-db-comparison.md)
 
 
 

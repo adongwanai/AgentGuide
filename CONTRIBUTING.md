@@ -163,7 +163,7 @@ git push origin 你的分支名
 
 为了避免重复劳动，请在开始编写前：
 
-1. 在 [Issues](https://github.com/zhangzhendong/AgentGuide/issues) 中创建一个新 Issue
+1. 在 [Issues](https://github.com/adongwanai/AgentGuide/issues) 中创建一个新 Issue
 2. 标题格式：`[认领] 章节名称`，如 `[认领] LangChain 核心概念与实战`
 3. 说明你的计划和预计完成时间
 4. 等待作者回复确认后再开始
@@ -186,9 +186,8 @@ git push origin 你的分支名
 
 如果你有任何疑问，可以通过以下方式联系作者：
 
-- 📧 邮箱：your-email@example.com
 - 💬 微信：加入社群后私信
-- 📝 提 Issue：[GitHub Issues](https://github.com/zhangzhendong/AgentGuide/issues)
+- 📝 提 Issue：[GitHub Issues](https://github.com/adongwanai/AgentGuide/issues)
 
 ---
 
