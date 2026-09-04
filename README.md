@@ -52,12 +52,13 @@
 - [💼 实战项目](#-第四步完成实战项目可写进简历) - 开源优质项目合集+N X Agent项目
 - [📖 技术教程](#-第五步系统学习-agent-技术技术准备) - LangGraph、RAG、上下文工程、监督微调、强化学习
 - [🎯 面试题库](#-第六步面试准备与-offer-冲刺) - 1500+题/面经、系统设计、编程题
+- [🔥 2026 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/) - 自进化 Agent、Agentic RL、AI Infra、Coding Agent、世界模型、图像/语音生成
 
 **🛠️ 快速导航**：
 - ⭐ 阿东作品推荐：[**learn-workbuddy**](https://github.com/adongwanai/learn-workbuddy) - 从 0 搭建 WorkBuddy-style Desktop Agent Harness，clean-room 教学复现 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计和真实模型评测
 - [🚀 10分钟快速开始](#-快速开始) | [💬 加入学习社群](#-联系作者--加入社群) | [❓ 常见问题](./FAQ.md)
 - [🧭 新手快速开始](./docs/00-getting-started/README.md) | [🧭 2026 Agent 求职路线](./docs/05-roadmaps/agent-job-ready-roadmap-2026.md) | [🛠️ Agent 项目落地方法](./docs/03-practice/05-ship-agent-project.md) | [🧩 Agent Harness Engineering](./docs/02-tech-stack/27-agent-harness-engineering.md)
-- [🔬 前沿算法完整路线](./docs/05-roadmaps/algorithm-complete-learning-guide.md) | [🤖 具身智能/VLA路线](./docs/05-roadmaps/embodied-ai-vla-learning-guide.md) | [💻 算法+AI手撕题库](./docs/04-interview/22-algorithm-ai-coding-question-bank.md) | [📋 小红书AI算法岗面经](./docs/04-interview/19-xiaohongshu-ai-algorithm-interview-bank.md)
+- [🧭 面试与求职导航](./docs/04-interview/README.md) | [🔥 2026 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/) | [💻 算法+AI手撕题库](./docs/04-interview/22-algorithm-ai-coding-question-bank.md) | [📋 小红书AI算法岗面经](./docs/04-interview/19-xiaohongshu-ai-algorithm-interview-bank.md)
 - [📄 Paper Agent](./projects/01-paper-agent/README.md) | [🧳 Travel Agent](./projects/02-travel-agent/README.md) | [🌐 Web Agent](./projects/03-web-agent/README.md) | [🖼️ Multimodal RAG](./resources/multimodal/README.md)
 
 ---
@@ -1840,6 +1841,8 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
 
 **🏢 真实面经与进阶**
 
+- [x] [🧭 面试与求职总导航](./docs/04-interview/README.md) - 按岗位选择题库，提供 7/21/42 天备考节奏与项目证据清单
+- [x] [🔥 2026 AI 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/) 🆕 - 自进化 Agent、Agentic RL、AI Infra、数据评测、Coding Agent、世界模型、图像/语音生成、项目深挖
 - [x] [📋 大厂真实面经](./docs/04-interview/12-company-interview-cases.md) - 美团/字节/阿里等16个完整案例
 - [x] [🧭 AI Agent 面试备战手册合集](./docs/04-interview/18-agent-interview-playbooks/) - Memory、Skills、Harness、评估、数据合成、源码分析与项目话术
 - [x] [📚 1000篇小红书AI算法岗面经：难度递增整合版](./docs/04-interview/19-xiaohongshu-ai-algorithm-interview-bank.md) 🆕 - 按编程、ML/DL、RAG/Agent、多模态、系统设计等难度递增整理
@@ -1932,7 +1935,7 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
   - [Agent 框架对比](./resources/agent/frameworks.md) - 5个核心框架
   - [Memory 模块](./resources/agent/memory.md) - 4个记忆系统
   - [Tool Use](./resources/tools.md) - 工具调用
-  - [GUI Agent](./resources/agent/gui-agent.md) - 界面操作
+  - [GUI Agent](./resources/agent/README.md) - AppAgent、SeeAct、WebArena 等界面操作资源
   - [核心论文](./resources/agent/papers/README.md) - 必读论文
 
 **📊 RAG 方向**：
@@ -1940,9 +1943,9 @@ AgentGuide 提供 **n 个简历级实战项目**，每个项目都提供：
   - [向量数据库](./resources/rag/vector-db.md) - 5个核心向量库
   - [文档解析](./resources/rag/document-parsing.md) - 5个解析工具
   - [完整项目汇总](./resources/rag/projects.md) - 150+个RAG开源项目 🆕
-  - [Embedding 模型](./resources/rag/embedding.md) - Embedding选型
-  - [Reranker](./resources/rag/reranker.md) - 重排序
-  - [高级RAG](./resources/rag/advanced.md) - GraphRAG、HyDE
+  - [Agentic RAG 论文](./resources/rag/papers/agentic_rag/README.md) - 智能体驱动的检索与研究
+  - [GraphRAG 论文](./resources/rag/papers/graphrag/README.md) - 图增强检索
+  - [Multimodal RAG 论文](./resources/rag/papers/multimodal_rag/README.md) - 文本与视觉联合检索
   - [核心论文](./resources/rag/papers/README.md) - 必读论文
 
 **🛠️ 通用工具**：

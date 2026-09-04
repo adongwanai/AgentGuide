@@ -95,6 +95,8 @@ python docs/04-interview/examples/resume_storytelling_check.py --mode story
 
 ## 📚 Extended Reading（扩展阅读）
 
+- [2026 AI 前沿面试专题](../23-frontier-interview-guides/) - 自进化 Agent、Agentic RL、AI Infra、Coding Agent、世界模型与多模态生成
+- [完整面试与求职导航](../README.md) - 按岗位、时间和能力层级选择复习内容
 - [AI Agent 简历编写指南](../20-resume-guide.md)
 - [AI Agent 项目讲述技巧](../21-storytelling.md)
 - [Agent 系统题](../03-agent-questions.md)
