@@ -13,14 +13,19 @@ CHANGELOG.md
 READY_TO_LAUNCH.md
 
 # ai-research-ebook 构建产物和依赖
-external/ai-research-ebook/dist/
-external/ai-research-ebook/node_modules/
-external/ai-research-ebook/.astro/
+apps/ai-research-ebook/dist/
+apps/ai-research-ebook/node_modules/
+apps/ai-research-ebook/.astro/
 
 # InterviewGuide 构建产物和依赖
-external/InterviewGuide/dist/
-external/InterviewGuide/node_modules/
-external/InterviewGuide/.astro/
+apps/InterviewGuide/dist/
+apps/InterviewGuide/node_modules/
+apps/InterviewGuide/.astro/
+
+# 部署阶段生成的资源索引、站点地图和历史构建快照
+/data/resources.json
+/sitemap.xml
+/research/
 
 # 本地 Pages 预览产物
 site-dist/

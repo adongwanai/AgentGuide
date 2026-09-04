@@ -1,3 +1,12 @@
+---
+type: 题库
+status: 已发布
+level: 高阶
+topic:
+  - 面试求职
+  - 评测
+---
+
 # AI Agent 面试题库 - 模型评估与 Agent 评估篇
 
 ## 📚 适用对象

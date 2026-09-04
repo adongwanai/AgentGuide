@@ -1,3 +1,12 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - Agent
+  - 记忆
+---
+
 # Agent Memory - 从原理到实战
 
 > **完整的 Agent 记忆系统开发指南**

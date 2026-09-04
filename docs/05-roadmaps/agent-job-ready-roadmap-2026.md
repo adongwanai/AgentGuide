@@ -1,3 +1,13 @@
+---
+type: 路线图
+status: 已发布
+level: 通用
+topic:
+  - 面试求职
+  - Agent
+  - 项目实战
+---
+
 # 2026 Agent 求职通关路线
 
 > 这是一条面向求职和项目落地的 Agent 学习路线。目标不是收藏更多链接，而是一步步做出能验证、能演示、能写进简历的作品。
@@ -98,9 +108,8 @@ while True:
 
 推荐阅读：
 
-- [RAG 全流程指南](../02-tech-stack/20-rag-full-pipeline.md)
 - [Agent Memory 系统完整指南](../02-tech-stack/15-agent-memory.md)
-- [MCP 协议详解](../02-tech-stack/14-mcp-protocol.md)
+- [MCP 协议详解](../02-tech-stack/10-mcp-protocol.md)
 
 **产出物**：一个资料研究助手，输入主题后自动搜索、筛选、总结并输出引用链接。
 
@@ -147,7 +156,6 @@ while True:
 
 推荐阅读：
 
-- [多智能体框架](../02-tech-stack/06-multi-agent-frameworks.md)
 - [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents)
 - [Anthropic: How we built our multi-agent research system](https://www.anthropic.com/engineering/built-multi-agent-research-system)
 

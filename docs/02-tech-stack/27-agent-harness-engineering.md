@@ -1,3 +1,13 @@
+---
+type: 教程
+status: 已发布
+level: 高阶
+topic:
+  - Agent
+  - 上下文工程
+  - MCP
+---
+
 # Agent Harness Engineering：把裸模型变成能干活的系统
 
 > 模型决定推理下限，Harness 决定产品上限。真正的 Agent 工程，不是只调用 LLM API，而是给模型配好工具、权限、状态、记忆、通道、反馈和评测。

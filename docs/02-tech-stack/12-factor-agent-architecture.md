@@ -1,3 +1,13 @@
+---
+type: 教程
+status: 已发布
+level: 进阶
+topic:
+  - Agent
+  - 上下文工程
+  - 项目实战
+---
+
 # 大厂都在用的12-Factor Agent架构，终于有人讲清楚了！
 ## 前言
 

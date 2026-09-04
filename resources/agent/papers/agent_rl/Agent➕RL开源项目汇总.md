@@ -1,3 +1,13 @@
+---
+type: 论文清单
+status: 已发布
+level: 进阶
+topic:
+  - Agent
+  - 科研
+  - 项目实战
+---
+
 
 
 

@@ -1,3 +1,12 @@
+---
+type: 教程
+status: 已发布
+level: 高阶
+topic:
+  - Agent
+  - 评测
+---
+
 # Agent 评估指标体系
 
 > 没有评测的 Agent 只能算 demo。Agent 评估不仅看最终答案，还要看路径、工具、证据、安全、成本和可恢复性。

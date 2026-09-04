@@ -1,4 +1,14 @@
-﻿# Claude Code 源码分析 彻底备战手册
+---
+type: 求职指南
+status: 已发布
+level: 高阶
+topic:
+  - 面试求职
+  - Coding Agent
+  - Agent
+---
+
+# Claude Code 源码分析 彻底备战手册
 > **本手册定位**：面向 AI Agent 求职与面试准备的专题复习资料，用于补充 AgentGuide 面试题库与项目讲述材料。
 > 内容以公开资料、项目复盘和工程实践方法论为基础做二次整理，建议结合自己的真实项目经历进行取舍与改写。
 

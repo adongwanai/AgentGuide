@@ -1,12 +1,21 @@
 import html
 import json
 import math
-import os
 import re
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import quote
+
+from content_metadata import (
+    PUBLIC_STATUSES,
+    has_metadata,
+    infer_metadata,
+    is_scoped_markdown,
+    parse_front_matter,
+    validate_metadata,
+)
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,38 +40,21 @@ FEATURED_PATHS = {
     "docs/06-research-frontiers/01-ai-research-directions-expanded.md",
 }
 
-TAG_RULES = [
-    ("Agent", r"\bagent(?:ic)?\b|智能体|langgraph|langchain|autogen|crewai|agent loop|harness"),
-    ("RAG", r"\brag\b|retriev|检索|embedding|rerank|向量|graphrag"),
-    ("上下文工程", r"context engineering|上下文工程|上下文管理|context window"),
-    ("Memory", r"\bmemory\b|记忆系统|长期记忆|短期记忆"),
-    ("MCP", r"\bmcp\b|model context protocol"),
-    ("评测", r"\beval|evaluation|benchmark|评测|评估|llm-as-judge|test case"),
-    ("安全", r"security|safety|sandbox|安全|权限|红队|hitl"),
-    ("模型训练", r"sft|lora|qlora|rlhf|dpo|grpo|post-training|微调|强化学习"),
-    ("多模态", r"multimodal|多模态|\bvlm\b|\bvla\b|vision language|具身智能"),
-    ("面试", r"interview|面试|手撕|题库|简历|求职|offer"),
-    ("项目实战", r"project|项目|实战|ship|毕业设计|作品集|portfolio"),
-    ("科研", r"research|paper|论文|审稿|rebuttal|实验设计"),
-    ("部署", r"vllm|sglang|serving|部署|推理优化|量化"),
-    ("框架", r"framework|框架|agentscope|camelai"),
-]
-
 CURATED_EXTERNAL = [
     {
         "id": "external-learn-workbuddy",
         "title": "learn-workbuddy",
         "description": "从 0 搭建 WorkBuddy-style Desktop Agent Harness，覆盖 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计与真实模型评测。",
         "category": "开源项目",
-        "tags": ["Agent", "项目实战", "上下文工程", "Memory", "评测"],
+        "tags": ["Agent", "项目实战", "上下文工程"],
         "level": "进阶",
-        "type": "开源项目",
+        "type": "项目蓝图",
         "url": "https://github.com/adongwanai/learn-workbuddy",
         "sourcePath": "",
         "date": "2026-07-27",
         "readingMinutes": 0,
         "wordCount": 0,
-        "status": "已完善",
+        "status": "已发布",
         "featured": True,
         "external": True,
     },
@@ -73,13 +65,13 @@ CURATED_EXTERNAL = [
         "category": "资源合集",
         "tags": ["科研", "项目实战"],
         "level": "进阶",
-        "type": "专题站",
+        "type": "研究专题",
         "url": f"{SITE_ROOT}/research/",
         "sourcePath": "",
         "date": "2026-07-27",
         "readingMinutes": 0,
         "wordCount": 0,
-        "status": "已完善",
+        "status": "已发布",
         "featured": True,
         "external": False,
     },
@@ -88,15 +80,15 @@ CURATED_EXTERNAL = [
         "title": "InterviewGuide AI 面经题库",
         "description": "按公司、知识点和频次筛选的 AI 算法与大模型面试题库，支持收藏、进度和高频优先。",
         "category": "面试求职",
-        "tags": ["面试", "模型训练", "多模态", "Agent"],
+        "tags": ["面试求职", "模型训练", "Agent"],
         "level": "进阶",
-        "type": "专题站",
+        "type": "题库",
         "url": f"{SITE_ROOT}/interview/",
         "sourcePath": "",
         "date": "2026-07-27",
         "readingMinutes": 0,
         "wordCount": 0,
-        "status": "已完善",
+        "status": "已发布",
         "featured": True,
         "external": False,
     },
@@ -200,42 +192,6 @@ def category_for_path(rel):
     return "其他"
 
 
-def type_for_path(rel, title):
-    lowered = f"{rel} {title}".lower()
-    if rel.startswith("projects/"):
-        return "项目"
-    if rel.startswith("resources/"):
-        return "论文清单" if "paper" in lowered or "论文" in title else "资源清单"
-    if "/04-interview/" in f"/{rel}":
-        return "题库" if re.search(r"题|question|coding|interview-bank", lowered) else "求职指南"
-    if "/05-roadmaps/" in f"/{rel}":
-        return "路线图"
-    if "/06-research-frontiers/" in f"/{rel}":
-        return "研究专题"
-    if "/03-practice/" in f"/{rel}":
-        return "实战指南"
-    if "/00-getting-started/" in f"/{rel}":
-        return "入门指南"
-    if "/01-theory/" in f"/{rel}":
-        return "原理教程"
-    return "深度教程"
-
-
-def level_for_text(rel, title, md):
-    sample = f"{rel} {title} {md[:1600]}".lower()
-    if re.search(r"入门|基础|从零|第一周|7天|7 天|what is|getting.started|概念", sample):
-        return "入门"
-    if re.search(r"高阶|高级|生产级|系统设计|源码|benchmark|评测|安全|强化学习|post.training|完整指南|deep.dive|专项", sample):
-        return "高阶"
-    return "进阶"
-
-
-def tags_for_text(rel, title, md):
-    sample = f"{rel} {title} {md[:8000]}".lower()
-    tags = [name for name, pattern in TAG_RULES if re.search(pattern, sample, re.IGNORECASE)]
-    return tags[:5] or [category_for_path(rel)]
-
-
 def content_stats(md):
     without_code = re.sub(r"```.*?```", " ", md, flags=re.DOTALL)
     plain = clean_inline(without_code)
@@ -244,18 +200,25 @@ def content_stats(md):
     return word_count, max(1, math.ceil(word_count / 400))
 
 
-def status_for_text(md, word_count):
-    has_placeholder = bool(re.search(r"正在编写中|敬请期待|TODO|待补充|待完善", md, re.IGNORECASE))
-    return "建设中" if has_placeholder and word_count < 800 else "已完善"
-
-
 _GIT_DATE_CACHE = {}
 
 
 def _git_date_uncached(path):
     try:
+        relative = str(path.relative_to(ROOT))
+        dirty = subprocess.run(
+            ["git", "status", "--porcelain", "--", relative],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        if dirty.stdout.strip():
+            # Pre-commit generation must match the date that git log will expose
+            # after the content change is committed (dates are day-granular here).
+            return datetime.now().strftime("%Y-%m-%d")
         result = subprocess.run(
-            ["git", "log", "-1", "--format=%cs", "--", str(path.relative_to(ROOT))],
+            ["git", "log", "-1", "--format=%cs", "--", relative],
             cwd=ROOT,
             check=False,
             capture_output=True,
@@ -298,7 +261,27 @@ def collect_resources():
             continue
         for path in sorted(base.rglob("*.md")):
             rel = path.relative_to(ROOT).as_posix()
-            md = read_text(path)
+            if not is_scoped_markdown(rel):
+                continue
+            raw_md = read_text(path)
+            metadata, md = parse_front_matter(raw_md)
+            inferred = infer_metadata(rel, md)
+            if not has_metadata(metadata):
+                print(
+                    f"WARNING: {rel}: metadata missing or incomplete; using fallback inference",
+                    file=sys.stderr,
+                )
+            illegal = [
+                message
+                for message in validate_metadata(metadata)
+                if not message.startswith("missing fields:")
+            ]
+            if illegal:
+                raise ValueError(f"{rel}: {'; '.join(illegal)}")
+            resolved_metadata = {**inferred, **metadata}
+            if resolved_metadata["status"] not in PUBLIC_STATUSES:
+                continue
+
             title = first_heading(md, path.stem)
             word_count, reading_minutes = content_stats(md)
             item = {
@@ -306,15 +289,15 @@ def collect_resources():
                 "title": title,
                 "description": first_paragraph(md),
                 "category": category_for_path(rel),
-                "tags": tags_for_text(rel, title, md),
-                "level": level_for_text(rel, title, md),
-                "type": type_for_path(rel, title),
+                "tags": resolved_metadata["topic"],
+                "level": resolved_metadata["level"],
+                "type": resolved_metadata["type"],
                 "url": build_url(rel),
                 "sourcePath": rel,
                 "date": git_date(path),
                 "readingMinutes": reading_minutes,
                 "wordCount": word_count,
-                "status": status_for_text(md, word_count),
+                "status": resolved_metadata["status"],
                 "featured": rel in FEATURED_PATHS,
                 "external": False,
             }
@@ -324,7 +307,7 @@ def collect_resources():
     items.sort(
         key=lambda item: (
             not item["featured"],
-            item["status"] != "已完善",
+            item["status"] != "已发布",
             -int(item["date"].replace("-", "")),
             item["title"].lower(),
         )
@@ -341,11 +324,11 @@ def sitemap_urls():
     """
     site_date = git_date(ROOT / "index.html")
 
-    research_content = ROOT / "external/ai-research-ebook/src/content/docs"
+    research_content = ROOT / "apps/ai-research-ebook/src/content/docs"
     research_pages = sorted(research_content.rglob("*.mdx")) if research_content.exists() else []
     research_date = newest_git_date(research_pages, site_date)
 
-    interview_data = ROOT / "external/InterviewGuide/src/data"
+    interview_data = ROOT / "apps/InterviewGuide/src/data"
     questions_path = interview_data / "questions.json"
     categories_path = interview_data / "categories.json"
     companies_path = interview_data / "companies.json"

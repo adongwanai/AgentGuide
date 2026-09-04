@@ -1,3 +1,13 @@
+---
+type: 路线图
+status: 已发布
+level: 通用
+topic:
+  - 面试求职
+  - 基础模型
+  - Agent
+---
+
 
 # 🚀 大模型 / Agent 全栈学习路线
 

@@ -1,3 +1,12 @@
+---
+type: 入口页
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 科研
+---
+
 # Agent RL Papers
 
 强化学习用于智能体决策的论文与开源项目。
@@ -9,3 +18,15 @@
 ---
 
 **👉 返回**：[Agent Papers](../README.md) ｜ [Agent 资源总览](../../README.md)
+
+---
+
+<!-- AUTO-GENERATED-CONTENT:START -->
+## 完整内容索引
+
+<!-- 下表由元数据生成，请勿手工编辑。 -->
+
+| 文档 | 类型 | 状态 | 难度 | 主题 |
+|:---|:---|:---|:---|:---|
+| [引言](./Agent➕RL开源项目汇总.md) | 论文清单 | 已发布 | 进阶 | Agent、科研、项目实战 |
+<!-- AUTO-GENERATED-CONTENT:END -->

@@ -1222,7 +1222,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 | **A2A** | Agent-to-Agent | 智能体间协作通信 | Multi-Agent 系统、任务分发 |
 | **ANP** | Agent Negotiation Protocol | 智能体协商与共识 | 资源分配、冲突解决 |
 
-📖 [协议详解：MCP 完全指南](./docs/02-tech-stack/14-mcp-protocol.md)
+📖 [协议详解：MCP 完全指南](./docs/02-tech-stack/10-mcp-protocol.md)
 
 </td>
 </tr>
@@ -1532,9 +1532,9 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 **项目核心**：整理分享一些优质的 Agent 实战开源项目、Workflow 项目与 Agent 项目集合
 
 **包含内容**：
-- [优质 Agent 实战开源项目](./projects/04-end-to-end-projects/README.md)
-- [优质 Workflow 项目](./projects/05-agent-workflows/README.md)
-- [优质 Agent 项目集合](./projects/06-project-collections/README.md)
+- [优质 Agent 实战开源项目](./resources/project-catalogs/end-to-end-agent-projects.md)
+- [优质 Workflow 项目](./resources/project-catalogs/agent-workflows.md)
+- [优质 Agent 项目集合](./resources/project-catalogs/agent-project-collections.md)
 
 </details>
 
@@ -1924,12 +1924,10 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 **📊 RAG 方向**：
 - [x] [RAG 资源总览 📂](./resources/rag/) - RAG 所有资源导航
-  - [向量数据库](./resources/rag/vector-db.md) - 5个核心向量库
+  - [向量数据库](./docs/02-tech-stack/29-vector-database-selection.md) - 5个核心向量库
   - [文档解析](./resources/rag/document-parsing.md) - 5个解析工具
   - [完整项目汇总](./resources/rag/projects.md) - 150+个RAG开源项目 🆕
   - [Agentic RAG 论文](./resources/rag/papers/agentic_rag/README.md) - 智能体驱动的检索与研究
-  - [GraphRAG 论文](./resources/rag/papers/graphrag/README.md) - 图增强检索
-  - [Multimodal RAG 论文](./resources/rag/papers/multimodal_rag/README.md) - 文本与视觉联合检索
   - [核心论文](./resources/rag/papers/README.md) - 必读论文
 
 **🛠️ 通用工具**：

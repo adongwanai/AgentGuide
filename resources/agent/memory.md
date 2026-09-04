@@ -1,3 +1,12 @@
+---
+type: 资源清单
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 记忆
+---
+
 # Agent Memory 资源精选
 
 > Agent 记忆模块相关的核心资源

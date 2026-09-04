@@ -1,3 +1,13 @@
+---
+type: 资源清单
+status: 已发布
+level: 通用
+topic:
+  - Agent
+  - 多智能体
+  - 框架工具
+---
+
 # Agent 开发框架对比
 
 > **只推荐最核心的 5-7 个框架**（面试会问、项目会用的）
@@ -364,12 +374,10 @@ Step 4: 其他框架按需学习
 
 - [Agent 资源总览](./README.md)
 - [Agent Memory 资源](./memory.md)
-- [AI Agent 生产环境实践](./ai-agent-production-challenges.md)
+- [AI Agent 生产环境实践](../../docs/03-practice/06-agent-production-challenges.md)
 
 ### AgentGuide 其他章节
 
-- [LangChain 核心概念与实战](../../docs/02-tech-stack/04-langchain-guide.md)
-- [AutoGen/CrewAI 多智能体框架详解](../../docs/02-tech-stack/06-multi-agent-frameworks.md)
 
 ---
 

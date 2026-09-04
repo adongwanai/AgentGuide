@@ -1,3 +1,12 @@
+---
+type: 教程
+status: 已发布
+level: 高阶
+topic:
+  - Agent
+  - 安全
+---
+
 # Parlant：如何让AI Agent真正"靠谱"？深度解析Agent合规保障方案
 
 > 作为大模型算法工程师，今天和大家聊聊AI Agent在生产环境中最头疼的问题：如何保证Agent不"出格"？
