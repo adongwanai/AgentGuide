@@ -563,6 +563,29 @@
     "external": false
   },
   {
+    "id": "doc-docs-04-interview-18-agent-interview-playbooks-readme-md",
+    "title": "📌 Section Goals（本节目标）",
+    "description": "﻿# AI Agent 面试备战手册合集。",
+    "category": "面试求职",
+    "tags": [
+      "Agent",
+      "RAG",
+      "Memory",
+      "评测",
+      "多模态"
+    ],
+    "level": "入门",
+    "type": "求职指南",
+    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/04-interview/18-agent-interview-playbooks/README.md",
+    "sourcePath": "docs/04-interview/18-agent-interview-playbooks/README.md",
+    "date": "2026-09-04",
+    "readingMinutes": 3,
+    "wordCount": 879,
+    "status": "已完善",
+    "featured": false,
+    "external": false
+  },
+  {
     "id": "doc-docs-02-tech-stack-15-agent-memory-md",
     "title": "Agent Memory - 从原理到实战",
     "description": "完整的 Agent 记忆系统开发指南。",
@@ -787,29 +810,6 @@
     "date": "2026-08-04",
     "readingMinutes": 7,
     "wordCount": 2785,
-    "status": "已完善",
-    "featured": false,
-    "external": false
-  },
-  {
-    "id": "doc-docs-04-interview-18-agent-interview-playbooks-readme-md",
-    "title": "📌 Section Goals（本节目标）",
-    "description": "﻿# AI Agent 面试备战手册合集。",
-    "category": "面试求职",
-    "tags": [
-      "Agent",
-      "RAG",
-      "Memory",
-      "评测",
-      "多模态"
-    ],
-    "level": "入门",
-    "type": "求职指南",
-    "url": "https://github.com/adongwanai/AgentGuide/blob/main/docs/04-interview/18-agent-interview-playbooks/README.md",
-    "sourcePath": "docs/04-interview/18-agent-interview-playbooks/README.md",
-    "date": "2026-08-04",
-    "readingMinutes": 3,
-    "wordCount": 879,
     "status": "已完善",
     "featured": false,
     "external": false
