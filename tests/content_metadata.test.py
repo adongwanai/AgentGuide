@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import json
 import re
 import sys
 from pathlib import Path
@@ -23,6 +22,7 @@ from content_metadata import (  # noqa: E402
     read_text,
     validate_metadata,
 )
+from generate_resources import collect_resources  # noqa: E402
 
 
 EXPECTED_BACKLOG = {
@@ -118,7 +118,7 @@ def main() -> int:
         if actual != expected_type:
             errors.append(f"{rel}: expected type {expected_type}, got {actual}")
 
-    resources = json.loads(read_text(ROOT / "data/resources.json"))
+    resources = collect_resources()
     first_party = [item for item in resources if item.get("sourcePath")]
     public_paths = {item["sourcePath"] for item in first_party}
     leaked = hidden_paths & public_paths
