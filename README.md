@@ -27,6 +27,19 @@
 
 ---
 
+## 🧭 按目标进入
+
+先选择你这次来想完成的目标，再进入对应导航。
+
+| 目标 | 从这里开始 | 你会找到什么 |
+| :-- | :-- | :-- |
+| 系统学习 | [学习路线选择器](./docs/05-roadmaps/README.md) | 先判断基础，再选择开发岗或算法岗主线 |
+| 做项目 | [项目导航](./projects/README.md) | 项目蓝图、实现步骤与评测方法 |
+| 准备面试 | [面试与求职导航](./docs/04-interview/README.md) | 面试题库、岗位专项、简历与项目表达 |
+| 科研探索 | [科研前沿入口](./docs/06-research-frontiers/README.md) | 研究方向、问题拆解与专题扩展 |
+
+**按技术主题查找**：[文档总导航](./docs/README.md) — 已有具体问题时，按基础理论、技术栈、实践等主题查找内容。
+
 ## 💡 核心理念
 
 > **📌 本项目定位：资源整合 + 系统化路径 + 实战导向**
@@ -39,33 +52,23 @@
 >
 > 💪 **AgentGuide 的独特价值**：不是简单的资源堆砌，而是**系统化 + 求职导向 + 实战验证**的完整解决方案！
 
-## 🧭 按目标进入
-
-| 🛠️ 开发岗路线 | 🔬 算法岗路线 | 🔥 科研前沿专题 |
-| :-- | :-- | :-- |
-| 面向工程落地与系统实践 | 面向原理、算法与实验能力 | 面向 Agent 前沿研究方向 |
-| [进入开发岗学习路线](./docs/05-roadmaps/learning-roadmap-development.md) | [进入算法岗学习路线](./docs/05-roadmaps/learning-roadmap-algorithm.md) | [进入科研前沿专题](./docs/06-research-frontiers/README.md) |
-
-[📚 查看完整文档导航](./docs/README.md)
-
 ## 📑 目录
 
-**🎯 核心内容**：
+**🎯 本页内容与相关专题**（求职准备和技术参考，按需阅读）：
 - [💡 关于本项目](#-关于本项目) - Agent开发指南、转行大模型、高级RAG、大模型面试
 - [🆕 求职新范式](#-求职新范式做出什么--学过什么) - 1-2-5框架、个人品牌、投递策略
-- [🧭 Agent 求职通关 Todo List](#-agent-求职通关-todo-list新增) - 当前优先级、8阶段学习产出、项目落地5步法
-- [🚦 6步学习路径](#-从零到offer的完整路径快速导航) - 从岗位选择到拿Offer
+- [🧭 Agent 求职通关 Todo List](#-agent-求职通关-todo-list新增) - 检查8阶段产出、项目落地与面试表达
+- [🚦 6步求职准备参考](#-从零到offer的完整路径快速导航) - 串联岗位选择、项目与面试
 - [🔬 算法岗 vs 🛠️ 开发岗](#-第一步确定你的目标岗位) - 岗位选择决策树
-- [📚 学习路线图](#-第三步基于岗位的学习路线) - 算法岗10-15周 | 开发岗8-12周
+- [📚 本页岗位路线概览](#-第三步基于岗位的学习路线) - 算法岗10-15周 | 开发岗8-12周
 - [💼 实战项目](#-第四步完成实战项目可写进简历) - 开源优质项目合集 + Agent 项目
 - [📖 技术教程](#-第五步系统学习-agent-技术技术准备) - LangGraph、RAG、上下文工程、监督微调、强化学习
 - [🎯 面试题库](#-第六步面试准备与-offer-冲刺) - 1500+题/面经、系统设计、编程题
 - [🔥 2026 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/) - 自进化 Agent、Agentic RL、AI Infra、Coding Agent、世界模型、图像/语音生成
 
-**🛠️ 快速导航**：
+**🛠️ 新手与帮助**：
 - ⭐ 阿东作品推荐：[**learn-workbuddy**](https://github.com/adongwanai/learn-workbuddy) - 从 0 搭建 WorkBuddy-style Desktop Agent Harness，clean-room 教学复现 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计和真实模型评测
-- [🚀 10分钟快速开始](#-快速开始) | [💬 加入学习社群](#-联系作者--加入社群) | [❓ 常见问题](./FAQ.md)
-- [🧭 新手快速开始](./docs/00-getting-started/README.md) | [📚 完整文档导航](./docs/README.md) | [💼 项目导航](./projects/README.md)
+- [🧭 新手导航](./docs/00-getting-started/README.md) | [🚀 本页快速开始](#-快速开始) | [💬 加入学习社群](#-联系作者--加入社群) | [❓ 常见问题](./FAQ.md)
 
 ---
 
@@ -255,7 +258,7 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 
 ## 🚦 从零到Offer的完整路径（快速导航）
 
-> **👋 新来的同学看这里！先看新范式，再按步骤执行，8-10周拿到Offer！**
+> **本节用途：求职准备参考。** 六步串联岗位选择、准备方法、项目与面试，可在确定学习主线后按需对照。首次接触 Agent 请先进入[新手导航](./docs/00-getting-started/README.md)；选择学习主线请进入[学习路线选择器](./docs/05-roadmaps/README.md)。
 
 <table>
 <tr>
@@ -290,7 +293,7 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 
 **📚 第三步**
 
-[学习路线](#-第三步基于岗位的学习路线)
+[学习路线](./docs/05-roadmaps/README.md)
 
 学什么？
 
@@ -308,7 +311,7 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 
 **🎓 第五步**
 
-[系统学习](#-第五步系统学习-agent-技术技术准备)
+[技术内容参考](#-第五步系统学习-agent-技术技术准备)
 
 技术细节
 
@@ -406,11 +409,13 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 
 ## 🧭 Agent 求职通关 Todo List（新增）
 
+> **本节用途：求职产出检查。** 选定主线后，用下面的阶段产出、项目落地步骤与表达方法查漏补缺；不必把它作为另一条必修主线重新学习。
+
 > **不是链接收藏夹，是可以照着执行的 todo list。**
 >
 > 目标很简单：从“我学过什么”，推进到“我做出了什么、怎么验证、怎么写进简历、怎么讲给面试官听”。
 
-- 完整路线：[2026 Agent 求职通关路线](./docs/05-roadmaps/agent-job-ready-roadmap-2026.md)
+- 完整产出检查材料：[2026 Agent 求职通关路线](./docs/05-roadmaps/agent-job-ready-roadmap-2026.md)
 - 项目落地方法：[如何落地一个可写进简历的 Agent 项目](./docs/03-practice/05-ship-agent-project.md)
 - 工程核心专题：[Agent Harness Engineering](./docs/02-tech-stack/27-agent-harness-engineering.md)
 
@@ -418,11 +423,11 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 
 | 你的状态 | 建议入口 |
 |:---|:---|
-| **零基础** | 从 [6步学习路径](#-从零到offer的完整路径快速导航) 开始，先建立 Agent / Workflow / RAG / Multi-Agent 的坐标系 |
+| **第一次接触 Agent** | 从[新手导航](./docs/00-getting-started/README.md)的“学习地图 → 七日计划”开始，先建立 Agent / Workflow / RAG / Multi-Agent 的坐标系 |
 | **会 LLM 应用** | 重点补 Agent Loop、Tool Use、Context Engineering、Eval，不要只停留在 API 调用 |
-| **想做项目** | 直接进入 [实战项目](#-第四步完成实战项目可写进简历)，按“Spec → Coding → Eval → 复盘”推进 |
-| **准备面试** | 对照 [面试题库](#-第六步面试准备与-offer-冲刺)，重点准备 Agent Loop、工具设计、记忆、评测、可靠性 |
-| **只想找资料** | 看 [技术教程](#-第五步系统学习-agent-技术技术准备) 和 [资源导航](./docs/README.md#项目与资源)，优先读官方文档、工程博客和可运行项目 |
+| **做项目** | 进入[项目导航](./projects/README.md)，按“Spec → Coding → Eval → 复盘”推进 |
+| **准备面试** | 进入[面试与求职导航](./docs/04-interview/README.md)，重点准备 Agent Loop、工具设计、记忆、评测、可靠性 |
+| **只想找资料** | 看[文档总导航](./docs/README.md)和[项目与资源](./docs/README.md#项目与资源)，优先读官方文档、工程博客和可运行项目 |
 
 ### What To Learn Now
 
@@ -438,6 +443,8 @@ Agent 方向变化很快，当前更值得投入的是能落地、能验证、�
 | 6 | **Evaluation / Observability / Safety** | 没有 eval、trace、权限边界的 Agent，只能算 demo，不能算可交付系统 |
 
 ### 8 阶段学习产出
+
+按已有产出检查缺项，需要时回到所选主线补齐；各阶段是求职准备的检查项。
 
 | 阶段 | 学什么 | 产出物 |
 |:---:|:---|:---|
@@ -828,18 +835,21 @@ Agent 方向变化很快，当前更值得投入的是能落地、能验证、�
 
 ## 📚 第三步：基于岗位的学习路线
 
-> **根据你在"第一步"的选择，选择对应的学习路线**
+> 本节保留两类岗位的路线概览。系统学习请先进入[学习路线选择器](./docs/05-roadmaps/README.md)，按基础选择起点，再确定一条主线。
 
 ### 🎯 快速导航
 
 **🚀 新手推荐**：
-- 📘 [**AgentGuide开源学习路线（简易版）**](./docs/05-roadmaps/AgentGuide开源学习路线（简易版本）.md) - **从零到Offer完整路径**，8-15周系统化学习方案，包含完整资源清单 ⭐⭐⭐
+- [新手导航](./docs/00-getting-started/README.md) — 第一次接触 Agent，按“学习地图 → 七日计划”开始；实践需要基本编程和 API 知识。
 
-**🔬 算法 / 具身方向新增**：
+**📘 总览参考（可选）**：
+- [AgentGuide开源学习路线（简易版）](./docs/05-roadmaps/AgentGuide开源学习路线（简易版本）.md) — 浏览整体知识范围与资源清单；具体学习顺序以选定主线为准。
+
+**🔬 算法 / 具身专项扩展（按需阅读）**：
 - 🧠 [前沿算法岗位完整学习指南](./docs/05-roadmaps/algorithm-complete-learning-guide.md) - 覆盖算法岗从工程基础、模型训练、RAG/Agent、多模态到推理部署的完整能力栈
 - 🤖 [具身智能与 VLA 完整学习指南](./docs/05-roadmaps/embodied-ai-vla-learning-guide.md) - 面向 VLA/机器人岗位的多模态、动作建模、仿真、Sim2Real 与数据闭环路线
 
-**📋 详细路线**（按岗位分）：
+**📋 两条主线**（已有 Agent 基础后，按目标岗位选一条）：
 
 ### 🗺️ 选择你的学习路线
 
@@ -1945,6 +1955,8 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 ## 🚀 快速开始
 
+第一次接触 Agent，请从[新手导航](./docs/00-getting-started/README.md)按“学习地图 → 七日计划”开始。下面保留按背景选读概念的短入口；准备系统学习时，进入[学习路线选择器](./docs/05-roadmaps/README.md)选择主线。
+
 ### 1️⃣ 如果你是算法背景（10 分钟快速入门）
 
 ```bash
@@ -2070,7 +2082,7 @@ GitHub Issues 仅用于可复现的仓库问题和有明确交付物的核心改
     </p>
     <br/>
     <p>
-        <a href="#-快速开始"><strong>👉 点击这里，10分钟快速上手 👈</strong></a>
+        <a href="./docs/00-getting-started/README.md"><strong>👉 从新手导航开始 👈</strong></a>
     </p>
     <br/>
     <p>

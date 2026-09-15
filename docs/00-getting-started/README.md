@@ -13,13 +13,17 @@ topic:
 
 很多人学 Agent 会卡在两个地方：一是把 Agent 当成“更长的 prompt”，二是看了一堆框架教程却没有可验证产出。这个目录负责解决第一公里问题：先建立地图，再动手做最小项目，最后用评测和复盘把项目变成作品。
 
+**实践前需要的基础**：能阅读和修改基本程序，理解 API 的请求与响应，并能完成一次模型 API 调用。如果还不熟悉这些内容，可以先读学习地图建立概念，再补齐编程和 API 基础后执行七日计划。
+
 ## 入口顺序
+
+第一次接触 Agent，按“**学习地图 → 七日计划**”开始；筛选清单用于后续挑选资源，按需查阅。
 
 | 顺序 | 文档 | 你会得到什么 |
 |:---:|:---|:---|
 | 1 | [Agent 学习地图](./01-agent-map.md) | 区分 chatbot、workflow、agent、multi-agent、coding agent、computer-use agent |
 | 2 | [前 7 天学习计划](./02-first-7-days.md) | 每天学什么、做什么、交付什么 |
-| 3 | [高质量资源筛选清单](./03-resource-quality-checklist.md) | 判断一个 GitHub 项目/教程/论文是否值得投入时间 |
+| 按需 | [高质量资源筛选清单](./03-resource-quality-checklist.md) | 判断一个 GitHub 项目/教程/论文是否值得投入时间 |
 
 ## 一张图看学习路径
 
@@ -34,6 +38,15 @@ topic:
 3. **补 trace 和 eval**：记录每一步，并用 20 条 case 评估成功率。
 4. **最后做项目包装**：写 README、架构图、失败分析和简历表达。
 
+## 完成入门后去哪里
+
+完成学习地图与七日计划，能解释 workflow 与 agent 的区别，并做出带基本评测的最小项目后，返回[学习路线选择器](../05-roadmaps/README.md)选择一条主线：
+
+- **开发岗主线**：继续学习应用搭建、工具与数据接入、工程交付。
+- **算法岗主线**：继续学习模型原理、训练方法与实验评估。
+
+先沿所选主线推进，再按需查阅总览、求职检查或专项扩展资料。
+
 ## 必读外部资料
 
 - [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)：非常适合建立 workflow 和 agent 的边界感。
@@ -44,9 +57,9 @@ topic:
 
 ## 本目录适合谁
 
-- 完全新手：先读 `01-agent-map.md`，不要急着装框架。
-- 已会 API 调用：直接读 `02-first-7-days.md`，把 toy demo 推到有 eval 的项目。
-- 准备求职：重点读 `03-resource-quality-checklist.md` 和 `projects/` 下三个项目蓝图。
+- 第一次接触 Agent：先读[学习地图](./01-agent-map.md)，不要急着装框架。
+- 已理解基本概念并会 API 调用：进入[七日计划](./02-first-7-days.md)，把 toy demo 推到有 eval 的项目。
+- 准备求职：用[资源筛选清单](./03-resource-quality-checklist.md)和[项目导航](../../projects/README.md)中的三个项目蓝图挑选实践材料。
 - 仓库维护者：查看 [内容 Backlog](../../BACKLOG.md)，按原路径继续补空缺内容。
 
 ---

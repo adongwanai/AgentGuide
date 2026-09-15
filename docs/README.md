@@ -10,19 +10,24 @@ topic:
 
 # AgentGuide 文档导航
 
-> 本页只整理现有内容入口。按目标选择路线，或按主题查找文档。
+> 按目标进入对应导航，或按技术主题查找具体文档。系统学习的起点与主线统一在[学习路线选择器](./05-roadmaps/README.md)中选择。
 
 ## 按目标进入
 
-| 目标 | 学习路线 | 实践与面试 |
+| 目标 | 从这里开始 | 你会找到什么 |
 | :-- | :-- | :-- |
-| 🛠️ 开发岗 | [开发工程师学习路线](./05-roadmaps/learning-roadmap-development.md) | [Agent 项目落地方法](./03-practice/05-ship-agent-project.md) · [开发岗专项](./04-interview/06-development-specialized.md) |
-| 🔬 算法岗 | [算法工程师学习路线](./05-roadmaps/learning-roadmap-algorithm.md) | [前沿算法岗位指南](./05-roadmaps/algorithm-complete-learning-guide.md) · [算法岗专项](./04-interview/05-algorithm-specialized.md) |
-| 🔥 科研前沿 | [AI 研究方向专题](./06-research-frontiers/README.md) | [研究方向扩展](./06-research-frontiers/01-ai-research-directions-expanded.md) · [前沿面试专题](./04-interview/23-frontier-interview-guides/README.md) |
+| 系统学习 | [学习路线选择器](./05-roadmaps/README.md) | 判断基础，选择开发岗或算法岗主线 |
+| 做项目 | [项目导航](../projects/README.md) | 项目蓝图、实现步骤与评测方法 |
+| 准备面试 | [面试与求职导航](./04-interview/README.md) | 题库、岗位专项、简历与项目表达 |
+| 科研探索 | [科研前沿入口](./06-research-frontiers/README.md) | 研究方向与专题扩展 |
+
+## 按技术主题查找
+
+下面按主题列出内容入口，供查找和回查，不代表学习顺序。首次接触 Agent，可先进入[新手导航](./00-getting-started/README.md)；需要系统学习时，使用上方的学习路线选择器。
 
 ## 快速开始
 
-- [快速开始总览](./00-getting-started/README.md)
+- [新手导航](./00-getting-started/README.md)
 - [Agent 学习地图](./00-getting-started/01-agent-map.md)
 - [前 7 天学习计划](./00-getting-started/02-first-7-days.md)
 - [高质量资源筛选清单](./00-getting-started/03-resource-quality-checklist.md)
@@ -94,13 +99,7 @@ topic:
 
 ## 学习路线
 
-- [学习路线目录](./05-roadmaps/README.md)
-- [2026 Agent 求职通关路线](./05-roadmaps/agent-job-ready-roadmap-2026.md)
-- [AgentGuide 开源学习路线（简易版）](./05-roadmaps/AgentGuide开源学习路线（简易版本）.md)
-- [开发岗详细路线](./05-roadmaps/learning-roadmap-development.md)
-- [算法岗详细路线](./05-roadmaps/learning-roadmap-algorithm.md)
-- [前沿算法岗位完整学习指南](./05-roadmaps/algorithm-complete-learning-guide.md)
-- [具身智能与 VLA 完整学习指南](./05-roadmaps/embodied-ai-vla-learning-guide.md)
+进入[学习路线选择器](./05-roadmaps/README.md)，先判断是否需要新手入门，再从开发岗、算法岗两条主线中选一条。简版总览、求职产出检查、前沿算法与 VLA 专项的使用时机也在该页说明；下方完整索引保留各篇文档的直接入口。
 
 ## 科研前沿
 
