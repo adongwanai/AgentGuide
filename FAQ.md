@@ -271,9 +271,8 @@ Step 3: 开始 AgentGuide 学习（6-8周）
    ```
 
 2. **检查依赖安装**
-   ```bash
-   pip install -r requirements.txt
-   ```
+   - 先进入你正在运行的示例项目目录，查看该项目的 README 和依赖说明；本仓库根目录没有统一的 `requirements.txt`。
+   - 如果示例项目提供 `requirements.txt`，请在该文件所在目录运行 `python -m pip install -r requirements.txt`。不同示例的依赖可能不同，可从[项目导航](./projects/README.md)找到对应项目。
 
 3. **检查 API Key**
    - OpenAI API Key 是否配置
