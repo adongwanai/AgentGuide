@@ -76,7 +76,7 @@ Agent Workflow 是指将多个 Agent 或 AI 组件按照特定的流程编排起
 
 **简介**：n8n社区节点，支持获取YouTube视频字幕、搜索视频、列出频道和播放列表视频，可直接作为n8n AI Agent的工具调用，仓库内附带示例工作流"Summarize a YouTube video with AI"。
 
-**技术栈**：n8n、YouTube Data、REST API
+**技术栈**：n8n、TypeScript、REST API
 
 **适合人群**：需要处理YouTube内容的自动化工程师、AI Agent开发者、内容分析人员
 
