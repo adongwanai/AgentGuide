@@ -72,6 +72,22 @@ Agent Workflow 是指将多个 Agent 或 AI 组件按照特定的流程编排起
 
 ---
 
+### [GetYouTubeTranscript n8n节点](https://github.com/tubeagentkit/n8n-nodes-getyoutubetranscript)
+
+**简介**：n8n社区节点，支持获取YouTube视频字幕、搜索视频、列出频道和播放列表视频，可直接作为n8n AI Agent的工具调用，仓库内附带示例工作流"Summarize a YouTube video with AI"。
+
+**技术栈**：n8n、TypeScript、REST API
+
+**适合人群**：需要处理YouTube内容的自动化工程师、AI Agent开发者、内容分析人员
+
+**亮点**：
+- 支持字幕获取、视频搜索、频道/播放列表视频列举
+- 可直接作为n8n AI Agent的工具节点调用
+- 附带AI视频总结示例工作流
+- 需要API Key，免费额度100次调用（无需信用卡）
+
+---
+
 ### [AI Agent 500+行业案例集](https://github.com/ashishpatel26/500-AI-Agents-Projects)
 
 **简介**：收集超过500个AI Agent在各行业的应用案例，覆盖医疗、金融、教育、营销等领域，附带开源项目链接和完整实现思路。
