@@ -398,6 +398,7 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 | **hello-agents（Datawhale）** | 《从零开始构建智能体》，16章，含MCP实战、DeepResearch复现、多Agent协同 | [GitHub](https://github.com/datawhalechina/hello-agents) |
 | **OpenClaw** | 生产级个人AI助手框架，支持Telegram/Discord/Slack等 | [GitHub](https://github.com/openclaw/openclaw) |
 | **Anthropic官方：Building Effective Agents** | Anthropic工程团队出的Agent设计原则，面试必读 | [链接](https://www.anthropic.com/engineering/building-effective-agents) |
+| **OrcaPromptVault** | 已上线 Agent 的系统提示词与工具 schema 实抓归档，按产品分目录、带日期、每份标明实抓还是厂商公布；可用来核对「Agent = 模型 + Harness」这类论断，面试讲 harness 时能举出实物 | [GitHub](https://github.com/Continuum-AI-Corp/OrcaPromptVault) |
 | **Vibe Coding 教程** | 从零掌握AI协作编程，Cursor/Claude Code实操指南，Vibe Coding面试攻略 | [链接](https://adongwanai.github.io/vibecoding/) |
 
 > **后续实践重点**：在 Superpowers 的 Skills 工作流基础上，我将重点使用 `grill-me` / `grilling` 系列 Skills。它们会一次只追问一个问题，逐项压测计划、决策与设计中的假设、依赖、边界和取舍；达成共同理解后，再进入实现。
