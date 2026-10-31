@@ -47,8 +47,8 @@
 - `docs/04-interview/10-mindset.md`（104行）- 心态调整
 
 **📚 学习路线系列**（2篇，已完成）：
-- `docs/learning-roadmap-algorithm.md` - 算法岗每日计划
-- `docs/learning-roadmap-development.md` - 开发岗每日计划
+- `docs/05-roadmaps/learning-roadmap-algorithm.md` - 算法岗每日计划
+- `docs/05-roadmaps/learning-roadmap-development.md` - 开发岗每日计划
 
 **🛠️ 技术教程系列**（1篇）：
 - `docs/02-tech-stack/14-context-engineering.md`（779行）- 上下文工程
