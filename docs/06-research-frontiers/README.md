@@ -16,6 +16,8 @@ topic:
 - **深度展开**：[2026 值得重投入的 AI 研究方向：子方向全展开](./01-ai-research-directions-expanded.md)
 - **同步版本**：主页面 revision 56，知识库最后编辑时间 2026-08-24
 
+> **跟踪论文与证据**：[Follow RSI](https://adongwanai.github.io/follow-rsi/) 聚焦 Harness 自进化，提供论文证据卡片与阅读路线，新发现经人工审核后发布。先读[《为什么 AI 还不会自我进化》](https://adongwanai.github.io/follow-rsi/articles/why-ai-self-improvement.html)，或到 [GitHub 仓库](https://github.com/adongwanai/follow-rsi) Star 收藏。
+
 ## 专题导航
 
 | 主线 | 核心问题 | 建议入口 |
