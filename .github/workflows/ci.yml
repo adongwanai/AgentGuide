@@ -42,6 +42,9 @@ jobs:
       - name: Repository local-link checks
         run: python tests/markdown_links.test.py
 
+      - name: Agent loop feedback checks
+        run: python tests/agent_loop.test.py
+
       - name: Root site smoke checks
         run: python tests/site_static_smoke.test.py
 
