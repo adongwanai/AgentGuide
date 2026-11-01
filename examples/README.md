@@ -20,6 +20,14 @@
 4. 用 `eval-cases.jsonl` 的格式为你的项目扩展 20-50 条评测。
 5. 项目完成后套用 `project-readme-template.md`，补齐架构、运行、评测和失败分析。
 
+最小循环的回归测试可以在仓库根目录运行：
+
+```bash
+python tests/agent_loop.test.py
+```
+
+测试直接执行模板中的 Python 代码，用脚本模型和模拟工具检查未知工具、人工拒绝、超时、工具异常、正常完成与步数上限，不需要 API Key 或第三方依赖。
+
 ## 一个简历级项目最少要交付什么
 
 - `README.md`：别人能 clone 跑起来。
