@@ -35,7 +35,6 @@ EXPECTED_BACKLOG = {
     "docs/02-tech-stack/07-agentscope.md",
     "docs/02-tech-stack/08-vector-db-basics.md",
     "docs/02-tech-stack/20-rag-full-pipeline.md",
-    "docs/02-tech-stack/21-agent-reinforcement-learning.md",
     "docs/02-tech-stack/build-your-agent-framework.md",
     "docs/03-practice/02-high-availability-rag.md",
     "docs/03-practice/04-graduation-project.md",

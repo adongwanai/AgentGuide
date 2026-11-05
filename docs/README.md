@@ -53,6 +53,7 @@ topic:
 - [Parlant Agent 合规性解析](./02-tech-stack/22-parlant-agent-compliance-deep-dive.md)
 - [经验与教训](./02-tech-stack/23-lessons-learned.md)
 - [Agent 沙箱指南](./02-tech-stack/24-agent-sandbox-guide.md)
+- [Agent 强化学习](./02-tech-stack/21-agent-reinforcement-learning.md)
 - [后训练完整指南](./02-tech-stack/25-post-training-complete-guide.md)
 - [Agent Evaluation Harness](./02-tech-stack/26-agent-evaluation-harness-guide.md)
 - [Agent Harness Engineering](./02-tech-stack/27-agent-harness-engineering.md)
@@ -156,6 +157,7 @@ topic:
 | [Claude Code 最佳实践指南](./02-tech-stack/17-claude-code-best-practices.md) | 教程 | 已发布 | 进阶 | Coding Agent |
 | [上下文工程完全指南:设计控制信息流向LLM的系统](./02-tech-stack/18-context-engineering-guide.md) | 教程 | 已发布 | 进阶 | 上下文工程、项目实战、基础模型 |
 | [《上下文工程：从提示到系统的AI应用架构指南》](./02-tech-stack/19-context-engineering-tutorial-outline.md) | 教程 | 已发布 | 进阶 | 上下文工程、项目实战 |
+| [Agent 强化学习：从 GRPO 到多轮工具 Agent](./02-tech-stack/21-agent-reinforcement-learning.md) | 教程 | 已发布 | 高阶 | 模型训练、Agent |
 | [Parlant：如何让AI Agent真正"靠谱"？深度解析Agent合规保障方案](./02-tech-stack/22-parlant-agent-compliance-deep-dive.md) | 教程 | 已发布 | 高阶 | Agent、安全 |
 | [Agent AI 企业转型的六大实战教训](./02-tech-stack/23-lessons-learned.md) | 教程 | 已发布 | 进阶 | Agent、项目实战 |
 | [OpenClaw彻底带火了沙箱，桌面Agent落地必看](./02-tech-stack/24-agent-sandbox-guide.md) | 教程 | 已发布 | 高阶 | Coding Agent、安全、Agent |

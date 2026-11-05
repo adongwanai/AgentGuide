@@ -546,6 +546,7 @@ Agent Harness 工程
 | [Claude Code 最佳实践指南](./17-claude-code-best-practices.md) | 教程 | 已发布 | 进阶 | Coding Agent |
 | [上下文工程完全指南:设计控制信息流向LLM的系统](./18-context-engineering-guide.md) | 教程 | 已发布 | 进阶 | 上下文工程、项目实战、基础模型 |
 | [《上下文工程：从提示到系统的AI应用架构指南》](./19-context-engineering-tutorial-outline.md) | 教程 | 已发布 | 进阶 | 上下文工程、项目实战 |
+| [Agent 强化学习：从 GRPO 到多轮工具 Agent](./21-agent-reinforcement-learning.md) | 教程 | 已发布 | 高阶 | 模型训练、Agent |
 | [Parlant：如何让AI Agent真正"靠谱"？深度解析Agent合规保障方案](./22-parlant-agent-compliance-deep-dive.md) | 教程 | 已发布 | 高阶 | Agent、安全 |
 | [Agent AI 企业转型的六大实战教训](./23-lessons-learned.md) | 教程 | 已发布 | 进阶 | Agent、项目实战 |
 | [OpenClaw彻底带火了沙箱，桌面Agent落地必看](./24-agent-sandbox-guide.md) | 教程 | 已发布 | 高阶 | Coding Agent、安全、Agent |

@@ -10,392 +10,108 @@ topic:
 
 # Agent 开发框架对比
 
-> **只推荐最核心的 5-7 个框架**（面试会问、项目会用的）
+> 内容核对时间：2026-11。框架版本和维护状态变化很快，本页只记录定位和选型依据，具体 API 以官方文档为准。Star 数变化快且不反映生产可用性，本页不再列出。
 
----
+## 状态变化（2025—2026）
 
-## 🔥 核心框架对比表
+先说几件会直接影响学习路线的变化：
 
-| 框架             | Stars |  难度  | 适合场景        | 优点           | 缺点     |
-| :------------- | :---: | :--: | :---------- | :----------- | :----- |
-| **LangGraph**  | 15k+  | ⭐⭐⭐⭐ | 复杂工作流       | 灵活、可视化       | 学习曲线陡  |
-| **AutoGen**    | 30k+  | ⭐⭐⭐  | Multi-Agent | 易用、可视化Studio | 定制化难   |
-| **CrewAI**     | 20k+  |  ⭐⭐  | 角色协作        | 简单、快速上手      | 功能相对简单 |
-| **LangChain**  | 90k+  | ⭐⭐⭐  | 快速原型        | 生态完善         | 抽象过度   |
-| **Swarm**      |  5k+  |  ⭐   | 学习用途        | 极简、清晰        | 功能基础   |
-| **Parlant**    |   -   | ⭐⭐⭐  | 指令遵循        | 高可控、ARQs     | 场景受限   |
-| **AgentScope** |  3k+  | ⭐⭐⭐  | 模块化开发       | 易维护、企业级      | 相对新    |
+- **AutoGen 进入维护模式**。仓库声明不再开发新功能，由社区维护，新项目建议使用 [Microsoft Agent Framework](https://github.com/microsoft/agent-framework)。后者合并了 AutoGen 和 Semantic Kernel，2026 年 4 月发布 1.0，支持 Python 和 .NET。
+- **OpenAI Swarm 被 [Agents SDK](https://github.com/openai/openai-agents-python) 取代**。Swarm 仓库明确说明 Agents SDK 是其面向生产的演进版本，建议迁移。
+- **LangChain 1.x 重构了 Agent 接口**。统一使用 `create_agent` 和 middleware；`LLMChain`、`ConversationChain` 等旧链和旧 memory 类迁到 `langchain-classic` 包，短期记忆改由 LangGraph checkpointer 管理。网上大量基于 `initialize_agent`、`ConversationBufferMemory` 的教程已不适用。
+- **模型厂商推出了自己的 Agent SDK**。OpenAI Agents SDK、[Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python)、Google [ADK](https://github.com/google/adk-python) 都把“模型 + 工具循环 + 上下文管理”封装成了开箱可用的 harness。
 
----
+## 对比总表
 
-## 📖 详细对比
+| 框架 | 维护方 | 核心抽象 | 适合 | 状态 |
+|:---|:---|:---|:---|:---|
+| [LangGraph](https://github.com/langchain-ai/langgraph) | LangChain | 有状态图、checkpointer、中断恢复 | 需要精确控制流程、持久化和人工介入的工作流 | 活跃，1.x |
+| [LangChain](https://github.com/langchain-ai/langchain) | LangChain | `create_agent` + middleware，构建在 LangGraph 上 | 快速搭建标准工具调用 Agent，集成大量模型和工具 | 活跃，1.x |
+| [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | OpenAI | Agent、handoff、guardrail、session、tracing | 轻量的多 Agent 交接和内置追踪 | 活跃 |
+| [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python) | Anthropic | Claude Code 的 Agent 循环、工具、上下文压缩、子 Agent | 文件 / 终端类长任务，需要成熟 harness 的场景 | 活跃 |
+| [Google ADK](https://github.com/google/adk-python) | Google | Agent、工具、多 Agent 层级、评测 | Google Cloud / Gemini 生态 | 活跃 |
+| [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) | Microsoft | Agent + 工作流图，Python / .NET | 微软技术栈、企业应用；AutoGen / Semantic Kernel 的迁移目标 | 活跃，1.x |
+| [Pydantic AI](https://github.com/pydantic/pydantic-ai) | Pydantic | 类型化依赖注入和结构化输出 | 重视类型安全和测试的 Python 工程 | 活跃 |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | CrewAI | Crew（角色协作）+ Flow（事件驱动流程） | 角色分工明确的协作原型 | 活跃 |
+| [LlamaIndex](https://github.com/run-llama/llama_index) | LlamaIndex | 数据连接、索引、Workflows | 以检索和文档处理为主的 Agent | 活跃 |
+| [AgentScope](https://github.com/agentscope-ai/agentscope) | 阿里通义 | 消息驱动的多 Agent、ReAct Agent | 多 Agent 仿真与研究、国内模型生态 | 活跃 |
+| [Parlant](https://github.com/emcie-co/parlant) | Emcie | 行为准则（guideline）匹配与执行 | 客服等需要严格遵守业务规则的对话 Agent | 活跃 |
+| [AutoGen](https://github.com/microsoft/autogen) | Microsoft | 多 Agent 对话 | 阅读已有项目；新项目不建议 | 维护模式 |
+| [Swarm](https://github.com/openai/swarm) | OpenAI | Agent + handoff 的最小实现 | 读源码理解 handoff 概念 | 已被 Agents SDK 取代 |
 
-### 1. LangGraph ⭐⭐⭐⭐⭐ 最推荐生产环境
+## 分类说明
 
-**官网**：https://github.com/langchain-ai/langgraph
+### 编排框架：LangGraph、Microsoft Agent Framework
 
-**核心特点**：
-- ✅ 状态机驱动，精确控制流程
-- ✅ 可视化工作流，易于调试
-- ✅ 支持复杂条件分支和循环
-- ✅ 与 LangChain 深度集成
+这类框架把 Agent 表示成显式的状态图或工作流：节点是模型调用、工具调用或人工审批，边是条件转移。优点是流程可控、状态可持久化（中断后从 checkpoint 恢复）、方便插入人工审核；代价是需要自己设计状态结构，简单场景下代码偏多。
 
-**适合场景**：
-- 复杂的 Agent 工作流（10+ 步骤）
-- 需要状态管理的应用
-- Multi-Agent 协作系统
+适用信号：流程有固定的分支和回退、需要跨会话恢复、需要审计每一步。
 
-**学习成本**：⭐⭐⭐⭐（需要 3-5 天深入学习）
+### Agent 框架：LangChain 1.x、Pydantic AI、CrewAI、AgentScope
 
-**面试加分点**：
-```
-"我使用 LangGraph 设计了状态机驱动的 Agent 工作流，
-通过可视化编排，实现了复杂的条件分支和异常处理"
-```
+在“模型 + 工具循环”之上提供更高层的抽象：LangChain 用 middleware 处理摘要、人工介入、动态提示等横切逻辑；Pydantic AI 强调依赖注入和类型；CrewAI 用角色和任务描述多 Agent 协作；AgentScope 以消息传递组织多 Agent。
 
-**快速上手**：
-```python
-from langgraph.graph import StateGraph
+适用信号：主要逻辑就是“模型决定调用哪个工具”，希望少写样板代码。
 
-# 30 行代码搭建 Agent 工作流
-```
+### 厂商 SDK：OpenAI Agents SDK、Claude Agent SDK、Google ADK
 
----
+厂商把自家产品中验证过的 Agent 循环开放出来，通常带有追踪、guardrail、上下文管理等配套能力，与自家模型的工具调用格式配合最好。大多也支持接入其他厂商的模型，但部分特性（如服务端工具、提示缓存）依赖原厂模型。
 
-### 2. AutoGen ⭐⭐⭐⭐⭐ Multi-Agent 首选
+适用信号：已经确定主力模型；希望直接复用成熟的 harness，而不是自己实现上下文压缩、子 Agent 调度等细节。
 
-**官网**：https://github.com/microsoft/autogen
+### 领域框架：Parlant、LlamaIndex
 
-**核心特点**：
-- ✅ 天然支持 Multi-Agent
-- ✅ AutoGen Studio 可视化编排
-- ✅ 支持代码执行环境
-- ✅ 微软官方支持
+Parlant 面向“必须遵守规则”的对话场景，把业务规则写成 guideline，由框架负责匹配和执行，详见 [Parlant 深度解析](../../docs/02-tech-stack/22-parlant-agent-compliance-deep-dive.md)。LlamaIndex 的优势在数据接入和检索，适合以 RAG 为核心的 Agent。
 
-**适合场景**：
-- 多智能体协作（3+ Agents）
-- 需要可视化编排
-- 企业级应用
+## 选型建议
 
-**学习成本**：⭐⭐⭐（1-2 天快速上手）
-
-**面试加分点**：
-```
-"使用 AutoGen 构建多智能体协作系统，
-实现了分类Agent、查询Agent、执行Agent的协同工作"
-```
-
----
-
-### 3. CrewAI ⭐⭐⭐⭐ 快速原型首选
-
-**官网**：https://github.com/joaomdmoura/crewAI
-
-**核心特点**：
-- ✅ 角色定义清晰
-- ✅ API 简单易用
-- ✅ 快速开发（1小时搭建原型）
-
-**适合场景**：
-- 快速验证想法
-- 角色明确的协作场景
-- 小规模应用
-
-**学习成本**：⭐⭐（半天上手）
-
----
-
-### 4. LangChain ⭐⭐⭐⭐⭐ 必学基础
-
-**官网**：https://github.com/langchain-ai/langchain
-
-**核心特点**：
-- ✅ 生态最完善
-- ✅ 文档最详细
-- ✅ 社区最活跃
-
-**适合场景**：
-- 快速原型开发
-- 学习 Agent 基础概念
-- 与其他工具集成
-
-**学习成本**：⭐⭐⭐（2-3 天基础掌握）
-
-**注意事项**：
-- ❌ 抽象过度，调试困难
-- ⚠️ 建议：理解原理，必要时魔改
-
----
-
-### 5. Swarm ⭐⭐⭐ 学习用途
-
-**官网**：https://github.com/openai/swarm
-
-**核心特点**：
-- ✅ OpenAI 官方出品
-- ✅ 代码极简（<500行）
-- ✅ 适合理解 Agent 原理
-
-**适合场景**：
-- 学习 Agent 设计思想
-- 理解多智能体协作
-- 不建议用于生产
-
-**学习成本**：⭐（1-2小时读完源码）
-
----
-
-### 6. Parlant ⭐⭐⭐⭐ 指令遵循专家
-
-**官网**：https://github.com/emcie-co/parlant
-
-**核心特点**：
-- ✅ **确保指令遵循**：不再依赖 LLM"可能"遵循指令，而是"确保"必定遵循
-- ✅ **ARQs 技术**：Attentive Reasoning Queries（注意力推理查询）
-- ✅ **领域指导优势**：通过预定义推理步骤，针对性预防常见失效模式
-- ✅ **高成功率**：在 87 个测试场景中，总成功率达 90.2%（高于 CoT 的 86.05%）
-
-**核心技术：ARQs（Attentive Reasoning Queries）**
-
-ARQs 是一种结构化推理方法，包含三个阶段：
-
-1. **引导 ARQ 阶段**
-   - LLM 处理预定义引导问题
-   - 恢复关键指令
-   - 恢复提示中的重要上下文信息
-   - 促进分步推理与中间计算
-
-2. **响应生成阶段**
-   - 基于引导 ARQ 阶段的推理结果
-   - 生成最终响应
-
-3. **响应验证阶段**（可选）
-   - LLM 通过预定义验证问题评估响应
-   - 不满足则重新生成并验证
-   - 直至符合标准
-
-**适合场景**：
-- ✅ 有明确领域指南的场景（客户服务、医疗咨询）
-- ✅ 失效模式清晰的场景
-- ✅ 需要高度可控的 Agent 系统
-- ✅ 高风险客户应用
-
-**学习成本**：⭐⭐⭐（2-3 天理解核心概念）
-
-**面试加分点**：
-```
-"使用 Parlant 框架确保 Agent 的指令遵循，
-通过 ARQs 技术实现了领域专用推理步骤，
-在客户服务场景中达到 90%+ 的成功率"
-```
-
-**关键资源**：
-- [Parlant vs LangGraph](https://www.parlant.io/blog/parlant-vs-langgraph)
-- [Parlant vs DSPy](https://www.parlant.io/blog/parlant-vs-dspy)
-- [How Parlant Ensures Compliance](https://www.parlant.io/blog/how-parlant-guarantees-compliance)
-- [ARQs 论文](https://arxiv.org/pdf/2503.03669v1)
-- [ARQs 代码](https://github.com/emcie-co/parlant/tree/arqs-a-systematic-method-for-optimizing-instruction-following-in-llms)
-
-**vs LangGraph**：
-- Parlant 强调**确定性控制**，LangGraph 强调**灵活编排**
-- Parlant 适合**规则明确**的场景，LangGraph 适合**复杂工作流**
-
-**vs DSPy**：
-- Parlant 通过**预定义推理步骤**确保遵循，DSPy 通过**优化提示**提升性能
-- Parlant 更适合**生产环境**的可控性需求
-
----
-
-### 7. AgentScope ⭐⭐⭐⭐ 模块化开发框架
-
-**官网**：https://github.com/agentscope-ai/agentscope
-
-**核心特点**：
-- ✅ **模块化设计**：将 Agent 功能模块化，易于维护和扩展
-- ✅ **灵活集成**：与各种外部工具和服务无缝集成
-- ✅ **开发者友好**：详细的文档和示例
-- ✅ **企业级支持**：阿里云等机构背书
-
-**适合场景**：
-- 模块化 Agent 系统开发
-- 需要灵活集成的应用
-- 企业级 Agent 应用
-- 快速原型到生产的迁移
-
-**学习成本**：⭐⭐⭐（2-3 天掌握基础）
-
-**面试加分点**：
-```
-"使用 AgentScope 构建模块化 Agent 系统，
-通过清晰的模块划分和灵活的集成能力，
-实现了从原型到生产的快速迁移"
-```
-
----
-
-## 🎯 选择建议
-
-### 按场景选择
-
-| 你的需求 | 推荐框架 | 原因 |
+| 需求 | 优先考虑 | 理由 |
 |:---|:---|:---|
-| **学习 Agent 原理** | Swarm | 代码简单，易于理解 |
-| **快速做 Demo** | CrewAI | 上手快，API 简单 |
-| **做复杂工作流** | LangGraph | 状态管理，灵活控制 |
-| **做 Multi-Agent** | AutoGen | 天然支持，可视化 |
-| **通用开发** | LangChain | 生态完善，工具多 |
-| **高可控场景** | Parlant | 确保指令遵循，适合客服/医疗 |
-| **模块化系统** | AgentScope | 易维护，企业级支持 |
+| 理解 Agent 原理 | 不用框架，先手写一个 ReAct 循环 | 框架会隐藏消息格式、工具调用解析、停止条件等关键细节，见 [最小 Agent Loop](../../examples/minimal-agent-loop.md) |
+| 快速做标准工具调用 Agent | LangChain 1.x、Pydantic AI、厂商 SDK | 样板代码少 |
+| 复杂流程、需要持久化与人工介入 | LangGraph、Microsoft Agent Framework | 显式状态与 checkpoint |
+| 文件、终端、代码类长任务 | Claude Agent SDK、OpenAI Agents SDK | 现成的上下文管理和工具集 |
+| 多 Agent 角色协作原型 | CrewAI、AgentScope | 角色抽象直接 |
+| 强规则约束的客服对话 | Parlant | guideline 机制 |
+| 微软 / .NET 技术栈，或从 AutoGen 迁移 | Microsoft Agent Framework | 官方迁移路径 |
 
-### 学习顺序建议
+学习顺序建议：
 
-```
-Step 1: Swarm (理解原理，1天)
-  ↓
-Step 2: LangChain (掌握基础，3天)
-  ↓
-Step 3: LangGraph 或 AutoGen (深入一个，5天)
-  ↓
-Step 4: 其他框架按需学习
-```
+1. 手写一个不依赖框架的工具调用循环（半天），弄清消息格式和停止条件；
+2. 选一个 Agent 框架或厂商 SDK 完成一个小项目；
+3. 流程复杂后再学 LangGraph 这类编排框架；
+4. 其他框架按项目需要学习。重点是能说清楚不同框架的抽象差异，而不是掌握 API 数量。
 
----
+## 官方指南
 
-## 📚 官方学习指南（必读）
+- **Anthropic《Building Effective Agents》**：[链接](https://www.anthropic.com/engineering/building-effective-agents)。核心观点是先用简单的工作流（提示链、路由、并行化等），确实需要时再引入自主 Agent。
+- **OpenAI《A Practical Guide to Building Agents》**：[PDF](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)。覆盖单 Agent 与多 Agent 模式、guardrail 设计。
+- **Agentic Design Patterns 中英对照**：[ginobefun/agentic-design-patterns-cn](https://github.com/ginobefun/agentic-design-patterns-cn)。按设计模式系统整理 Agent 构建方法。
+- **Anthropic 提示工程文档**：[链接](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)，以及[交互式教程](https://github.com/anthropics/prompt-eng-interactive-tutorial)。
+- **Google Gemini 提示指南**：[PDF](https://services.google.com/fh/files/misc/gemini-for-google-workspace-prompting-guide-101.pdf)。
 
-### 1. Anthropic 构建有效智能体指南 ⭐⭐⭐⭐⭐ 强烈推荐
+## 面试中如何说明选型
 
-**链接**：https://www.anthropic.com/engineering/building-effective-agents
+面试官问“为什么选 XX 框架”，想听的是你对需求和抽象层次的判断，而不是框架介绍。一个完整的回答通常包括：
 
-**内容**：Anthropic 团队总结的 Agent 构建最佳实践
+1. **需求**：流程是否固定、是否需要持久化和人工审批、对延迟和成本的要求；
+2. **备选与取舍**：考虑过哪些方案，为什么放弃（例如“流程分支多且要中断恢复，CrewAI 的角色抽象表达不了，所以用 LangGraph”）；
+3. **框架之外的部分**：哪些能力自己实现（评测、重试、观测），框架升级或替换时的成本；
+4. **事后看法**：如果重做会不会换，理由是什么。
 
-**核心观点**：
-- Agent 不是万能的，要知道什么时候用、什么时候不用
-- **Workflow > Agents**：能用工作流解决就不要用 Agent
-- 简单的 Prompt 优化往往比复杂的 Agent 更有效
+如果项目用过 AutoGen 或 Swarm，可以如实说明，并补充现在的迁移选择，这能体现你在跟进生态变化。
 
-**必读原因**：Claude 团队的实战经验，帮助你避免过度设计
-
----
-
-### 2. OpenAI 实用智能体构建指南 ⭐⭐⭐⭐
-
-**链接**：https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf
-
-**内容**：OpenAI 官方的 Agent 构建指南
-
-**适合人群**：想要了解 OpenAI 视角下的 Agent 设计
-
----
-
-### 3. Agentic Design Patterns（中英对照）⭐⭐⭐⭐⭐ 强烈推荐
-
-**链接**：https://github.com/ginobefun/agentic-design-patterns-cn
-
-**内容**：《Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems》中英文对照译本
-
-**适合人群**：
-- AI 工程师
-- 软件架构师
-- 产品经理
-- 对智能系统设计感兴趣的研究者
-
-**核心内容**：
-- Agent 设计模式
-- 实践流程
-- 系统架构
-
----
-
-### 4. Anthropic 提示工程指南 ⭐⭐⭐⭐
-
-**链接**：https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview
-
-**内容**：系统化的 Prompt Engineering 教程
-
-**交互式教程**：https://github.com/anthropics/prompt-eng-interactive-tutorial
-
----
-
-### 5. Google Gemini 提示指南 ⭐⭐⭐
-
-**链接**：https://services.google.com/fh/files/misc/gemini-for-google-workspace-prompting-guide-101.pdf
-
-**内容**：Google 官方的 Prompt Engineering 指南
-
----
-
-## 🎯 学习建议
-
-### 1. 先学框架原理，再学框架使用
-
-- 理解 Agent 的本质（规划 + 工具 + 记忆）
-- 手撕简单的 ReAct Agent
-- 再去学习框架的封装
-
-### 2. 不要过度依赖框架
-
-- 框架是工具，不是答案
-- 遇到问题要能调试源码
-- 必要时可以魔改或自己实现
-
-### 3. 多框架对比学习
-
-- 同一个功能，用不同框架实现
-- 理解每个框架的设计哲学
-- 面试时能说出框架选择的理由
-
----
-
-## 💬 面试中的框架选择问题
-
-### 常见问题："为什么选择 XX 框架？"
-
-**回答模板**：
-```
-我选择 LangGraph 是因为：
-1. 【场景需求】项目需要复杂的状态管理和条件分支
-2. 【技术优势】LangGraph 的可视化工作流便于调试
-3. 【生态支持】与 LangChain 深度集成，工具链完善
-4. 【对比分析】相比 AutoGen，LangGraph 在状态控制上更灵活
-```
-
-**关键点**：
-- ✅ 从场景需求出发
-- ✅ 说明技术优势
-- ✅ 对比其他方案
-- ✅ 体现深入思考
-
----
-
-## 📝 相关文档
-
-### 本目录其他资源
+## 相关文档
 
 - [Agent 资源总览](./README.md)
 - [Agent Memory 资源](./memory.md)
 - [AI Agent 生产环境实践](../../docs/03-practice/06-agent-production-challenges.md)
 
-### AgentGuide 其他章节
-
-
 ---
 
-**👉 返回主文档**：[AgentGuide README](../../README.md)
+**返回**：[AgentGuide README](../../README.md)
 
----
+## 文档维护
 
-## 📌 文档维护
-
-**最后更新**：2025-11
-**贡献者**：欢迎提交 PR 补充新框架
-
-**更新日志**：
-- 2025-11：新增 Parlant（指令遵循）和 AgentScope（模块化）框架
-- 2025-11：整合官方学习指南
-- 2025-11：优化框架对比表和选择建议
-
-
-
-
-
+- 2026-11：标注 AutoGen 维护模式与 Swarm 被取代；加入 OpenAI Agents SDK、Claude Agent SDK、Google ADK、Microsoft Agent Framework、Pydantic AI、LlamaIndex；按 LangChain 1.x 更新描述；去掉 star 数。
+- 2025-11：新增 Parlant 和 AgentScope，整合官方学习指南。

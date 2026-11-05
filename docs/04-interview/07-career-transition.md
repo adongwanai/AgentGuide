@@ -716,7 +716,7 @@ Agent方向聚焦智能体设计，强调自主决策、工具调用和任务规
 - **评估体系**：如何证明Agent比人工更好？如何量化优化效果？
 
 **Layer 3：模型理解（加分项）**
-- 了解主流模型长短板（GPT-4/Claude/Llama的选择策略）
+- 了解主流模型长短板（闭源 API / 开源权重 / 国产模型的选择策略，推理模型与非推理模型的取舍）
 - 微调能力（Fine-tuning工具调用能力、垂直领域适配）
 - 强化学习基础（Agent RL、DPO等）
 
@@ -787,7 +787,7 @@ Agent方向聚焦智能体设计，强调自主决策、工具调用和任务规
 **开源项目（深入理解架构）：**
 - **OpenManus**：比LangChain更清晰的Agent实现
 - **AgentUniverse**：阿里开源的Agent框架
-- **AutoGen**：微软的多Agent框架
+- **OpenAI Agents SDK**：Agent、handoff、guardrail 的最小可用实现，源码适合阅读（AutoGen 已进入维护模式，后继为 Microsoft Agent Framework）
 - **LangGraph**：状态机驱动的Agent编排
 
 **关键建议：**

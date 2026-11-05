@@ -45,104 +45,40 @@ topic:
 
 > **详细框架对比见**：[Agent 开发框架推荐](./frameworks.md)
 
-### 1. LangGraph ⭐⭐⭐⭐⭐ 最推荐
+> 核对时间 2026-11。AutoGen 已进入维护模式（新项目用 Microsoft Agent Framework），OpenAI Swarm 已被 Agents SDK 取代，LangChain 1.x 改用 `create_agent`。
 
-- **链接**：https://github.com/langchain-ai/langgraph
-- **Stars**：15k+
-- **简介**：LangChain 团队出品，用图结构构建弹性 Agent
-- **特点**：状态管理、可视化工作流、灵活编排
-- **适合场景**：复杂 Agent 工作流、Multi-Agent 系统
-- **学习难度**：⭐⭐⭐⭐
+### 编排与 Agent 框架
 
-### 2. AutoGen ⭐⭐⭐⭐⭐
+| 框架 | 链接 | 定位 |
+|:---|:---|:---|
+| LangGraph | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 有状态图编排，checkpoint、中断恢复、人工介入 |
+| LangChain | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | `create_agent` + middleware，模型与工具集成最全 |
+| <a id="microsoft-agent-framework"></a>Microsoft Agent Framework | [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | 合并 AutoGen 与 Semantic Kernel，Python / .NET；适合企业工具集成、审批、遥测与持久状态。二开可接一个企业工具或工作流，验证循环终止、权限边界和状态恢复 |
+| Pydantic AI | [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | 类型化、可测试的 Python Agent 框架 |
+| CrewAI | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | 角色协作（Crew）+ 事件驱动流程（Flow） |
+| AgentScope | [agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope) | 阿里通义，消息驱动的多 Agent 框架 |
+| Parlant | [emcie-co/parlant](https://github.com/emcie-co/parlant) | 基于行为准则的合规对话 Agent，见 [深度解析](../../docs/02-tech-stack/22-parlant-agent-compliance-deep-dive.md) |
 
-- **链接**：https://github.com/microsoft/autogen
-- **Stars**：30k+
-- **简介**：微软开源的多智能体对话框架
-- **特点**：Multi-Agent 协作、可视化 Studio、代码执行
-- **适合场景**：多智能体系统、角色扮演型 Agent
-- **学习难度**：⭐⭐⭐
-- **官网**：https://autogen-studio.com/
+### 厂商 Agent SDK
 
-### 3. CrewAI ⭐⭐⭐⭐
+| SDK | 链接 | 定位 |
+|:---|:---|:---|
+| OpenAI Agents SDK | [openai/openai-agents-python](https://github.com/openai/openai-agents-python) | Agent、handoff、guardrail、tracing；Swarm 的后继 |
+| Claude Agent SDK | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | Claude Code 背后的 Agent 循环与工具集 |
+| Google ADK | [google/adk-python](https://github.com/google/adk-python) | Google 的 Agent Development Kit |
 
-- **链接**：https://github.com/joaomdmoura/crewAI
-- **Stars**：20k+
-- **简介**：角色扮演型自主 AI Agent 框架
-- **特点**：角色定义、任务分工、简单易用
-- **适合场景**：明确角色分工的协作系统
-- **学习难度**：⭐⭐⭐
+### 多 Agent 研究项目
 
-### 4. MetaGPT ⭐⭐⭐⭐
+| 项目 | 链接 | 说明 |
+|:---|:---|:---|
+| MetaGPT | [FoundationAgents/MetaGPT](https://github.com/FoundationAgents/MetaGPT) | 用标准作业流程（SOP）模拟软件团队的多角色协作 |
+| OWL / CAMEL | [camel-ai/owl](https://github.com/camel-ai/owl) | 基于 CAMEL 的多 Agent 协作，面向通用任务自动化 |
 
-- **链接**：https://github.com/geekan/MetaGPT
-- **Stars**：40k+
-- **简介**：软件公司多角色协作框架
-- **特点**：模拟软件公司流程（PM、工程师、测试）
-- **适合场景**：软件开发流程自动化
-- **学习难度**：⭐⭐⭐
+### 历史项目（了解即可）
 
-### 5. Swarm ⭐⭐⭐
-
-- **链接**：https://github.com/openai/swarm
-- **简介**：OpenAI 官方的轻量级 Multi-Agent 框架
-- **特点**：极简设计，适合学习
-- **适合场景**：学习 Agent 基础概念
-- **学习难度**：⭐⭐
-
-### 6. AutoGPT ⭐⭐⭐
-
-- **链接**：https://github.com/Significant-Gravitas/AutoGPT
-- **Stars**：160k+
-- **简介**：早期的自主 Agent 框架
-- **特点**：完全自主，目标驱动
-- **学习难度**：⭐⭐⭐
-
-<a id="microsoft-agent-framework"></a>
-
-### 7. Microsoft Agent Framework ⭐⭐⭐
-
-- **链接**：https://github.com/microsoft/agent-framework
-- **简介**：微软官方框架，支持 Python 和 .NET
-- **特点**：跨语言 Agent 与多 Agent 工作流，承接 AutoGen / Semantic Kernel 生态经验；具体能力按当前版本核对
-- **适合场景**：企业工具集成、状态管理、审批与遥测
-- **二开方向**：接一个企业工具或工作流，验证循环终止、权限边界和状态恢复；不将特定示例的轮数当作统一默认值
-- **学习难度**：⭐⭐⭐⭐
-
-### 8. OWL ⭐⭐⭐
-
-- **链接**：https://github.com/camel-ai/owl
-- **简介**：优化工作流学习框架
-- **特点**：任务自动化、工作流优化
-- **学习难度**：⭐⭐⭐
-
-### 9. Parlant ⭐⭐⭐⭐ 🔥 新框架
-
-- **链接**：https://github.com/emcie-co/parlant
-- **简介**：确保 Agent 指令遵循的框架，不再依赖 LLM"可能"遵循，而是"确保"必定遵循
-- **核心技术**：ARQs（Attentive Reasoning Queries - 注意力推理查询）
-- **特点**：
-  - 通过预定义推理步骤确保指令遵循
-  - 在 87 个测试场景中成功率达 90.2%（高于 CoT 的 86.05%）
-  - 针对性预防领域常见失效模式
-- **适合场景**：有明确领域指南的场景（客户服务、医疗咨询）
-- **学习难度**：⭐⭐⭐
-- **关键资源**：
-  - [Parlant vs LangGraph](https://www.parlant.io/blog/parlant-vs-langgraph)
-  - [Parlant vs DSPy](https://www.parlant.io/blog/parlant-vs-dspy)
-  - [ARQs 论文](https://arxiv.org/pdf/2503.03669v1)
-
-### 10. AgentScope ⭐⭐⭐⭐
-
-- **链接**：https://github.com/agentscope-ai/agentscope
-- **简介**：面向 Agent 的模块化编程框架
-- **特点**：
-  - 模块化设计，易于维护和扩展
-  - 灵活的集成能力
-  - 企业级支持（阿里云等背书）
-  - 详细的文档和示例
-- **适合场景**：模块化 Agent 系统、企业级应用
-- **学习难度**：⭐⭐⭐
+- **AutoGen**（[microsoft/autogen](https://github.com/microsoft/autogen)）：维护模式，仅接受修复类贡献。
+- **Swarm**（[openai/swarm](https://github.com/openai/swarm)）：已被 Agents SDK 取代，源码很短，可用来理解 handoff 概念。
+- **AutoGPT**（[Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT)）：2023 年“自主 Agent”热潮的代表，现已转型为 Agent 平台；适合作为 Agent 发展史阅读。
 
 ---
 
@@ -219,7 +155,7 @@ topic:
 
 - **链接**：https://github.com/OSU-NLP-Group/SeeAct
 - **简介**：视觉理解 + 网页操作
-- **特点**：GPT-4V 驱动
+- **特点**：原论文以 GPT-4V 为基座，重点研究多模态模型对网页元素的定位（grounding）问题
 - **适合场景**：多模态 Web Agent
 
 ### 3. WebShop ⭐⭐⭐⭐
@@ -425,7 +361,7 @@ topic:
 | [Agent Memory 核心论文解读](<./papers/agent_memory/Agent Memory 核心论文汇总.md>) | 论文清单 | 已发布 | 进阶 | Agent、科研、记忆 |
 | [Agent Memory Papers](./papers/agent_memory/README.md) | 入口页 | 已发布 | 通用 | Agent、科研、记忆 |
 | [一口气读完Agent Memory的21篇论文：从理论到实践的完整指南](<./papers/agent_memory/一口气读完agent memory的21篇核心论文.md>) | 论文清单 | 已发布 | 进阶 | Agent、科研、记忆 |
-| [引言](./papers/agent_rl/Agent➕RL开源项目汇总.md) | 论文清单 | 已发布 | 进阶 | Agent、科研、项目实战 |
+| [Agent RL 开源项目汇总](./papers/agent_rl/Agent➕RL开源项目汇总.md) | 论文清单 | 已发布 | 进阶 | Agent、科研、项目实战 |
 | [Agent RL Papers](./papers/agent_rl/README.md) | 入口页 | 已发布 | 通用 | Agent、科研 |
 | [Agent Papers](./papers/README.md) | 入口页 | 已发布 | 通用 | Agent、科研 |
 <!-- AUTO-GENERATED-CONTENT:END -->

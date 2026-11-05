@@ -101,7 +101,7 @@ topic:
 - **训练框架**: [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [TRL](https://github.com/huggingface/trl), [OpenRLHF](https://github.com/OpenLLMAI/OpenRLHF)
 - **微调教程**: [大模型微调系列](https://mp.weixin.qq.com/s/aQCY8873d09zFIhMhrx7Pg) - 从基础到实战的完整指南
 - **评估工具**: [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness), [OpenCompass](https://github.com/open-compass/opencompass), [RAGAs](https://github.com/explodinggradients/ragas)
-- **Agent框架**: [LangChain](https://github.com/langchain-ai/langchain), [AutoGen](https://github.com/microsoft/autogen), [AgentScope](https://github.com/modelscope/agentscope)
+- **Agent框架**: [LangChain](https://github.com/langchain-ai/langchain), [LangGraph](https://github.com/langchain-ai/langgraph), [OpenAI Agents SDK](https://github.com/openai/openai-agents-python), [AgentScope](https://github.com/agentscope-ai/agentscope)
 
 ### 🌐 学习社区与资源
 - **论文库**: [Huggingface Daily Papers](https://huggingface.co/papers), [Cool Papers](https://papers.cool/), [ML Papers Explained](https://github.com/dair-ai/ML-Papers-Explained)
@@ -217,13 +217,13 @@ topic:
 >   - 论文: https://arxiv.org/abs/2303.11366
 > - **Tree of Thoughts**: 核心思想是搜索算法 + LLM。
 >   - 论文: https://arxiv.org/abs/2305.10601
-> - **AutoGen Framework**: 对话驱动的多智能体系统。
+> - **AutoGen**: 对话驱动的多智能体系统（框架已进入维护模式，论文思路仍有参考价值）。
 >   - 论文: https://arxiv.org/abs/2308.08155
 >
 > **学习任务:**
 > - [ ] 对比 ReAct、Reflexion、ToT 的算法差异，分析各自优缺点
 > - [ ] 用 Python 实现一个 ToT 节点，并结合 LLM API 设计一个简单的评估函数来解决 24点游戏 问题
-> - [ ] 使用 AutoGen 框架实现一个简单的 "coder" 与 "critic" 协作的 Multi-Agent 系统
+> - [ ] 使用 LangGraph 或 OpenAI Agents SDK 实现一个简单的 "coder" 与 "critic" 协作的 Multi-Agent 系统
 >
 > **面试准备:**
 > - Q: Reflexion 的自我反思机制如何实现？它和 RL 中的 "Credit Assignment" 有什么关系？
@@ -245,7 +245,7 @@ topic:
 | 17     | Tree of Thoughts 论文精读 | 论文: [Tree of Thoughts](https://arxiv.org/abs/2305.10601)<br>代码: [ToT 开源代码实现](https://github.com/kyegomez/tree-of-thoughts)<br>相关: [Self-Consistency](https://arxiv.org/abs/2203.11171)       | 理解如何将 LLM 作为搜索算法的启发式函数                          |
 | 18     | ToT 算法实战              | 任务: [24点游戏](https://en.wikipedia.org/wiki/24_Game)<br>博客: [Prompt Engineering Guide](https://www.promptingguide.ai/)                                                                         | 实现一个简化的 ToT 搜索策略来解决 24点游戏                       |
 | 19     | Multi-Agent 协作模式      | 论文: [MetaGPT](https://arxiv.org/abs/2308.00352)<br>论文: [Communicative Agents](https://arxiv.org/abs/2307.07924)<br>论文: [AutoGen](https://arxiv.org/abs/2308.08155)                           | 学习 MetaGPT 中角色定义 (SOPs) 和协作模式                   |
-| 20     | AutoGen 框架实战          | 文档: [AutoGen 官方教程](https://microsoft.github.io/autogen/docs/getting-started/)<br>替代: [AgentScope](https://github.com/modelscope/agentscope), [CrewAI](https://github.com/joaomdmoura/crewAI) | 使用 AutoGen 搭建一个简单的 Coder 和 Critic Agent         |
+| 20     | Multi-Agent 框架实战          | 文档: [OpenAI Agents SDK](https://openai.github.io/openai-agents-python)<br>替代: [LangGraph](https://github.com/langchain-ai/langgraph), [AgentScope](https://github.com/agentscope-ai/agentscope), [CrewAI](https://github.com/crewAIInc/crewAI) | 搭建一个简单的 Coder 和 Critic Agent         |
 | 21     | 周度总结与对比分析             | 综述: [Awesome Agent Reasoning](https://github.com/atfortes/Awesome-LLM-Reasoning)                                                                                                             | 绘制 ReAct, Reflexion, ToT 的算法流程对比图，总结优劣          |
 |        |                       |                                                                                                                                                                                              |                                                 |
 

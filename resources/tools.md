@@ -41,18 +41,18 @@ topic:
 
 ### 📖 开源项目阅读
 - **DeepWiki** ⭐⭐⭐⭐⭐
-  - 链接：https://opendeep.wiki/
+  - 链接：https://deepwiki.com/（把 GitHub 地址中的 `github.com` 换成 `deepwiki.com` 即可）
   - 用途：理解复杂开源项目（如 LangChain 源码）
-  - 特点：AI 辅助代码理解
+  - 特点：自动生成仓库文档并支持提问；开源替代有 OpenDeepWiki（https://opendeep.wiki/）
 
 - **ZRead.ai**
   - 链接：https://zread.ai/
   - 用途：快速理解 GitHub 项目
 
 ### 💡 Idea 生成与验证
-- **GPT-4** / **GPT-o3-mini**
-  - 用途：头脑风暴，技术方案设计
-  - 配合高质量 Prompt 使用
+- **各厂商当前旗舰模型的深度推理 / 深度研究模式**（如 ChatGPT、Claude、Gemini、DeepSeek、Qwen、Kimi）
+  - 用途：头脑风暴、技术方案设计、相关工作检索
+  - 建议：同一问题交给两个不同厂商的模型交叉验证，引用的论文和数据要自己核对原文
 
 ### 🎨 可视化工具
 - **Excalidraw** ⭐⭐⭐⭐⭐
@@ -69,9 +69,9 @@ topic:
   - 用途：论文润色、降重
   - 特点：生成质量高
 
-- **Claude 4.5**
+- **Claude**
   - 用途：Paper Review，技术文档审查
-  - 特点：逻辑严谨
+  - 特点：长文档审阅与结构化反馈
 
 ---
 
@@ -116,8 +116,8 @@ topic:
 
 ### 微调工具
 - **Llama-Factory** ⭐⭐⭐⭐⭐：https://github.com/hiyouga/LLaMA-Factory
-- **Swift**：https://github.com/modelscope/swift
-- **Axolotl**：https://github.com/OpenAccess-AI-Collective/axolotl
+- **ms-swift**：https://github.com/modelscope/ms-swift
+- **Axolotl**：https://github.com/axolotl-ai-cloud/axolotl
 - **Unsloth**：https://github.com/unslothai/unsloth
 - **PEFT**：https://github.com/huggingface/peft
 
@@ -148,18 +148,21 @@ topic:
 - **MinerU** ⭐：https://github.com/opendatalab/MinerU
 - **Unstructured**：https://github.com/Unstructured-IO/unstructured
 - **LlamaParse**：https://github.com/run-llama/llama_parse
-- **Docling**：https://github.com/DS4SD/docling
-- **PyPDF2**：https://github.com/py-pdf/pypdf2
+- **Docling**：https://github.com/docling-project/docling
+- **pypdf**：https://github.com/py-pdf/pypdf（PyPDF2 已合并回 pypdf，不再单独维护）
 
 ### Agent 技术栈
 
-**Agent 框架**：
-- **AutoGPT**：https://github.com/Significant-Gravitas/AutoGPT
+**Agent 框架**（选型见 [Agent 开发框架对比](./agent/frameworks.md)）：
 - **LangGraph** ⭐：https://github.com/langchain-ai/langgraph
-- **CrewAI**：https://github.com/joaomdmoura/crewAI
-- **MetaGPT**：https://github.com/geekan/MetaGPT
-- **AutoGen** ⭐：https://github.com/microsoft/autogen
-- **Swarm**：https://github.com/openai/swarm
+- **LangChain**（1.x，`create_agent`）：https://github.com/langchain-ai/langchain
+- **OpenAI Agents SDK**：https://github.com/openai/openai-agents-python（取代 Swarm）
+- **Claude Agent SDK**：https://github.com/anthropics/claude-agent-sdk-python
+- **Google ADK**：https://github.com/google/adk-python
+- **Microsoft Agent Framework**：https://github.com/microsoft/agent-framework（取代 AutoGen，后者已进入维护模式）
+- **Pydantic AI**：https://github.com/pydantic/pydantic-ai
+- **CrewAI**：https://github.com/crewAIInc/crewAI
+- **MetaGPT**：https://github.com/FoundationAgents/MetaGPT
 
 **工具调用**：
 - **ToolBench**：https://github.com/OpenBMB/ToolBench
@@ -168,8 +171,8 @@ topic:
 
 **记忆模块**：
 - **Mem0** ⭐：https://github.com/mem0ai/mem0
-- **MemGPT**：https://github.com/cpacker/MemGPT
-- **LangChain Memory**：内置在 LangChain 中
+- **Letta**（原 MemGPT）：https://github.com/letta-ai/letta
+- **LangGraph checkpointer / store**：LangChain 1.x 的短期与长期记忆机制，旧版 `langchain.memory` 已迁到 `langchain-classic`
 - **Zep**：https://github.com/getzep/zep
 
 **GUI Agent**：
@@ -249,7 +252,7 @@ Step 1: 读论文理解原理
   
 Step 2: 阅读开源项目源码
   工具：DeepWiki / ZRead.ai
-  目标：理解 LangChain、AutoGen 的实现
+  目标：理解 LangGraph、OpenAI Agents SDK 等框架的实现
   
 Step 3: 动手实现项目
   工具：Cursor + Claude Code
@@ -282,8 +285,8 @@ Step 5: 准备面试
 ### 场景2：开发 Multi-Agent 系统
 
 ```
-框架：AutoGen / CrewAI
-编排：LangGraph
+编排：LangGraph / Microsoft Agent Framework
+角色协作：CrewAI（可选）
 记忆：Mem0
 工具：各类API
 监控：LangSmith

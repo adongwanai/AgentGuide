@@ -31,7 +31,7 @@ topic:
 - **评估体系**：如何证明 Agent 比人工更好？
 
 ### Layer 3：模型理解（加分项）
-- 了解主流模型长短板（GPT-4/Claude/Llama 选择）
+- 了解主流模型长短板（闭源 API / 开源权重 / 国产模型的选择，推理模型与非推理模型的取舍）
 - 微调能力（Function Call 微调）
 - 强化学习基础（Agent RL、DPO）
 
@@ -246,10 +246,11 @@ topic:
 - 标签：#成本优化 #Agent #API
 
 **优化策略**：
+- Prompt 缓存（固定的系统提示、工具定义放在前缀，主流 API 都支持前缀缓存计费）
 - Semantic Cache
-- Prompt 压缩
-- 智能降级（GPT-4 → GPT-3.5）
-- 批处理
+- Prompt 压缩与上下文裁剪
+- 模型路由（简单请求走轻量模型，难例再升级到旗舰模型）
+- 批处理（离线任务走 Batch API）
 
 ---
 
@@ -375,6 +376,8 @@ topic:
 
 ## 第三部分：框架选型题（10题）
 
+> 框架现状（2026-11）：AutoGen 已进入维护模式，后继为 Microsoft Agent Framework；OpenAI Swarm 已被 Agents SDK 取代；LangChain 1.x 改用 `create_agent`。题目保留原问法，回答时建议补充这些变化，见 [Agent 开发框架对比](../../resources/agent/frameworks.md)。
+
 **Q1: LangChain vs LlamaIndex vs AutoGen，如何选择？**
 - 难度：⭐⭐⭐
 - 公司：所有公司（通用题）
@@ -412,15 +415,17 @@ topic:
 
 ---
 
-**Q5: LLM 选型：GPT-4 vs Claude vs Llama vs 国产大模型**
+**Q5: LLM 选型：闭源 API vs 开源权重 vs 国产大模型**
 - 难度：⭐⭐⭐
 - 标签：#LLM #模型选型
 
 **选型决策树**：
-- 任务类型（推理、代码、创作）
-- 成本预算
+- 任务类型（推理、代码、创作、工具调用）
+- 是否需要推理模式，以及能接受的延迟
+- 工具调用与长上下文的稳定性（用自己的评测集测，不只看榜单）
+- 成本预算（含缓存命中后的实际单价）
 - 部署方式（API vs 私有化）
-- 合规要求
+- 合规要求（数据出境、行业监管）
 
 ---
 

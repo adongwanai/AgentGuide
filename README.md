@@ -124,7 +124,7 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 **🤖 Agent 应用层**
 - ✅ **Agent / Workflow**
   - LangGraph、OpenAI Agents SDK
-  - AutoGen、CrewAI、Pydantic AI
+  - Microsoft Agent Framework、CrewAI、Pydantic AI
   - Dify、n8n、Flowise
 - ✅ **任务形态**
   - Research / Coding / Web Agent
@@ -689,7 +689,7 @@ Agent 方向变化很快，当前更值得投入的是能落地、能验证、�
 - 评估体系（如何证明 Agent 比人工更好？）
 
 **Layer 3：模型理解**（加分项）
-- 主流模型长短板（GPT-4/Claude/Llama 选择）
+- 主流模型长短板（闭源 API / 开源权重 / 国产模型的选择，推理模型与非推理模型的取舍）
 - 微调能力（Function Call 微调、垂直领域适配）
 - 强化学习基础（Agent RL、DPO）
 
@@ -983,7 +983,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 | **🛠️ L2-开发实现层**    | 掌握框架工具、完成系统搭建（3-4周）                 |     |
 | 模块4：经典Agent范式手撕实现   | ReAct、Plan-Execute、Reflection模式     |     |
 | 模块5：低代码平台快速验证       | LangChain、Dify、Coze、n8n工具使用         |     |
-| 模块6：主流框架深度实战        | LangGraph、AutoGen、AgentScope、CrewAI |     |
+| 模块6：主流框架深度实战        | LangGraph、OpenAI Agents SDK、AgentScope、CrewAI |     |
 | 模块7：自研Agent框架设计原理   | 消息路由、工具注册、异常处理、日志追踪                 |     |
 | **🚀 L3-高阶优化层**     | 检索优化、上下文管理、模型训练（4-5周）               |     |
 | 模块8：检索增强生成（RAG）全栈技术 | 数据预处理、索引构建、检索优化、高级RAG               |     |
@@ -1037,8 +1037,9 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - 关键里程碑论文解读
   - ReAct（推理+行动）
   - Reflexion（自我反思）
-  - AutoGPT（自主规划）
+  - Toolformer 与 Function Calling（工具使用）
   - Multi-Agent（协作涌现）
+  - DeepSeek-R1 与 RLVR（用强化学习训练推理和工具使用）
 
 </td>
 </tr>
@@ -1073,7 +1074,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 #### 🎯 阶段目标
 - ✅ 手撕核心 Agent 架构（ReAct、Plan-Solve、Reflexion）
-- ✅ 掌握主流开发框架（LangChain、AutoGen、AgentScope）
+- ✅ 掌握主流开发框架（LangChain / LangGraph、厂商 Agent SDK、AgentScope）
 - ✅ 能够独立搭建完整的 Agent 系统
 
 #### 🔨 实操内容
@@ -1113,7 +1114,8 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 **1. 代码优先（Code-First）**
 - **LangChain/LangGraph**：工业界标准
 - **LlamaIndex**：数据导向，RAG 首选
-- **AutoGen/CrewAI**：Multi-Agent 协作
+- **CrewAI / Microsoft Agent Framework**：Multi-Agent 协作（AutoGen 已进入维护模式）
+- **OpenAI Agents SDK / Claude Agent SDK / Google ADK**：厂商官方 Agent SDK
 - **AgentScope**：阿里开源，易上手
 
 **2. 低代码/无代码（Low-Code）**
@@ -1133,7 +1135,8 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 | 框架 | 核心特性 | 适用场景 | 学习资源 |
 |:-----|:---------|:---------|:---------|
 | **LangGraph** | 图导向、状态管理、循环控制 | 复杂工作流、需要精确控制的场景 | — |
-| **AutoGen** | 多 Agent 对话、角色扮演 | 团队协作、复杂任务分解 | — |
+| **OpenAI Agents SDK** | Agent、handoff、guardrail、tracing | 轻量多 Agent 交接（Swarm 的后继） | [框架对比](./resources/agent/frameworks.md) |
+| **Microsoft Agent Framework** | Agent + 工作流图，合并 AutoGen 与 Semantic Kernel | 微软技术栈、从 AutoGen 迁移 | [框架对比](./resources/agent/frameworks.md) |
 | **AgentScope** | 消息驱动、灵活扩展 | 国内场景、中文优化 | — |
 | **CrewAI** | 角色分工、层级管理 | 企业级应用、流程自动化 | — |
 
@@ -1253,12 +1256,14 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - Reward Model 训练技巧
 
 **11.3 Agent RL 应用**
-- 工具调用策略优化
-- 规划能力增强训练
-- 自我修正机制训练
+- 多轮工具 rollout 与 observation mask
+- 结果奖励、格式奖励与 turn 级信用分配
+- On-policy distillation 与训练 API
+- 动手复现：[Datawhale agentic-rl-lab](https://github.com/datawhalechina/agentic-rl-lab)（Search-R1、ReTool、ALFWorld 等 16 个实验）
 
 📖 [实战：SFT 监督微调](./docs/02-tech-stack/16-sft-finetuning.md)  
-📖 [Post-Training 完整面试指南](./docs/02-tech-stack/25-post-training-complete-guide.md) 🆕
+📖 [Agent 强化学习：从 GRPO 到多轮工具 Agent](./docs/02-tech-stack/21-agent-reinforcement-learning.md) 🆕  
+📖 [Post-Training 完整面试指南](./docs/02-tech-stack/25-post-training-complete-guide.md)
 
 </td>
 <td width="50%">
@@ -1378,7 +1383,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 </tr>
 </table>
 
-**技术栈**：LangChain + Milvus + ArXiv API + GPT-4 + Redis
+**技术栈**：LangChain + Milvus + ArXiv API + 支持工具调用的 LLM（闭源 API 或 Qwen / DeepSeek 等开源模型）+ Redis
 
 **学习路径**：
 - [ ] 项目需求与技术选型 _（即将推出）_
@@ -1453,7 +1458,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 <td width="50%">
 
 **🛠️ 工程线能力**
-- AutoGen/CrewAI 框架实战
+- LangGraph / CrewAI 框架实战
 - 多API集成与编排
 - 异步任务处理与并发控制
 - 分布式 Agent 系统设计
@@ -1462,7 +1467,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 </tr>
 </table>
 
-**技术栈**：AutoGen / CrewAI + 天气API + 航班API + 酒店API + GPT-4
+**技术栈**：LangGraph / CrewAI + 天气API + 航班API + 酒店API + 支持工具调用的 LLM
 
 **项目亮点**：
 - ✅ 3 个专业 Agent 协同工作（需求分析师、预算规划师、行程执行者）
@@ -1507,7 +1512,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 **🛠️ 工程线能力**
 - Playwright 浏览器自动化
-- GPT-4V 视觉理解集成
+- 多模态模型的截图理解与元素定位
 - 异常处理与重试机制
 - 复杂工作流编排
 
@@ -1515,12 +1520,12 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 </tr>
 </table>
 
-**技术栈**：Playwright + GPT-4V + LangChain + 强化学习（PPO）
+**技术栈**：Playwright + 多模态 LLM + LangGraph + 强化学习（GRPO / PPO）
 
 **项目亮点**：
 - ✅ 视觉理解 + 操作执行的完整闭环
 - ✅ 基于反馈的自我修正机制（识别错误 → 分析原因 → 调整策略）
-- ✅ 在 WebArena 基准测试上达到 75% 成功率（超越 Baseline 10%）
+- ✅ 在 WebArena 子集上评测成功率，并与不加自我修正的基线做对照
 
 **学习路径**：
 - [ ] 项目需求与技术选型 _（即将推出）_
@@ -1573,7 +1578,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 <td width="50%">
 
 **🛠️ 工程线能力**
-- AutoGen/CrewAI 框架实战
+- LangGraph / CrewAI 框架实战
 - 多API集成与编排
 - 异步任务处理与并发控制
 - 分布式 Agent 系统设计
@@ -1582,7 +1587,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 </tr>
 </table>
 
-**技术栈**：AutoGen / CrewAI + 天气API + 航班API + 酒店API + GPT-4
+**技术栈**：LangGraph / CrewAI + 天气API + 航班API + 酒店API + 支持工具调用的 LLM
 
 **项目亮点**：
 - ✅ 3 个专业 Agent 协同工作（需求分析师、预算规划师、行程执行者）
@@ -1636,7 +1641,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 </tr>
 </table>
 
-**技术栈**：LangGraph + ArXiv API + Semantic Scholar + GraphRAG + GPT-4/Claude
+**技术栈**：LangGraph + ArXiv API + Semantic Scholar + GraphRAG + 长上下文 LLM
 
 **项目亮点**：
 - ✅ 复现 DeepResearch Agent 核心功能

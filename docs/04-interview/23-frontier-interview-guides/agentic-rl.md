@@ -191,6 +191,9 @@ def rollout(task, policy, environment, max_steps):
 
 ## 📚 扩展阅读
 
+- [Agent 强化学习：从 GRPO 到多轮工具 Agent](../../02-tech-stack/21-agent-reinforcement-learning.md)：算法机制、工程要点和实验结果的读法
+- [Datawhale agentic-rl-lab](https://github.com/datawhalechina/agentic-rl-lab)：Search-R1、ReTool、ALFWorld、AgentOPSD 等可运行复现，适合补“项目证据”
+- [Agent RL 开源项目汇总](../../../resources/agent/papers/agent_rl/Agent%E2%9E%95RL%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%B1%87%E6%80%BB.md)
 - [Post-training 完整指南](../../02-tech-stack/25-post-training-complete-guide.md)
 - [Agent Evaluation Harness](../../02-tech-stack/26-agent-evaluation-harness-guide.md)
 - [数据合成备战手册](../18-agent-interview-playbooks/data-synthesis-playbook.md)

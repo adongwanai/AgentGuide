@@ -382,6 +382,8 @@ Pipeline 式方案通常将文档解析分解为文本识别、布局分析、�
 
 通用多模态大模型在文档解析上具有强大潜力，但通常需要提示工程（Prompt Engineering）或微调以达到最佳效果。
 
+> 时效说明（2026-11）：本节 1.3.1–1.3.6 收录的是 2024–2025 年初的模型，部分已有后继版本（如 Qwen 系列已到 Qwen3-VL 及之后）。通用 VLM 更新很快，选型时以各厂商当前型号和自有样本上的实测为准。2025 年下半年起，文档解析的主流开源路线转向 1.4 节的小尺寸专用 VLM。
+
   
 
 #### 1.3.1 GPT-4o
@@ -555,6 +557,27 @@ Pipeline 式方案通常将文档解析分解为文本识别、布局分析、�
     
 - **参考**: [InternVL2 GitHub](https://github.com/OpenGVLab/InternVL)
     
+
+  
+
+### 1.4 文档解析专用小型 VLM（2025 年起）
+
+2025 年下半年出现了一批 1B–3B 级别、专门为文档解析训练的视觉语言模型。它们在 OmniDocBench 等基准上与大尺寸通用 VLM 相当或更好，推理成本低得多，已成为开源文档解析的主流选择。核对时间 2026-11，模型规模与功能以各仓库为准。
+
+| 模型 | 来源 | 思路 | 链接 |
+|:---|:---|:---|:---|
+| MinerU 2.5 | 上海 AI Lab OpenDataLab | 约 1.2B；先在缩略全页上做版式分析，再对裁剪区域高分辨率识别，两阶段解耦降低计算量；集成在 MinerU 工具链中 | [opendatalab/MinerU](https://github.com/opendatalab/MinerU) |
+| PaddleOCR-VL | 百度飞桨 | 约 0.9B；动态分辨率视觉编码器 + 小型 ERNIE 语言模型，多语言；集成在 PaddleOCR 3.x | [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) |
+| dots.ocr | 小红书 hi lab | 约 1.7B 语言模型；单模型同时输出版式与内容，支持多语言 | [rednote-hilab/dots.ocr](https://github.com/rednote-hilab/dots.ocr) |
+| DeepSeek-OCR | DeepSeek | 研究“用少量视觉 token 表示长文本”的光学上下文压缩，解码器为小型 MoE | [deepseek-ai/DeepSeek-OCR](https://github.com/deepseek-ai/DeepSeek-OCR) |
+| olmOCR | AI2 | 基于开源 VLM 微调的 PDF 线性化工具，面向大规模语料清洗，见 1.2.8 | [allenai/olmocr](https://github.com/allenai/olmocr) |
+
+选型建议：
+
+- **RAG 入库的通用方案**：MinerU 或 PaddleOCR（含 VL 模型）这类完整工具链，版式、表格、公式、阅读顺序都已处理好。
+- **需要单模型部署、多语言**：dots.ocr、PaddleOCR-VL。
+- **超长文档、关注视觉 token 成本**：DeepSeek-OCR 的思路值得关注，但它更偏研究性质。
+- **都不理想时**：用自己的样本在通用 VLM 上对比，或对小模型做领域微调。
 
   
 
@@ -1129,7 +1152,7 @@ Pipeline 式方案通常将文档解析分解为文本识别、布局分析、�
 
 - **通用多模态大模型**:
     
-    - **推荐**: GPT-4o（高精度、复杂场景）、Qwen2.5-VL-72B（开源、高性能）。
+    - **推荐**: 闭源旗舰多模态模型（高精度、复杂场景）、Qwen-VL 系列等开源模型（可私有化）；以 RAG 入库为目的时优先看 1.4 节的专用小模型。
         
     - **适用场景**: 复杂文档、无需定制化场景。
         
@@ -1182,21 +1205,22 @@ Pipeline 式方案通常将文档解析分解为文本识别、布局分析、�
 
 - **性能评估**: 使用 OmniDocBench 提供的测试集评估模型在具体任务（如 OCR、表格解析）上的表现，关注 F1 分数、召回率等指标。
     
-- **部署考量**: 优先选择开源模型（如 PaddleOCR、Nougat）以降低成本；若追求极致精度，可考虑 GPT-4o 或 Mathpix。
+- **部署考量**: 优先选择开源方案（如 MinerU、PaddleOCR / PaddleOCR-VL、dots.ocr）以降低成本；若追求极致精度，可考虑闭源旗舰多模态模型或 Mathpix。
     
 - **数据预处理**: 对低质量图像（如扫描件），建议使用图像增强技术（如去噪、锐化）提升效果。
     
-- **微调需求**: 对于特定领域文档（如法律、医疗），建议基于开源模型（如 Qwen2.5-VL、LayoutLMv3）进行微调。
+- **微调需求**: 对于特定领域文档（如法律、医疗），建议基于开源模型（如 Qwen-VL 系列、1.4 节的小型文档 VLM、LayoutLMv3）进行微调。
 
 ## 8. 快速选型表
 
-| 工具 | Stars | 支持格式 | 质量 | 速度 | 推荐场景 | 推荐度 |
-|:---|:---:|:---|:---:|:---:|:---|:---:|
-| **MinerU** | 10k+ | PDF/Word/PPT | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | 复杂PDF、多模态RAG | ⭐⭐⭐⭐⭐ |
-| **Unstructured** | 8k+ | 20+格式 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 通用文档解析 | ⭐⭐⭐⭐ |
-| **LlamaParse** | - | PDF | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | LlamaIndex 生态 | ⭐⭐⭐⭐ |
-| **PyPDF2** | 8k+ | PDF | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 简单PDF提取 | ⭐⭐⭐ |
-| **Docling** | 3k+ | PDF/Word | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | IBM 出品 | ⭐⭐⭐ |
+| 工具 | 支持格式 | 质量 | 速度 | 推荐场景 |
+|:---|:---|:---:|:---:|:---|
+| **MinerU** | PDF/Word/PPT/图片 | 高 | 中 | 复杂 PDF、多模态 RAG |
+| **PaddleOCR（含 PaddleOCR-VL）** | PDF/图片 | 高 | 中 | 中文场景、多语言、私有化部署 |
+| **Unstructured** | 20+ 格式 | 中高 | 快 | 通用文档解析 |
+| **LlamaParse** | PDF 等 | 高 | 中 | LlamaIndex 生态（托管服务） |
+| **Docling** | PDF/Word/PPT | 中高 | 快 | IBM 出品，转 Markdown / JSON |
+| **pypdf** | PDF | 低（仅文本层） | 很快 | 有文本层的简单 PDF |
 
 ---
 

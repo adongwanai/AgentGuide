@@ -66,6 +66,8 @@ topic:
         
     4. **[大模型微调技巧与优化](https://mp.weixin.qq.com/s/6sNGvqLktPk6AP7kPs9JyA)**: 微调技巧与性能优化方法。
         
+    5. **[agentic-rl-lab（Datawhale）](https://github.com/datawhalechina/agentic-rl-lab)**：用训练 API 复现 GRPO、DAPO、GSPO、OPD、Search-R1、ReTool、ALFWorld 等 16 个 LLM / Agent RL 实验，本地不需要 GPU，附完整代码、训练记录和实际花费。
+        
 6. **进阶与实战工具**
     
     1. **[How Much VRAM](https://github.com/AlexBodner/How_Much_VRAM)**：帮助评估大模型训练的显存需求，适合硬件选型。
