@@ -12,6 +12,8 @@ topic:
 
 > 这里集中收录外部链接、论文清单、工具目录、项目清单与 PDF。教程正文统一放在 `docs/`。
 
+外部资源的日期与适用范围见[资源核验记录](./resource-verification.md)。未标注核验日期的历史资源视为未核验；链接可访问不等于示例已在当前依赖下运行通过。
+
 ## 推荐入口
 
 | 方向 | 入口 |
@@ -54,6 +56,7 @@ topic:
 | [RAG Papers](./rag/papers/README.md) | 入口页 | 已发布 | 通用 | RAG、科研 |
 | [🔥 2025年最全RAG知识库项目汇总 \| 从入门到精通的150+开源项目清单](./rag/projects.md) | 资源清单 | 已发布 | 通用 | RAG、项目实战 |
 | [RAG 资源总览](./rag/README.md) | 入口页 | 已发布 | 通用 | RAG、框架工具 |
+| [外部资源核验记录](./resource-verification.md) | 资源清单 | 已发布 | 通用 | Agent、框架工具 |
 | [AI Agent 开发者工具箱](./tools.md) | 资源清单 | 已发布 | 通用 | Agent、框架工具 |
 
 ## PDF 索引
