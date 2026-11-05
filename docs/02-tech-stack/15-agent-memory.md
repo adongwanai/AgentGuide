@@ -17,7 +17,7 @@ topic:
 
 学完本章，你将能够：
 - ✅ 理解 Agent Memory 的核心概念和设计原则
-- ✅ 掌握主流 Memory 工具的使用（Mem0、MemGPT、Zep）
+- ✅ 掌握主流 Memory 工具的使用（Mem0、Letta/MemGPT、Zep）
 - ✅ 设计并实现自己的 Memory 系统
 - ✅ 回答 Memory 相关的面试题
 
@@ -112,15 +112,19 @@ memory.add(
     user_id="user_001"
 )
 
-# 3. 检索记忆
+# 3. 检索记忆（mem0ai 2.x：用户范围写在 filters 里）
 results = memory.search(
     "用户喜欢什么颜色？",
-    user_id="user_001"
+    filters={"user_id": "user_001"},
+    top_k=3,
 )
 
-print(results)
-# 输出：用户喜欢红色
+for item in results["results"]:
+    print(item["memory"], item["score"])
+# 输出类似：喜欢红色 0.8x
 ```
+
+> 版本说明：以上按 mem0ai 2.x 编写。旧版本的 `search(query, user_id=...)` 写法在 2.x 中会报错；`add` 仍然使用 `user_id=` 参数。默认配置调用 OpenAI 的模型做事实抽取和向量化，换成其他模型或向量库用下面的 `Memory.from_config`。
 
 **配置后端**：
 
@@ -156,25 +160,24 @@ memory = Memory.from_config(config)
 
 **核心概念**：
 
-```python
-from memgpt import MemGPT
+MemGPT 借用操作系统虚拟内存的思路：上下文窗口相当于内存，外部存储相当于磁盘，由模型自己调用函数决定把什么换入、换出。项目已更名为 [Letta](https://github.com/letta-ai/letta)，SDK 用法以官方文档为准。下面是机制示意，不对应具体 SDK：
 
-# 1. 创建 Agent（带虚拟内存）
-agent = MemGPT.create_agent(
-    persona="你是一个研究助手",
-    human="用户是一名研究员"
-)
+```text
+上下文窗口（主上下文）
+├── 系统指令
+├── core memory：常驻、可被模型编辑的记忆块
+│   ├── persona：Agent 自身设定
+│   └── human：用户画像（姓名、偏好……）
+└── 最近的对话消息（FIFO，满了就摘要后移出）
 
-# 2. 发送消息
-response = agent.send_message(
-    "帮我研究量子计算的最新进展"
-)
+外部存储
+├── recall memory：完整对话历史，可按关键词 / 时间检索
+└── archival memory：向量化的长期知识，可语义检索
 
-# 3. Memory 自动管理
-# MemGPT 会自动：
-# - 存储重要信息到外部存储
-# - 从外部加载相关记忆
-# - 清理不重要的历史
+模型可调用的记忆函数（示意）
+core_memory_append / core_memory_replace   # 改写常驻记忆
+conversation_search                        # 检索历史对话
+archival_memory_insert / archival_memory_search
 ```
 
 **虚拟内存工作流**：
@@ -204,75 +207,78 @@ response = agent.send_message(
 
 **适合场景**：学习理解、定制化需求、轻量级应用
 
-**完整实现**（50行代码）：
+**完整实现**（LangChain 1.x）：
+
+LangChain 1.x 中，短期记忆由 LangGraph 的 checkpointer 按 `thread_id` 保存完整对话状态；旧版的 `ConversationBufferMemory`、`ConversationChain` 已迁到 `langchain-classic`，新代码不再使用。
 
 ```python
-from langchain.memory import ConversationBufferMemory
-from langchain_openai import ChatOpenAI
-from langchain.chains import ConversationChain
+"""
+依赖：langchain>=1.0  langgraph  langchain-chroma，以及所选模型厂商的集成包
+模型用 "provider:model" 字符串指定，从环境变量读取，例如
+CHAT_MODEL="openai:<model-id>"、EMBEDDING_MODEL="openai:<embedding-model-id>"
+"""
+import os
+
+from langchain.agents import create_agent
+from langchain.embeddings import init_embeddings
 from langchain_chroma import Chroma
-from langchain_openai import OpenAIEmbeddings
+from langgraph.checkpoint.memory import InMemorySaver
+
 
 class CustomAgentMemory:
     def __init__(self):
-        # 短期记忆（对话历史）
-        self.buffer_memory = ConversationBufferMemory()
-        
-        # 长期记忆（向量存储）
+        # 长期记忆：向量库，跨会话保留，按 user_id 隔离
         self.vector_store = Chroma(
-            embedding_function=OpenAIEmbeddings()
+            collection_name="long_term_memory",
+            embedding_function=init_embeddings(os.environ["EMBEDDING_MODEL"]),
+            persist_directory="./memory_db",
         )
-        
-        self.llm = ChatOpenAI(model="gpt-4")
-    
-    def add_to_long_term(self, text: str, metadata: dict):
-        """存储到长期记忆"""
-        self.vector_store.add_texts([text], metadatas=[metadata])
-    
-    def retrieve_from_long_term(self, query: str, k: int = 3):
-        """从长期记忆检索"""
-        docs = self.vector_store.similarity_search(query, k=k)
-        return "\n".join([doc.page_content for doc in docs])
-    
-    def chat(self, user_input: str):
-        """对话接口"""
+        # 短期记忆：checkpointer 按 thread_id 保存对话状态
+        # InMemorySaver 进程退出即丢失，生产环境换成 PostgresSaver 等持久化实现
+        self.agent = create_agent(
+            model=os.environ["CHAT_MODEL"],
+            tools=[],
+            system_prompt="你是一个会记住用户信息的助手。",
+            checkpointer=InMemorySaver(),
+        )
+
+    def add_to_long_term(self, text: str, user_id: str):
+        self.vector_store.add_texts([text], metadatas=[{"user_id": user_id}])
+
+    def retrieve_from_long_term(self, query: str, user_id: str, k: int = 3) -> str:
+        docs = self.vector_store.similarity_search(query, k=k, filter={"user_id": user_id})
+        return "\n".join(doc.page_content for doc in docs)
+
+    def chat(self, user_input: str, user_id: str, thread_id: str) -> str:
         # 1. 从长期记忆检索相关信息
-        relevant_memory = self.retrieve_from_long_term(user_input)
-        
-        # 2. 构建完整上下文
-        context = f"相关历史信息：\n{relevant_memory}\n\n当前对话："
-        
-        # 3. LLM 处理
-        chain = ConversationChain(
-            llm=self.llm,
-            memory=self.buffer_memory
+        relevant = self.retrieve_from_long_term(user_input, user_id)
+        content = f"相关历史信息：\n{relevant}\n\n用户：{user_input}" if relevant else user_input
+
+        # 2. 同一 thread_id 的历史消息由 checkpointer 自动带上
+        result = self.agent.invoke(
+            {"messages": [{"role": "user", "content": content}]},
+            config={"configurable": {"thread_id": thread_id}},
         )
-        
-        response = chain.run(input=context + user_input)
-        
-        # 4. 判断是否需要存入长期记忆
+        reply = result["messages"][-1].content
+
+        # 3. 判断是否写入长期记忆
         if self.is_important(user_input):
-            self.add_to_long_term(
-                user_input + " -> " + response,
-                metadata={"timestamp": "..."}
-            )
-        
-        return response
-    
+            self.add_to_long_term(user_input, user_id)
+        return reply
+
     def is_important(self, text: str) -> bool:
-        """判断是否重要（简化版）"""
-        # 实际应该用 LLM 判断
-        keywords = ["喜欢", "名字", "职业", "偏好"]
+        """简化版：实际项目一般让 LLM 抽取事实并打分，见下文“什么时候存储”"""
+        keywords = ["喜欢", "名字", "叫", "职业", "偏好"]
         return any(kw in text for kw in keywords)
 
-# 使用示例
-memory_agent = CustomAgentMemory()
 
-# 对话1
-memory_agent.chat("我叫张三，我是工程师")
-# 对话2
-memory_agent.chat("我喜欢什么？")
+memory_agent = CustomAgentMemory()
+memory_agent.chat("我叫张三，我是工程师", user_id="u001", thread_id="session-1")
+# 新会话：短期记忆为空，靠长期记忆找回用户信息
+print(memory_agent.chat("我是做什么工作的？", user_id="u001", thread_id="session-2"))
 ```
+
+这个示例为了直观，把检索结果直接拼进了本轮用户消息，因此会随对话历史一起被 checkpointer 保存。生产中更常见的做法是用 middleware 在每次调用模型前动态注入系统提示，检索结果不写入历史。
 
 ---
 
@@ -446,86 +452,77 @@ def update_memory(new_info: str, user_id: str):
 - 记住历史问题和解决方案
 - 个性化推荐
 
-### 实现（基于 LangChain + Mem0）
+### 实现（基于 LangChain 1.x + Mem0）
+
+记忆的读写做成工具，由 Agent 自己决定何时检索、何时保存；`user_id` 通过运行时 context 注入工具，不让模型自己填写，避免串用户。
 
 ```python
-from langchain_openai import ChatOpenAI
-from langchain.agents import create_react_agent, Tool
+"""
+依赖：langchain>=1.0  langgraph  mem0ai>=2.0，以及所选模型厂商的集成包
+"""
+import os
+
+from pydantic import BaseModel
+from langchain.agents import create_agent
+from langchain.tools import tool, ToolRuntime
+from langgraph.checkpoint.memory import InMemorySaver
 from mem0 import Memory
 
-class CustomerServiceAgent:
-    def __init__(self):
-        self.llm = ChatOpenAI(model="gpt-4")
-        self.memory = Memory()
-        
-        # 定义工具
-        self.tools = [
-            Tool(
-                name="search_memory",
-                func=self.search_memory,
-                description="搜索用户的历史信息和偏好"
-            ),
-            Tool(
-                name="save_to_memory",
-                func=self.save_to_memory,
-                description="保存重要的用户信息"
-            )
-        ]
-        
-        # 创建 Agent
-        self.agent = create_react_agent(self.llm, self.tools)
-    
-    def search_memory(self, query: str, user_id: str) -> str:
-        """搜索记忆"""
-        results = self.memory.search(query, user_id=user_id)
-        if results:
-            return "\n".join([r['text'] for r in results])
-        return "没有找到相关记忆"
-    
-    def save_to_memory(self, content: str, user_id: str) -> str:
-        """保存记忆"""
-        self.memory.add(content, user_id=user_id)
-        return f"已保存：{content}"
-    
-    def chat(self, user_input: str, user_id: str) -> str:
-        """对话接口"""
-        # 1. 自动检索相关记忆
-        relevant_memory = self.search_memory(
-            user_input, 
-            user_id=user_id
-        )
-        
-        # 2. 构建提示词
-        prompt = f"""你是客服 Agent。
+memory = Memory()  # 默认配置使用 OpenAI；其他模型和向量库用 Memory.from_config
 
-相关用户信息：
-{relevant_memory}
 
-用户当前问题：
-{user_input}
+class UserContext(BaseModel):
+    user_id: str
 
-如果发现重要信息（如用户姓名、偏好），使用 save_to_memory 工具保存。
-"""
-        
-        # 3. Agent 处理
-        response = self.agent.invoke({
-            "input": prompt
-        })
-        
-        return response
 
-# 使用
-agent = CustomerServiceAgent()
+@tool
+def search_memory(query: str, runtime: ToolRuntime[UserContext]) -> str:
+    """搜索当前用户的历史信息、偏好和以往问题。"""
+    res = memory.search(query, filters={"user_id": runtime.context.user_id}, top_k=5)
+    hits = [item["memory"] for item in res.get("results", [])]
+    return "\n".join(hits) if hits else "没有找到相关记忆"
 
-# 第一轮对话
-agent.chat("你好，我叫张三", user_id="user_001")
-# Agent 会调用 save_to_memory("用户叫张三")
 
-# 第二轮对话
-agent.chat("我上次买了什么？", user_id="user_001")
-# Agent 会调用 search_memory，找到"用户叫张三"
-# 然后回答：张三你好，让我查查你的历史订单...
+@tool
+def save_to_memory(content: str, runtime: ToolRuntime[UserContext]) -> str:
+    """保存用户明确提供、且长期有效的信息，例如姓名、偏好、已解决问题的方案。"""
+    memory.add(content, user_id=runtime.context.user_id)
+    return "已保存"
+
+
+agent = create_agent(
+    model=os.environ["CHAT_MODEL"],
+    tools=[search_memory, save_to_memory],
+    system_prompt=(
+        "你是客服 Agent。回答与用户历史相关的问题前，先用 search_memory 查询；"
+        "用户提供姓名、偏好等长期有效的信息时，用 save_to_memory 保存。"
+    ),
+    context_schema=UserContext,
+    checkpointer=InMemorySaver(),
+)
+
+
+def chat(user_input: str, user_id: str, thread_id: str) -> str:
+    result = agent.invoke(
+        {"messages": [{"role": "user", "content": user_input}]},
+        config={"configurable": {"thread_id": thread_id}},
+        context=UserContext(user_id=user_id),
+    )
+    return result["messages"][-1].content
+
+
+# 第一轮：Agent 应调用 save_to_memory 保存“用户叫张三”
+chat("你好，我叫张三", user_id="user_001", thread_id="t1")
+
+# 换一个会话：短期记忆为空，Agent 调用 search_memory 找回用户信息
+chat("你还记得我叫什么吗？", user_id="user_001", thread_id="t2")
 ```
+
+几个设计点：
+
+- **短期记忆与长期记忆分开**：checkpointer 管单个会话内的上下文，Mem0 管跨会话的用户事实。
+- **身份不交给模型**：`user_id` 来自调用方，模型只决定查什么、存什么。
+- **写入要克制**：工具描述里限定“长期有效的信息”，否则模型会把寒暄也存进去；上线前要抽查实际写入内容。
 
 ---
 

@@ -10,6 +10,8 @@ topic:
 
 # Agent Evaluation Harness 完全指南 —— 让你的 Agent 评估不再玄学 🎯
 
+> 模型名说明（2026-11 更新）：文中代码和配置的模型 ID 统一写成 `<model-id>`、`<judge-model-id>` 这类占位符，按你实际评测的模型替换。评测报告里要写明完整的模型 ID 和快照版本。
+
 > **写给谁的？** AI Agent 算法工程师、开发工程师，以及所有被"Agent 评估到底怎么做"折磨到头秃的同学。
 >
 > **你能得到什么？** 从概念到实战，从工具选型到架构设计，从避坑指南到面试考点，一篇搞定 Agent Evaluation Harness 的方方面面。
@@ -385,7 +387,7 @@ class RuleBasedGrader(BaseGrader):
 class LLMJudgeGrader(BaseGrader):
     """LLM 评分器 —— 用另一个 LLM 来打分"""
 
-    def __init__(self, judge_model="gpt-4o"):
+    def __init__(self, judge_model="<judge-model-id>"):
         self.judge_model = judge_model
 
     def grade(self, task, trial):
@@ -569,22 +571,24 @@ lm_eval --model hf \
 
 # 多任务评估
 lm_eval --model hf \
-  --model_args pretrained=meta-llama/Llama-2-7b-hf \
+  --model_args pretrained=Qwen/Qwen3-8B \
   --tasks mmlu,gsm8k,hellaswag,arc_easy \
   --device cuda:0 \
   --batch_size auto
 
 # 使用 vLLM 加速推理
 lm_eval --model vllm \
-  --model_args pretrained=meta-llama/Llama-2-7b-hf,tensor_parallel_size=2 \
+  --model_args pretrained=Qwen/Qwen3-8B,tensor_parallel_size=2 \
   --tasks mmlu \
   --batch_size 32
 
-# 评估 API 模型（如 OpenAI）
-lm_eval --model openai-completions \
-  --model_args model=gpt-4o \
-  --tasks mmlu \
-  --batch_size 16
+# 评估 Chat API 模型（如 OpenAI）
+# 注意：Chat 接口不返回 prompt 的 logprob，MMLU 这类按选项似然打分的任务跑不了，
+# 只能跑 gsm8k 这类生成式任务，并需要 --apply_chat_template
+lm_eval --model openai-chat-completions \
+  --model_args model=<model-id> \
+  --tasks gsm8k \
+  --apply_chat_template
 ```
 
 ```python
@@ -650,10 +654,10 @@ prompts:
   - "Summarize the following text in one sentence: {{text}}"
   - "Provide a brief summary: {{text}}"
 
-providers:
-  - openai:gpt-4o
-  - openai:gpt-3.5-turbo
-  - anthropic:claude-3-5-sonnet-20241022
+providers:  # 替换成实际要对比的模型
+  - openai:chat:<model-id-a>
+  - openai:chat:<model-id-b>
+  - anthropic:messages:<model-id-c>
 
 tests:
   - vars:
@@ -693,7 +697,7 @@ from promptfoo import evaluate
 
 result = evaluate(
     prompts=["Summarize: {{text}}"],
-    providers=["openai:gpt-4o"],
+    providers=["openai:chat:<model-id>"],
     tests=[
         {
             "vars": {"text": "Your text here..."},
@@ -780,7 +784,7 @@ from opencompass.models import HuggingFaceCausalLM
 from opencompass.datasets import MMLUDataset
 
 model = HuggingFaceCausalLM(
-    path="Qwen/Qwen2.5-7B-Instruct",
+    path="Qwen/Qwen3-8B",
     max_seq_len=4096,
     batch_size=8,
 )
@@ -795,7 +799,7 @@ from opencompass.openicl.icl_inferencer import GenInferencer
 from opencompass.openicl.icl_evaluator import LMEvaluator
 
 evaluator = LMEvaluator(
-    judge_model="gpt-4o",
+    judge_model="<judge-model-id>",
     prompt_template="请评估以下回答的质量..."
 )
 ```
@@ -862,8 +866,8 @@ python -m src.assigner
 # configs/agents/my_agent.yaml
 agent:
   name: "my-custom-agent"
-  model: "gpt-4o"
-  api_key: "your-api-key"
+  model: "<model-id>"
+  api_key: "${API_KEY}"  # 从环境变量读取，不要写进配置文件
   max_steps: 20
   temperature: 0.0
 
@@ -950,7 +954,7 @@ python run.py \
   --instruction_path agent/prompts/jsons/p_cot_id_actree_2s.json \
   --test_start_idx 0 \
   --test_end_idx 10 \
-  --model gpt-4o \
+  --model <model-id> \
   --result_dir ./results
 ```
 
@@ -1301,7 +1305,7 @@ from deepeval.red_team import RedTeamer
 
 red_teamer = RedTeamer(
     target_purpose="customer support chatbot",
-    target_model="gpt-4o",
+    target_model="<model-id>",
 )
 
 vulnerabilities = red_teamer.scan()
@@ -1778,7 +1782,7 @@ class MiniAgentHarness:
 class SimpleCodeAgent(BaseAgent):
     """一个简单的代码 Agent 实现"""
 
-    def __init__(self, model_name="gpt-4o"):
+    def __init__(self, model_name="<model-id>"):
         self.model_name = model_name
         self.task = None
         self.history = []
@@ -1960,12 +1964,12 @@ graders:
   - type: "efficiency"
 
 agents:
-  - name: "gpt-4o-agent"
+  - name: "openai-agent"
     type: "openai"
-    model: "gpt-4o"
+    model: "<openai-model-id>"
   - name: "claude-agent"
     type: "anthropic"
-    model: "claude-3-5-sonnet-20241022"
+    model: "<anthropic-model-id>"
 
 parallel:
   max_workers: 4
@@ -2263,7 +2267,7 @@ def generate_test_cases_with_llm(task_description, num_cases=50):
     输出 JSON 格式。
     """
 
-    response = call_llm("gpt-4o", prompt)
+    response = call_llm("<generator-model-id>", prompt)
     test_cases = json.loads(response)
     return test_cases
 ```
@@ -2568,10 +2572,11 @@ print(f"综合报告: {json.dumps(report, indent=2)}")
 # 结果：评估结果和实际表现天差地别
 
 # 正确方式：评估配置和生产配置保持一致
+production_temperature = 0.7  # 取生产环境的实际值
 eval_config = {
-    "temperature": 0.0,  # 评估时用 0 保证可复现
+    "temperature": production_temperature,  # 与生产一致；结果有随机性时多次采样取均值和方差
     "max_tokens": 4096,  # 和生产一致
-    "model_version": "gpt-4o-2024-05-13",  # 锁定版本
+    "model_version": "<model-id>-<snapshot-date>",  # 锁定带日期的模型快照，不用会自动漂移的别名
     "system_prompt": production_system_prompt,  # 使用生产 prompt
 }
 ```
@@ -2605,14 +2610,16 @@ def update_eval_dataset(existing_dataset, new_logs, frequency="monthly"):
 ```python
 # 错误方式：直接用 LLM 打分，不考虑偏见
 def llm_judge(prompt):
-    return call_llm("gpt-4o", prompt)  # 可能存在位置偏见、长度偏见等
+    return call_llm("<judge-model-id>", prompt)  # 可能存在位置偏见、长度偏见等
 
 # 正确方式：多次评估 + 交换位置 + 使用多个 Judge
+JUDGE_MODELS = ["<judge-a>", "<judge-b>", "<judge-c>"]  # 三个不同厂商的模型
+
 def robust_llm_judge(prompt, num_judges=3, num_rounds=2):
     """鲁棒的 LLM 评分"""
     all_scores = []
 
-    for judge_model in ["gpt-4o", "claude-3-5-sonnet", "gemini-pro"]:
+    for judge_model in JUDGE_MODELS:  # 建议来自不同厂商，且与被测模型不同源
         for round in range(num_rounds):
             # 交换选项顺序
             if round % 2 == 1:
@@ -2662,7 +2669,7 @@ Evaluation Harness 是一套完整的评估基础设施，包含任务管理、�
 
 **参考答案：**
 
-LLM-as-Judge 是用另一个 LLM（通常是更强的模型如 GPT-4）来评估 LLM 输出的质量。
+LLM-as-Judge 是用另一个 LLM（通常能力更强，且最好与被测模型不同源，以减少自我偏好）来评估 LLM 输出的质量。
 
 优点：
 - 可以评估开放式问题（没有标准答案的任务）
@@ -2717,7 +2724,7 @@ LLM-as-Judge 是用另一个 LLM（通常是更强的模型如 GPT-4）来评估
 
 我在项目中主要使用了以下工具：
 
-1. **lm-evaluation-harness**：用于模型选型，评估了 GPT-4o、Claude-3.5、Qwen2.5 在 MMLU、GSM8K 等标准 benchmark 上的表现。优点是标准化程度高，缺点是不支持 Agent 评估。
+1. **lm-evaluation-harness**：用于模型选型，在 MMLU、GSM8K 等标准 benchmark 上对比了几个候选闭源 API 模型和开源权重模型。优点是标准化程度高，缺点是不支持 Agent 评估。
 
 2. **DeepEval**：用于 RAG 系统的单元测试，集成了 CI/CD。优点是 Pytest 风格上手快，Agent 评估指标丰富。
 

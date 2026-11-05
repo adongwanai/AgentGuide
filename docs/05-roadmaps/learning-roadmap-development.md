@@ -91,7 +91,7 @@ topic:
 
 ### 🛠️ 开发框架与工具
 - **LLM框架**: [LangChain](https://github.com/langchain-ai/langchain), [LlamaIndex](https://github.com/run-llama/llama_index), [Dify](https://github.com/langgenius/dify)
-- **Agent框架**: [AutoGen](https://github.com/microsoft/autogen), [CrewAI](https://github.com/joaomdmoura/crewAI), [AgentScope](https://github.com/modelscope/agentscope)
+- **Agent框架**: [LangGraph](https://github.com/langchain-ai/langgraph), [OpenAI Agents SDK](https://github.com/openai/openai-agents-python), [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), [CrewAI](https://github.com/crewAIInc/crewAI), [AgentScope](https://github.com/agentscope-ai/agentscope)（AutoGen 已进入维护模式，选型见 [框架对比](../../resources/agent/frameworks.md)）
 - **向量数据库**: [Milvus](https://github.com/milvus-io/milvus), [Qdrant](https://github.com/qdrant/qdrant), [Chroma](https://github.com/chroma-core/chroma)
 - **推理引擎**: [vLLM](https://github.com/vllm-project/vllm), [SGLang](https://github.com/sgl-project/sglang), [Ollama](https://github.com/ollama/ollama)
 - **评估工具**: [RAGAs](https://github.com/explodinggradients/ragas), [DeepEval](https://github.com/confident-ai/deepeval), [LangSmith](https://docs.smith.langchain.com/)
@@ -198,8 +198,8 @@ topic:
 | 16     | 自定义工具开发             | 教程: [LangChain Custom Tools](https://python.langchain.com/v0.1/docs/modules/tools/custom_tools/)<br>参考: [MCP协议](https://smithery.ai/), [MCP教程](https://www.youtube.com/watch?v=McNRkd5CxFY)                                  | 编写一个查询天气的自定义工具，并集成到 Agent 中                 |
 | 17     | SQL & 数据库工具         | 教程: [LangChain SQL Agent](https://python.langchain.com/v0.1/docs/use_cases/sql/)                                                                                                                                             | 构建一个能根据自然语言查询数据库的 SQL Agent                 |
 | 18     | Function Calling 实战 | 文档: [OpenAI Function Calling](https://platform.openai.com/docs/guides/function-calling)<br>指南: [GPT Best Practices](https://platform.openai.com/docs/guides/gpt-best-practices)                                              | 使用 OpenAI API 实现一个能根据用户问题调用函数的 Agent        |
-| 19     | Agent Memory        | 文档: [LangChain Memory](https://python.langchain.com/v0.1/docs/modules/memory/)<br>工具: [Mem0](https://github.com/mem0ai/mem0), [MemoryScope](https://github.com/modelscope/MemoryScope)                                       | 为 Agent 添加对话历史记忆 (ConversationBufferMemory) |
-| 20     | Agent 错误处理          | 教程: [Error Handling in Agents](https://python.langchain.com/docs/modules/agents/how_to/handle_parsing_errors)                                                                                                                | 为工具调用添加重试机制 (`tenacity` 库) 和降级策略            |
+| 19     | Agent Memory        | 文档: [LangChain 短期记忆（checkpointer）](https://docs.langchain.com/oss/python/langchain/short-term-memory)<br>工具: [Mem0](https://github.com/mem0ai/mem0), [MemoryScope](https://github.com/modelscope/MemoryScope)                                       | 用 checkpointer + thread_id 为 Agent 添加对话历史记忆，用 Mem0 添加跨会话记忆 |
+| 20     | Agent 错误处理          | 文档: [LangChain 1.x middleware（`wrap_tool_call` 可统一处理工具异常与重试）](https://docs.langchain.com/oss/python/migrate/langchain-v1)                                                                                                                | 为工具调用添加重试机制 (`tenacity` 库) 和降级策略            |
 | 21     | 周度总结与项目构建           |                                                                                                                                                                                                                              | 构建一个集成 RAG 和 Web 搜索工具的 "研究助手" Agent         |
 
 ---
@@ -273,13 +273,13 @@ topic:
 ### **第 6 周：Multi-Agent 系统开发**
 
 > **学习内容:**
-> - **Multi-Agent 框架**: AutoGen vs. CrewAI
+> - **Multi-Agent 框架**: LangGraph（显式编排）vs. OpenAI Agents SDK（handoff）vs. CrewAI（角色协作）
 > - **Agent 角色定义**: 如何设计具有不同职责和能力的 Agent
-> - **通信机制与工作流**: GroupChat, Sequential/Hierarchical flow
+> - **通信机制与工作流**: Supervisor 路由、handoff、Sequential/Hierarchical flow
 > - **状态管理**: 如何在多个 Agent 之间共享和传递状态
 >
 > **手撕系列:**
-> - [ ] 使用 AutoGen 构建一个“研究员-程序员-测试员”协作的软件开发团队
+> - [ ] 使用 LangGraph 的 Supervisor 模式构建一个“研究员-程序员-测试员”协作的软件开发团队
 > - [ ] 使用 CrewAI 构建一个“旅行规划师-本地向导-预订专员”的旅行 Agent
 >
 > **解锁技能:**
@@ -291,11 +291,11 @@ topic:
 
 | **天数** | **学习主题**     | **资源链接**                                                                                                                                                                                                                                                                                                                                                                                             | **目标**                                           |
 | ------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| 36-37  | AutoGen 核心概念 | 文档: [AutoGen Tutorial](https://microsoft.github.io/autogen/docs/getting-started/)<br>论文: [AutoGen Framework](https://arxiv.org/abs/2308.08155)                                                                                                                                                                                                                                                       | 学习 `ConversableAgent`, `GroupChat` 等核心概念，并运行官方示例 |
-| 38     | AutoGen 实战   | 示例: [AutoGen Examples](https://github.com/microsoft/autogen/tree/main/notebook)                                                                                                                                                                                                                                                                                                                      | 实现一个"研究员-程序员-测试员"的 Multi-Agent 系统                |
+| 36-37  | LangGraph 多 Agent 编排 | 文档: [LangGraph](https://github.com/langchain-ai/langgraph)<br>对照: [OpenAI Agents SDK 文档](https://openai.github.io/openai-agents-python) | 用 Supervisor 模式实现任务路由，理解状态在子 Agent 之间如何传递 |
+| 38     | 迁移与对照阅读 | 示例: [Microsoft Agent Framework Samples](https://github.com/microsoft/Agent-Framework-Samples)<br>背景: [AutoGen 论文](https://arxiv.org/abs/2308.08155)（框架已进入维护模式，论文中的多 Agent 对话思路仍值得读） | 用两种框架实现同一个小任务，对比抽象差异 |
 | 39-40  | CrewAI 核心概念  | 文档: [CrewAI Docs](https://docs.crewai.com/)<br>教程: [CrewAI Quickstart](https://docs.crewai.com/quickstart)                                                                                                                                                                                                                                                                                           | 学习 Agent, Task, Crew, Process 的概念，并运行官方示例        |
-| 41     | CrewAI 实战    | 示例: [CrewAI Examples](https://github.com/joaomdmoura/crewAI-examples)                                                                                                                                                                                                                                                                                                                                | 实现一个"旅行规划师-本地向导-预订专员"的 Multi-Agent 系统            |
-| 42     | 框架对比与总结      | 更多框架: [agentUniverse](https://github.com/alipay/agentUniverse), [AgentScope](https://github.com/modelscope/agentscope), [Qwen-Agent](https://github.com/QwenLM/Qwen-Agent), [Lagent](https://github.com/InternLM/lagent), [PraisonAI](https://github.com/MervinPraison/PraisonAI)<br>概览: [Awesome Agents](https://github.com/WangRongsheng/awesome-LLM-resources#%E6%99%BA%E8%83%BD%E4%BD%93-agents) | 对比 AutoGen 和 CrewAI 的设计哲学、优缺点和适用场景               |
+| 41     | CrewAI 实战    | 示例: [CrewAI Examples](https://github.com/crewAIInc/crewAI-examples)                                                                                                                                                                                                                                                                                                                                | 实现一个"旅行规划师-本地向导-预订专员"的 Multi-Agent 系统            |
+| 42     | 框架对比与总结      | 更多框架: [agentUniverse](https://github.com/alipay/agentUniverse), [AgentScope](https://github.com/agentscope-ai/agentscope), [Qwen-Agent](https://github.com/QwenLM/Qwen-Agent), [Lagent](https://github.com/InternLM/lagent), [PraisonAI](https://github.com/MervinPraison/PraisonAI)<br>概览: [Awesome Agents](https://github.com/WangRongsheng/awesome-LLM-resources#%E6%99%BA%E8%83%BD%E4%BD%93-agents) | 对比 AutoGen 和 CrewAI 的设计哲学、优缺点和适用场景               |
 
 ---
 
@@ -446,7 +446,7 @@ topic:
 
 #### **Multi-Agent 项目**
 ```
-框架: CrewAI / AutoGen / LangGraph
+框架: LangGraph / OpenAI Agents SDK / CrewAI
 工具: LangChain Tools + Custom Tools
 工作流: State Machine + Task Queue
 监控: LangSmith + 自定义日志

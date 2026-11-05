@@ -11,9 +11,9 @@ topic:
 
 ## 引言
 
-随着 GPT-4.5、Claude 4.5、Gemini 2.5 等大模型相继推出百万级上下文窗口，整个AI圈都沸腾了。很多人认为：只要上下文窗口够大，就可以把所有工具、文档、历史记录统统塞进去，让模型自己处理——这不就是我们梦寐以求的超级智能助手吗？
+主流模型的上下文窗口已经普遍达到数十万 token，部分模型支持百万级。一个常见的想法是：窗口够大，就把所有工具、文档、历史记录都放进去，让模型自己筛选。
 
-但现实远比想象残酷。
+实际效果并非如此。
 
 **更长的上下文不等于更好的响应。** 事实上，当上下文过载时，你的AI应用可能会以各种意想不到的方式崩溃：产生幻觉、重复过去的错误、调用无关的工具，甚至自相矛盾。
 
@@ -122,14 +122,18 @@ topic:
 - 智能检索：先明确研究范围，再执行检索
 - 性能：复杂查询约消耗 25k tokens（含工具调用）
 
+> 本文代码按 LangChain / LangGraph 1.x 编写：Agent 用 `langchain.agents.create_agent`（取代 `langgraph.prebuilt.create_react_agent`），模型与 embedding 用 `"provider:model"` 字符串从环境变量读取，例如 `CHAT_MODEL="anthropic:<model-id>"`。原 notebook 发布于 2025 年，使用的是当时的 API 和模型。
+
 **代码示例**：
 
 ```python
+import os
+
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
+from langchain.embeddings import init_embeddings
 from langchain_chroma import Chroma
-from langchain.tools.retriever import create_retriever_tool
+from langchain_core.tools import create_retriever_tool
 
 # 1. 加载并切分文档
 loader = WebBaseLoader("https://lilianweng.github.io/posts/2023-06-23-agent/")
@@ -138,7 +142,7 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20
 documents = text_splitter.split_documents(docs)
 
 # 2. 创建向量存储
-embeddings = OpenAIEmbeddings()
+embeddings = init_embeddings(os.environ["EMBEDDING_MODEL"])
 vectorstore = Chroma.from_documents(documents, embeddings)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 
@@ -149,12 +153,10 @@ retriever_tool = create_retriever_tool(
     "搜索并返回 Lilian Weng 关于 AI Agent 的博客文章片段"
 )
 
-# 4. 在 LangGraph 中使用
-from langgraph.prebuilt import create_react_agent
-from langchain_anthropic import ChatAnthropic
+# 4. 交给 Agent 使用
+from langchain.agents import create_agent
 
-llm = ChatAnthropic(model="claude-sonnet-4-20250514")
-agent = create_react_agent(llm, [retriever_tool])
+agent = create_agent(model=os.environ["CHAT_MODEL"], tools=[retriever_tool])
 
 # 执行查询
 result = agent.invoke({
@@ -194,7 +196,10 @@ result = agent.invoke({
 
 ```python
 import math
-from langchain_openai import OpenAIEmbeddings
+import os
+
+from langchain.agents import create_agent
+from langchain.embeddings import init_embeddings
 from langchain_chroma import Chroma
 from langchain.tools import tool
 
@@ -219,8 +224,12 @@ tool_descriptions = [
     for tool in all_tools
 ]
 
-embeddings = OpenAIEmbeddings()
-vectorstore = Chroma.from_texts(tool_descriptions, embeddings)
+embeddings = init_embeddings(os.environ["EMBEDDING_MODEL"])
+vectorstore = Chroma.from_texts(
+    tool_descriptions,
+    embeddings,
+    metadatas=[{"index": i} for i in range(len(all_tools))],  # 记录工具下标，检索后据此取回工具
+)
 
 # 3. 根据用户查询动态选择工具
 def select_relevant_tools(query: str, top_k: int = 5):
@@ -234,7 +243,7 @@ user_query = "我需要计算一些数学运算"
 selected_tools = select_relevant_tools(user_query, top_k=5)
 
 # 只绑定相关工具，避免上下文混淆
-agent = create_react_agent(llm, selected_tools)
+agent = create_agent(model=os.environ["CHAT_MODEL"], tools=selected_tools)
 ```
 
 **关键点**：工具数量从 50+ 降到 5 个，上下文更清晰，工具选择准确率提升 3 倍，速度和功耗都大幅优化。
@@ -274,9 +283,13 @@ Anthropic 团队在博客中详细介绍了他们的架构：
 **代码示例**：
 
 ```python
+import os
+from typing import Literal
+
+from pydantic import BaseModel
 from langgraph.graph import StateGraph, MessagesState, START, END
-from langgraph.prebuilt import create_react_agent
-from langchain_anthropic import ChatAnthropic
+from langchain.agents import create_agent
+from langchain.chat_models import init_chat_model
 from langchain.tools import tool
 
 # 1. 定义专家智能体的工具
@@ -297,22 +310,31 @@ def web_search(query: str) -> str:
     return f"搜索结果: {query}"
 
 # 2. 创建专家智能体（各自独立的上下文）
-math_agent = create_react_agent(
-    ChatAnthropic(model="claude-sonnet-4-20250514"),
+math_agent = create_agent(
+    model=os.environ["CHAT_MODEL"],
     tools=[add, multiply],
-    state_modifier="你是数学专家，专注于计算任务。"
+    system_prompt="你是数学专家，专注于计算任务。",
 )
 
-research_agent = create_react_agent(
-    ChatAnthropic(model="claude-sonnet-4-20250514"),
+research_agent = create_agent(
+    model=os.environ["CHAT_MODEL"],
     tools=[web_search],
-    state_modifier="你是研究专家，专注于信息搜索和分析。"
+    system_prompt="你是研究专家，专注于信息搜索和分析。",
 )
 
 # 3. 创建 Supervisor 节点
-def supervisor(state: MessagesState):
+class SupervisorState(MessagesState):
+    next: str
+
+
+class Route(BaseModel):
+    next: Literal["math_expert", "research_expert", "FINISH"]
+
+
+def supervisor(state: SupervisorState):
     """主智能体：路由任务到合适的专家"""
-    llm = ChatAnthropic(model="claude-opus-4-20250514")
+    # 用结构化输出做路由，比解析自由文本或 tool_calls 更稳定
+    llm = init_chat_model(os.environ["SUPERVISOR_MODEL"]).with_structured_output(Route)
     
     system_prompt = """你是任务协调员。分析用户请求：
     - 如果涉及数学计算，调用 'math_expert'
@@ -321,11 +343,11 @@ def supervisor(state: MessagesState):
     """
     
     # 分析并路由
-    response = llm.invoke([system_prompt] + state["messages"])
-    return {"next": response.tool_calls[0]["name"] if response.tool_calls else "FINISH"}
+    route = llm.invoke([{"role": "system", "content": system_prompt}] + state["messages"])
+    return {"next": route.next}
 
 # 4. 构建多智能体图
-workflow = StateGraph(MessagesState)
+workflow = StateGraph(SupervisorState)
 workflow.add_node("supervisor", supervisor)
 workflow.add_node("math_expert", math_agent)
 workflow.add_node("research_expert", research_agent)
@@ -340,6 +362,9 @@ workflow.add_conditional_edges(
         "FINISH": END
     }
 )
+# 专家完成后回到 Supervisor，由它决定继续派发还是结束
+workflow.add_edge("math_expert", "supervisor")
+workflow.add_edge("research_expert", "supervisor")
 
 app = workflow.compile()
 
@@ -423,7 +448,7 @@ provence_output = provence.process(question, alameda_wiki)
 - **建议**：把摘要功能独立出来，作为专门的 LLM 驱动阶段，方便收集评估数据和优化
 
 **模型选择**：
-- 使用成本更低的模型（如 GPT-4o-mini）进行摘要
+- 使用成本更低的模型进行摘要（通常选同一厂商的轻量型号；原 notebook 使用 GPT-4o-mini）
 - 目标：压缩 50-70% 的长度，保留所有关键信息
 
 **vs 修剪**：
@@ -433,10 +458,11 @@ provence_output = provence.process(question, alameda_wiki)
 **代码示例**：
 
 ```python
+import os
 from typing import TypedDict
+
 from langgraph.graph import StateGraph, START, END
-from langchain_openai import ChatOpenAI
-from langchain_anthropic import ChatAnthropic
+from langchain.chat_models import init_chat_model
 
 class AgentState(TypedDict):
     messages: list
@@ -454,7 +480,8 @@ def tool_call_node(state: AgentState):
 
 def summarize_node(state: AgentState):
     """摘要节点：压缩工具结果"""
-    summarizer = ChatOpenAI(model="gpt-4o-mini")
+    # 摘要用低成本模型，型号从环境变量读取，例如 "openai:<model-id>"
+    summarizer = init_chat_model(os.environ["SUMMARY_MODEL"])
     
     prompt = f"""请将以下内容压缩为简洁摘要，保留所有关键信息：
 
@@ -474,7 +501,7 @@ def summarize_node(state: AgentState):
 
 def respond_node(state: AgentState):
     """基于摘要生成最终答案"""
-    llm = ChatAnthropic(model="claude-sonnet-4-20250514")
+    llm = init_chat_model(os.environ["CHAT_MODEL"])
     
     # 使用摘要而非原始长文档
     prompt = f"""基于以下摘要信息回答用户问题：
@@ -590,10 +617,12 @@ LLM 的上下文窗口就像你的 “短时记忆”—— 容量有限（比�
 **代码示例**：
 
 ```python
+import os
 from typing import TypedDict
+
 from langgraph.graph import StateGraph, START, END
 from langgraph.store.memory import InMemoryStore
-from langchain_anthropic import ChatAnthropic
+from langchain.agents import create_agent
 from langchain.tools import tool
 
 # 1. 定义带草稿本的状态
@@ -614,7 +643,6 @@ def read_from_scratchpad() -> str:
 
 # 3. 创建智能体节点
 def agent_node(state: AgentState):
-    llm = ChatAnthropic(model="claude-sonnet-4-20250514")
     
     system_prompt = """你有一个草稿本工具可以使用：
     - write_to_scratchpad: 记录中间思考、计划、发现
@@ -628,7 +656,7 @@ def agent_node(state: AgentState):
     这样主上下文保持简洁，重要信息不会丢失。"""
     
     tools = [write_to_scratchpad, read_from_scratchpad]
-    agent = create_react_agent(llm, tools, state_modifier=system_prompt)
+    agent = create_agent(model=os.environ["CHAT_MODEL"], tools=tools, system_prompt=system_prompt)
     
     return agent.invoke(state)
 
@@ -711,13 +739,13 @@ LangGraph 是一个低级编排框架，非常适合实现上述技巧。核心�
 
 ### Notebook 4: Context Pruning
 - 扩展 RAG Agent，增加修剪步骤
-- GPT-4o-mini 作为修剪模型（降低成本）
+- 用低成本模型（原 notebook 为 GPT-4o-mini）作为修剪模型
 - 基于用户原始请求修剪文档
 - 从 25k tokens → **11k tokens**
 
 ### Notebook 5: Context Summarization
 - 在 RAG Agent 基础上增加摘要步骤
-- GPT-4o-mini 进行摘要（成本优化）
+- 用低成本模型进行摘要（原 notebook 为 GPT-4o-mini）
 - 目标：压缩 50-70%，保留关键信息
 - 适合所有内容都相关但冗长的场景
 
