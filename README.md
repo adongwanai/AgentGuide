@@ -1252,12 +1252,14 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - Reward Model 训练技巧
 
 **11.3 Agent RL 应用**
-- 工具调用策略优化
-- 规划能力增强训练
-- 自我修正机制训练
+- 多轮工具 rollout 与 observation mask
+- 结果奖励、格式奖励与 turn 级信用分配
+- On-policy distillation 与训练 API
+- 动手复现：[Datawhale agentic-rl-lab](https://github.com/datawhalechina/agentic-rl-lab)（Search-R1、ReTool、ALFWorld 等 16 个实验）
 
 📖 [实战：SFT 监督微调](./docs/02-tech-stack/16-sft-finetuning.md)  
-📖 [Post-Training 完整面试指南](./docs/02-tech-stack/25-post-training-complete-guide.md) 🆕
+📖 [Agent 强化学习：从 GRPO 到多轮工具 Agent](./docs/02-tech-stack/21-agent-reinforcement-learning.md) 🆕  
+📖 [Post-Training 完整面试指南](./docs/02-tech-stack/25-post-training-complete-guide.md)
 
 </td>
 <td width="50%">

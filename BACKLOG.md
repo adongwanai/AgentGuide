@@ -2,7 +2,7 @@
 
 > 本页由 `python scripts/manage_content_catalog.py --write` 自动生成。以下文档保留在原路径，但当前不进入公开导航与站点资源索引。
 
-当前共 **16** 项待补内容。
+当前共 **15** 项待补内容。
 
 | 原路径 | 标题 | 类型 | 难度 | 主题 |
 |:---|:---|:---|:---|:---|
@@ -15,7 +15,6 @@
 | [`docs/02-tech-stack/07-agentscope.md`](./docs/02-tech-stack/07-agentscope.md) | AgentScope 入门 | 教程 | 入门 | 框架工具 |
 | [`docs/02-tech-stack/08-vector-db-basics.md`](./docs/02-tech-stack/08-vector-db-basics.md) | 向量数据库基础 | 教程 | 入门 | RAG |
 | [`docs/02-tech-stack/20-rag-full-pipeline.md`](./docs/02-tech-stack/20-rag-full-pipeline.md) | RAG 全链路实战 | 教程 | 进阶 | RAG、项目实战 |
-| [`docs/02-tech-stack/21-agent-reinforcement-learning.md`](./docs/02-tech-stack/21-agent-reinforcement-learning.md) | Agent 强化学习 | 教程 | 高阶 | 模型训练、Agent |
 | [`docs/02-tech-stack/build-your-agent-framework.md`](./docs/02-tech-stack/build-your-agent-framework.md) | 从零构建 Agent 框架 | 教程 | 进阶 | 框架工具、Agent |
 | [`docs/03-practice/02-high-availability-rag.md`](./docs/03-practice/02-high-availability-rag.md) | 高可用 RAG 系统实战 | 实践指南 | 进阶 | 项目实战、RAG |
 | [`docs/03-practice/04-graduation-project.md`](./docs/03-practice/04-graduation-project.md) | 毕业设计选题指南 | 实践指南 | 进阶 | 项目实战 |
