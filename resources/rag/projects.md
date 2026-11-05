@@ -11,6 +11,8 @@ topic:
 
 ## 💡 引言
 
+面向 Harness 二次开发的 DeepTutor、WeKnora、Yuxi 和 Youtu-GraphRAG 统一见 [Harness 项目选型](../project-catalogs/agent-harness-projects.md#5-垂直应用与-rag-深水区)；检索/生成分面诊断见 [RAG 评测指标](../agent/evaluation-harness.md#rag-diagnostics)。本页保留通用 RAG 资源入口。
+
 在大模型时代，**RAG（检索增强生成）**已成为构建智能问答系统、知识库助手和AI应用的核心技术。无论你是：
 
 - 🎓 **学生/转行者**：想通过实战项目提升简历竞争力
@@ -314,7 +316,7 @@ topic:
 
 ### 核心评估工具
 
-- **[ragas](https://github.com/explodinggradients/ragas)** - 评估和量化RAG管道性能的框架
+- **[RAGAS](../agent/evaluation-harness.md#rag-diagnostics)** - 复用评测工具箱中的项目入口与检索/生成分面指标
     
 - **[AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG)** - 端到端RAG优化：解析、分块、评估数据集创建和管道部署
     

@@ -17,6 +17,7 @@ topic:
 1. [End-to-End Agent 项目](./end-to-end-agent-projects.md)
 2. [Agent Workflow 项目](./agent-workflows.md)
 3. [Agent 项目合集](./agent-project-collections.md)
+4. [Harness 项目选型、二开与面试证据](./agent-harness-projects.md)
 
 <!-- AUTO-GENERATED-CONTENT:START -->
 ## 完整内容索引
@@ -25,6 +26,7 @@ topic:
 
 | 文档 | 类型 | 状态 | 难度 | 主题 |
 |:---|:---|:---|:---|:---|
+| [Agent Harness 开源项目：选型、二开与面试证据](./agent-harness-projects.md) | 资源清单 | 已发布 | 进阶 | Agent、项目实战、评测 |
 | [优质 Agent 项目集合](./agent-project-collections.md) | 资源清单 | 已发布 | 通用 | 项目实战、Agent |
 | [优质 Workflow 项目](./agent-workflows.md) | 资源清单 | 已发布 | 通用 | 项目实战、Agent、多智能体 |
 | [优质 End-to-End Agent 开源项目](./end-to-end-agent-projects.md) | 资源清单 | 已发布 | 通用 | 项目实战、Agent |

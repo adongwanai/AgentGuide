@@ -125,7 +125,7 @@ while True:
 | learn-claude-code | 从零复刻 coding agent harness |
 | OpenClaw / claw0 | 长运行、本地优先、消息入口、memory、heartbeat |
 | OpenHands / SWE-agent | 代码库编辑、shell、测试、sandbox |
-| nanobot | 轻量 agent base、multi-provider、memory、skills |
+| [nanobot](../../resources/project-catalogs/agent-harness-projects.md#轻量项目对照) | 轻量 agent base、multi-provider、memory、skills；源码阅读与二开方向见项目清单 |
 
 重点读：
 
