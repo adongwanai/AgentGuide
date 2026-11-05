@@ -98,12 +98,15 @@ topic:
 - **特点**：完全自主，目标驱动
 - **学习难度**：⭐⭐⭐
 
+<a id="microsoft-agent-framework"></a>
+
 ### 7. Microsoft Agent Framework ⭐⭐⭐
 
 - **链接**：https://github.com/microsoft/agent-framework
 - **简介**：微软官方框架，支持 Python 和 .NET
-- **特点**：企业级、跨语言
-- **适合场景**：企业级应用
+- **特点**：跨语言 Agent 与多 Agent 工作流，承接 AutoGen / Semantic Kernel 生态经验；具体能力按当前版本核对
+- **适合场景**：企业工具集成、状态管理、审批与遥测
+- **二开方向**：接一个企业工具或工作流，验证循环终止、权限边界和状态恢复；不将特定示例的轮数当作统一默认值
 - **学习难度**：⭐⭐⭐⭐
 
 ### 8. OWL ⭐⭐⭐
@@ -370,6 +373,7 @@ topic:
 
 ### 本项目其他资源
 
+- [Harness 项目选型与二开](../project-catalogs/agent-harness-projects.md) - 按岗位目标选择项目并建立评测证据
 - [Agent 开发框架对比](./frameworks.md) - 详细的框架选型指南
 - [Agent 记忆系统设计](./memory.md) - 记忆模块实现方案
 - [RAG 资源大全](../rag/README.md) - RAG 技术栈完整资源
