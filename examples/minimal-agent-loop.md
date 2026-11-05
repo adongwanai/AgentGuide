@@ -24,21 +24,17 @@ def run_agent(task, tools, model, max_steps=6):
 
         if action.tool_name not in tools:
             observation = {"ok": False, "error": "unknown_tool"}
-            trace(step_id, action, observation, state)
-            continue
-
-        tool = tools[action.tool_name]
-        if tool.requires_confirmation and not ask_human(action):
-            observation = {"ok": False, "error": "human_rejected"}
-            trace(step_id, action, observation, state)
-            continue
-
-        try:
-            observation = tool.call(**action.args)
-        except TimeoutError:
-            observation = {"ok": False, "error": "timeout"}
-        except Exception as exc:
-            observation = {"ok": False, "error": "tool_exception", "message": str(exc)}
+        else:
+            tool = tools[action.tool_name]
+            if tool.requires_confirmation and not ask_human(action):
+                observation = {"ok": False, "error": "human_rejected"}
+            else:
+                try:
+                    observation = tool.call(**action.args)
+                except TimeoutError:
+                    observation = {"ok": False, "error": "timeout"}
+                except Exception as exc:
+                    observation = {"ok": False, "error": "tool_exception", "message": str(exc)}
 
         state["steps"].append({"action": action, "observation": observation})
         trace(step_id, action, observation, state)
@@ -62,6 +58,8 @@ def run_agent(task, tools, model, max_steps=6):
 模型只能调用注册表里的工具。不要让模型直接拼 shell、SQL 或 HTTP 请求，除非有 sandbox、权限和审计。
 
 ### 3. 可读错误
+
+成功、未知工具、人工拒绝和工具异常都必须写入 `state["steps"]`，再由下一轮 `build_context` 带回模型。只写 trace 不会自动更新模型上下文；如果失败后直接 `continue`，模型可能看不到错误并重复同一个动作。
 
 工具失败时不要只返回 stack trace。推荐返回结构：
 
