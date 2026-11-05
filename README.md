@@ -1481,6 +1481,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - ✅ 3 个专业 Agent 协同工作（需求分析师、预算规划师、行程执行者）
 - ✅ 层级式通信：Supervisor 模式 + 消息队列
 - ✅ 智能决策：预算超支自动调整、天气影响行程变更
+- ✅ MCP 协议集成实践：天气、航班、酒店等工具通过 MCP Server 接入
 
 **项目蓝图**：[Travel Agent：可解释的旅行规划助手](./projects/02-travel-agent/README.md)（场景、工具设计、评测集与简历表达已发布；分步代码教程规划中）
 
@@ -1549,56 +1550,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 </details>
 
 <details>
-<summary><b>🧳 项目五：智能旅行助手 - Multi-Agent 协作系统（⭐ 适合展示协作能力）</b></summary>
-
-<br/>
-
-**项目核心**：打造智能旅行助手，通过多Agent协作实现从需求分析到行程规划的完整闭环
-
-**适合场景**：
-- ✅ 面试 Multi-Agent 协作岗位
-- ✅ 展示复杂任务分解与Agent编排能力
-- ✅ 中等难度，适合有一定基础的同学
-
-**你将获得的核心能力**：
-
-<table>
-<tr>
-<td width="50%">
-
-**🔬 算法线能力**
-- Multi-Agent 协作策略设计
-- 任务分解与规划算法
-- Agent 通信协议优化
-- 共识机制与冲突解决
-
-</td>
-<td width="50%">
-
-**🛠️ 工程线能力**
-- LangGraph / CrewAI 框架实战
-- 多API集成与编排
-- 异步任务处理与并发控制
-- 分布式 Agent 系统设计
-
-</td>
-</tr>
-</table>
-
-**技术栈**：LangGraph / CrewAI + 天气API + 航班API + 酒店API + 支持工具调用的 LLM
-
-**项目亮点**：
-- ✅ 3 个专业 Agent 协同工作（需求分析师、预算规划师、行程执行者）
-- ✅ 层级式通信：Supervisor 模式 + 消息队列
-- ✅ 智能决策：预算超支自动调整、天气影响行程变更
-- ✅ MCP 协议集成实践
-
-**项目蓝图**：与项目二同属旅行规划场景，可直接参考 [Travel Agent 蓝图](./projects/02-travel-agent/README.md)，在其基础上加入 MCP 工具接入
-
-</details>
-
-<details>
-<summary><b>🔬 项目六：自动化深度研究智能体（⭐ 适合科研方向）</b></summary>
+<summary><b>🔬 项目五：自动化深度研究智能体（⭐ 适合科研方向）</b></summary>
 
 <br/>
 
@@ -1647,7 +1599,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 </details>
 
 <details>
-<summary><b>🎮 项目七：桌游小镇社会模拟 - 大规模Agent系统（⭐ 高级，展示系统设计能力）</b></summary>
+<summary><b>🎮 项目六：桌游小镇社会模拟 - 大规模Agent系统（⭐ 高级，展示系统设计能力）</b></summary>
 
 <br/>
 
@@ -1696,7 +1648,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 </details>
 
 <details>
-<summary><b>🎓 项目八：毕业设计 - 综合实战项目（⭐⭐⭐ 必做）</b></summary>
+<summary><b>🎓 项目七：毕业设计 - 综合实战项目（⭐⭐⭐ 必做）</b></summary>
 
 <br/>
 
