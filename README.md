@@ -21,7 +21,18 @@
     
 <p>
         <strong>对标 JavaGuide 的 AI Agent 学习指南</strong><br/>
-        <strong>从入门到拿 Offer，系统化 + 实战化 + 求职导向</strong>
+        <strong>从入门到拿 Offer：学习路线 · 实战项目 · 面试题库 · 前沿专题</strong>
+    </p>
+
+<!-- AUTO-GENERATED-STATS:START -->
+<p><strong>12,960</strong> 道 AI 面试题 · 覆盖 <strong>28</strong> 家公司 · <strong>103</strong> 篇公开文档</p>
+<!-- AUTO-GENERATED-STATS:END -->
+
+<p>
+        <a href="https://adongwanai.github.io/AgentGuide/">在线阅读</a> ·
+        <a href="#-快速开始">10 分钟快速开始</a> ·
+        <a href="./docs/README.md">完整文档导航</a> ·
+        <a href="#-联系作者--加入社群">加入学习社群</a>
     </p>
 </div>
 
@@ -29,24 +40,27 @@
 
 ## 💡 核心理念
 
-> **📌 本项目定位：资源整合 + 系统化路径 + 实战导向**
->
-> 🎯 **我们的原则**：
-> - ✅ **站在巨人的肩膀上** - 互联网已有的优质资源（课程、教程、论文），我们直接引用，不重复造轮子
-> - ✅ **只分享干货** - （坚持更新中，欢迎催更）
-> - ✅ **提供系统化路径** - 将碎片化资源串联成完整学习路线，告诉你先学什么、再学什么
-> - ✅ **求职导向** - 每个知识点都标注"面试怎么考"、"简历怎么写"
->
-> 💪 **AgentGuide 的独特价值**：不是简单的资源堆砌，而是**系统化 + 求职导向 + 实战验证**的完整解决方案！
+- **不重复造轮子**：已有的优质课程、论文和开源项目直接引用并注明出处。
+- **给出先后顺序**：把碎片资源串成路线，告诉你先学什么、再学什么、学到什么程度算够。
+- **面向求职**：知识点标注“面试怎么考”，项目给出“简历怎么写”。
+- **持续更新**：技术变化快，过时内容会标注核对日期并定期更新，欢迎提 Issue 催更。
+
+## 🆕 近期更新
+
+| 时间 | 更新 |
+|:---|:---|
+| 2026-11 | [Agent 强化学习教程](./docs/02-tech-stack/21-agent-reinforcement-learning.md)：从 GRPO 到多轮工具 Agent，配套 Datawhale [agentic-rl-lab](https://github.com/datawhalechina/agentic-rl-lab) 的 16 个可复现实验，本地不需要 GPU |
+| 2026-11 | [Agent 开发框架对比](./resources/agent/frameworks.md) 更新到当前状态：AutoGen → Microsoft Agent Framework，Swarm → OpenAI Agents SDK，LangChain 1.x `create_agent` |
+| 2026-11 | [Harness 项目选型与二开](./resources/project-catalogs/agent-harness-projects.md)，以及 Agent Infra Landscape 2026 生态图 |
+| 2026-10 | [Follow RSI](https://adongwanai.github.io/follow-rsi/)：递归自我改进与 Harness 自进化证据库 |
+| 2026-09 | [2026 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/README.md)：自进化 Agent、Agentic RL、AI Infra、Coding Agent、世界模型、图像 / 语音生成 |
 
 ## 🧭 按目标进入
 
-| 🛠️ 开发岗路线 | 🔬 算法岗路线 | 🔥 科研前沿专题 |
-| :-- | :-- | :-- |
-| 面向工程落地与系统实践 | 面向原理、算法与实验能力 | 面向 Agent 前沿研究方向 |
-| [进入开发岗学习路线](./docs/05-roadmaps/learning-roadmap-development.md) | [进入算法岗学习路线](./docs/05-roadmaps/learning-roadmap-algorithm.md) | [进入科研前沿专题](./docs/06-research-frontiers/README.md) |
-
-[📚 查看完整文档导航](./docs/README.md)
+| 🛠️ 开发岗路线 | 🔬 算法岗路线 | 🎯 面试冲刺 | 🔥 科研前沿专题 |
+| :-- | :-- | :-- | :-- |
+| 面向工程落地与系统实践 | 面向原理、算法与实验能力 | 按公司、知识点和频次刷题 | 面向 Agent 前沿研究方向 |
+| [进入开发岗学习路线](./docs/05-roadmaps/learning-roadmap-development.md) | [进入算法岗学习路线](./docs/05-roadmaps/learning-roadmap-algorithm.md) | [进入 InterviewGuide 题库](https://adongwanai.github.io/AgentGuide/interview/) | [进入科研前沿专题](./docs/06-research-frontiers/README.md) |
 
 ## 前沿研究：Follow RSI
 
@@ -67,11 +81,10 @@
 - [📚 学习路线图](#-第三步基于岗位的学习路线) - 算法岗10-15周 | 开发岗8-12周
 - [💼 实战项目](#-第四步完成实战项目可写进简历) - 开源优质项目合集 + Agent 项目
 - [📖 技术教程](#-第五步系统学习-agent-技术技术准备) - LangGraph、RAG、上下文工程、监督微调、强化学习
-- [🎯 面试题库](#-第六步面试准备与-offer-冲刺) - 1500+题/面经、系统设计、编程题
+- [🎯 面试题库](#-第六步面试准备与-offer-冲刺) - InterviewGuide 题库、专项面经、系统设计、编程题
 - [🔥 2026 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/) - 自进化 Agent、Agentic RL、AI Infra、Coding Agent、世界模型、图像/语音生成
 
 **🛠️ 快速导航**：
-- [Follow RSI：Harness 自进化证据库](https://adongwanai.github.io/follow-rsi/) · [先读深度解读](https://adongwanai.github.io/follow-rsi/articles/why-ai-self-improvement.html)
 - ⭐ 阿东作品推荐：[**learn-workbuddy**](https://github.com/adongwanai/learn-workbuddy) - 从 0 搭建 WorkBuddy-style Desktop Agent Harness，clean-room 教学复现 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计和真实模型评测
 - [🚀 10分钟快速开始](#-快速开始) | [💬 加入学习社群](#-联系作者--加入社群) | [❓ 常见问题](./FAQ.md)
 - [🧭 新手快速开始](./docs/00-getting-started/README.md) | [📚 完整文档导航](./docs/README.md) | [💼 项目导航](./projects/README.md)
@@ -1207,7 +1220,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - **Isolate（隔离）**：状态隔离、沙盒环境设计
 
 **工程实践技巧**：
-- KV Cache 优化（降低 90% 成本与延迟）
+- KV Cache 与前缀缓存（降低重复前缀的成本与延迟）
 - 12-Factor Agents 生产级设计原则
 - Claude Code 最佳实践
 
@@ -1375,7 +1388,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 **🛠️ 工程线能力**
 - 端到端 RAG 系统搭建
-- Redis 缓存优化（降低70%成本）
+- Redis 语义缓存（减少重复问题的模型调用）
 - LangSmith 链路追踪集成
 - 高可用架构设计
 
@@ -1385,12 +1398,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 **技术栈**：LangChain + Milvus + ArXiv API + 支持工具调用的 LLM（闭源 API 或 Qwen / DeepSeek 等开源模型）+ Redis
 
-**学习路径**：
-- [ ] 项目需求与技术选型 _（即将推出）_
-- [ ] 系统架构设计 _（即将推出）_
-- [ ] 核心代码实现 _（即将推出）_
-- [ ] 部署与演示 _（即将推出）_
-- [ ] 📝 如何写进简历？（算法岗 vs 开发岗）_（即将推出）_
+**项目蓝图**：[Paper Agent：论文研读与综述助手](./projects/01-paper-agent/README.md)（场景、工具设计、评测集与简历表达已发布；分步代码教程规划中）
 
 **📝 简历示例**
 
@@ -1474,12 +1482,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - ✅ 层级式通信：Supervisor 模式 + 消息队列
 - ✅ 智能决策：预算超支自动调整、天气影响行程变更
 
-**学习路径**：
-- [ ] 项目需求与技术选型 _（即将推出）_
-- [ ] 系统架构设计 _（即将推出）_
-- [ ] 核心代码实现 _（即将推出）_
-- [ ] 部署与演示 _（即将推出）_
-- [ ] 📝 如何写进简历？（算法岗 vs 开发岗）_（即将推出）_
+**项目蓝图**：[Travel Agent：可解释的旅行规划助手](./projects/02-travel-agent/README.md)（场景、工具设计、评测集与简历表达已发布；分步代码教程规划中）
 
 </details>
 
@@ -1493,7 +1496,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 **适合场景**：
 - ✅ 面试顶级 Agent 岗位（字节、阿里等）
 - ✅ 展示视觉理解 + 决策执行的完整能力
-- ✅ 高级项目，适合冲刺大厂SP/SSP
+- ✅ 高级项目，适合冲刺大厂 Agent 岗位
 
 **你将获得的核心能力**：
 
@@ -1527,12 +1530,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - ✅ 基于反馈的自我修正机制（识别错误 → 分析原因 → 调整策略）
 - ✅ 在 WebArena 子集上评测成功率，并与不加自我修正的基线做对照
 
-**学习路径**：
-- [ ] 项目需求与技术选型 _（即将推出）_
-- [ ] 系统架构设计 _（即将推出）_
-- [ ] 核心代码实现 _（即将推出）_
-- [ ] 部署与演示 _（即将推出）_
-- [ ] 📝 如何写进简历？（算法岗 vs 开发岗）_（即将推出）_
+**项目蓝图**：[Web Agent：浏览器任务自动化与评测](./projects/03-web-agent/README.md)（场景、工具设计、评测集与简历表达已发布；分步代码教程规划中）
 
 </details>
 
@@ -1595,12 +1593,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - ✅ 智能决策：预算超支自动调整、天气影响行程变更
 - ✅ MCP 协议集成实践
 
-**学习路径**：
-- [ ] 项目需求与技术选型 _（即将推出）_
-- [ ] 系统架构设计 _（即将推出）_
-- [ ] 核心代码实现 _（即将推出）_
-- [ ] 部署与演示 _（即将推出）_
-- [ ] 📝 如何写进简历？（算法岗 vs 开发岗）_（即将推出）_
+**项目蓝图**：与项目二同属旅行规划场景，可直接参考 [Travel Agent 蓝图](./projects/02-travel-agent/README.md)，在其基础上加入 MCP 工具接入
 
 </details>
 
@@ -1645,16 +1638,11 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 **项目亮点**：
 - ✅ 复现 DeepResearch Agent 核心功能
-- ✅ 自动化文献检索与分析（日均处理100+论文）
+- ✅ 自动化文献检索与分析
 - ✅ 知识图谱自动构建与可视化
 - ✅ 研究报告自动生成（3000+字深度报告）
 
-**学习路径**：
-- [ ] 项目需求与技术选型 _（即将推出）_
-- [ ] 系统架构设计 _（即将推出）_
-- [ ] 核心代码实现 _（即将推出）_
-- [ ] 部署与演示 _（即将推出）_
-- [ ] 📝 如何写进简历？（算法岗 vs 开发岗）_（即将推出）_
+**状态**：规划中。可先参考 [Agentic RAG 与 Deep Research 面试手册](./docs/04-interview/18-agent-interview-playbooks/agentic-rag-deep-research-playbook.md) 和 [端到端开源项目清单](./resources/project-catalogs/end-to-end-agent-projects.md)
 
 </details>
 
@@ -1703,12 +1691,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - ✅ 复杂社交行为模拟（友谊、竞争、合作）
 - ✅ 可视化展示社交网络演化过程
 
-**学习路径**：
-- [ ] 项目需求与技术选型 _（即将推出）_
-- [ ] 系统架构设计 _（即将推出）_
-- [ ] 核心代码实现 _（即将推出）_
-- [ ] 部署与演示 _（即将推出）_
-- [ ] 📝 如何写进简历？（算法岗 vs 开发岗）_（即将推出）_
+**状态**：规划中。可先参考 [端到端开源项目清单](./resources/project-catalogs/end-to-end-agent-projects.md) 中的多 Agent 仿真项目
 
 </details>
 
@@ -1772,7 +1755,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 > 💡 **学习目标**：系统准备面试，提升 Offer 成功率  
 > 📝 **两条线不同的面试策略**：算法岗讲创新，开发岗讲价值
 
-#### 📚 完整面试题库（1500+题/面经）🔥 全面升级
+#### 📚 完整面试题库（InterviewGuide 题库 + 专项面经）🔥 全面升级
 
 > **🎯 题库特色**：
 > - ✅ 完整覆盖 LLM/VLM/RLHF/RAG/Agent 全技术栈
@@ -1886,7 +1869,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 - ✅ **新增带头像版本** - 满足不同展示需求
 - ✅ **完整板块** - 涵盖科研经历、实习经历、项目经历、技能清单
 - ✅ **双岗适配** - 同时支持算法岗和开发岗的写法示例
-- ✅ **AI友好** - 支持 Cursor AI 快速编辑，提效10倍
+- ✅ **AI友好** - Markdown 纯文本，适合用 Cursor、Claude Code 等工具检索和编辑
 - ✅ **零门槛** - Overleaf 在线编译，无需本地配置环境
 
 **适合人群**：
