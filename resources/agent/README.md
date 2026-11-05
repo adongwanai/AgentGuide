@@ -53,7 +53,7 @@ topic:
 |:---|:---|:---|
 | LangGraph | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 有状态图编排，checkpoint、中断恢复、人工介入 |
 | LangChain | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | `create_agent` + middleware，模型与工具集成最全 |
-| Microsoft Agent Framework | [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | 合并 AutoGen 与 Semantic Kernel，Python / .NET |
+| <a id="microsoft-agent-framework"></a>Microsoft Agent Framework | [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | 合并 AutoGen 与 Semantic Kernel，Python / .NET；适合企业工具集成、审批、遥测与持久状态。二开可接一个企业工具或工作流，验证循环终止、权限边界和状态恢复 |
 | Pydantic AI | [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | 类型化、可测试的 Python Agent 框架 |
 | CrewAI | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | 角色协作（Crew）+ 事件驱动流程（Flow） |
 | AgentScope | [agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope) | 阿里通义，消息驱动的多 Agent 框架 |
@@ -309,6 +309,7 @@ topic:
 
 ### 本项目其他资源
 
+- [Harness 项目选型与二开](../project-catalogs/agent-harness-projects.md) - 按岗位目标选择项目并建立评测证据
 - [Agent 开发框架对比](./frameworks.md) - 详细的框架选型指南
 - [Agent 记忆系统设计](./memory.md) - 记忆模块实现方案
 - [RAG 资源大全](../rag/README.md) - RAG 技术栈完整资源

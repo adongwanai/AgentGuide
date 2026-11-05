@@ -43,6 +43,7 @@ topic:
 | [分类整理](./learning-resources.md) | 资源清单 | 已发布 | 通用 | Agent、RAG、框架工具 |
 | [Multimodal RAG 与文档智能资源](./multimodal/README.md) | 入口页 | 已发布 | 通用 | 多模态、RAG |
 | [多模态 RAG 工具与项目清单](./multimodal/tools-and-projects.md) | 资源清单 | 已发布 | 通用 | 多模态、RAG、框架工具 |
+| [Agent Harness 开源项目：选型、二开与面试证据](./project-catalogs/agent-harness-projects.md) | 资源清单 | 已发布 | 进阶 | Agent、项目实战、评测 |
 | [优质 Agent 项目集合](./project-catalogs/agent-project-collections.md) | 资源清单 | 已发布 | 通用 | 项目实战、Agent |
 | [优质 Workflow 项目](./project-catalogs/agent-workflows.md) | 资源清单 | 已发布 | 通用 | 项目实战、Agent、多智能体 |
 | [优质 End-to-End Agent 开源项目](./project-catalogs/end-to-end-agent-projects.md) | 资源清单 | 已发布 | 通用 | 项目实战、Agent |

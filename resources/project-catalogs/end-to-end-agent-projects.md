@@ -13,6 +13,8 @@ topic:
 
 不要只看 stars。Agent 项目真正值得学习的地方通常在：工具边界、状态管理、失败恢复、评测、部署和安全策略。
 
+准备基于现有 Harness 二次开发时，参见 [Harness 项目选型、二开与面试证据](./agent-harness-projects.md)。其中评测工具复用 [Evaluation Harness 工具箱](../agent/evaluation-harness.md)，本页保留通用 End-to-End 项目。
+
 ## 学习顺序建议
 
 | 阶段 | 目标 | 推荐项目 |

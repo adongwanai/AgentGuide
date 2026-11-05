@@ -111,8 +111,8 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 **我们覆盖 AI Agent 开发的完整技术栈** - 从模型微调到应用部署的全流程：
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/adongwanai/Awesome-Awesome-LLMs/main/20251210154458267.png" alt="LLM开源生态图谱" width="100%">
-<sub>图片来源：<a href="https://github.com/adongwanai/Awesome-Awesome-LLMs">Awesome-Awesome-LLMs</a></sub>
+<img src="./assets/agent-infra-landscape-2026.png" alt="Agent Infra Landscape 2026：Agent 应用、框架与运行时基础设施生态图" width="100%">
+<sub>Agent Infra Landscape 2026 · 图中署名：Ant Open Source / Ant Inclusion AI</sub>
 </div>
 
 **📌 AgentGuide 涵盖的核心技术栈（2026 版）**：
@@ -402,7 +402,8 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 |:---|:---|:---|
 | **learn-workbuddy** | 从 0 搭建一个 WorkBuddy-style Desktop Agent Harness：clean-room 教学复现 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计和真实模型评测，不提取源码，只复现核心机制 | [GitHub](https://github.com/adongwanai/learn-workbuddy) |
 | **Superpowers** | 由可组合 Skills 构成的 AI Coding 完整开发工作流，覆盖需求梳理、计划、TDD、系统调试、代码评审和完成前验证 | [GitHub](https://github.com/obra/superpowers) |
-| **Learn Claude Code** | 从零构建迷你Claude Code，12节渐进式，覆盖工具调用/子Agent/上下文压缩/多Agent协作 | [GitHub](https://github.com/shareAI-lab/learn-claude-code) |
+| **Learn Claude Code** | 从零构建 Coding Agent Harness；当前主线 s01-s17，覆盖工具调用、权限、上下文压缩与协作，旧版章节编号另行保留 | [GitHub](https://github.com/shareAI-lab/learn-claude-code) |
+| **Harness 项目选型与二开** | 从轻量内核到企业平台、RAG 与自进化，按目标选项目、设计改动并建立评测和简历证据 | [去重项目清单](./resources/project-catalogs/agent-harness-projects.md) |
 | **claw0** | 10章10个核心概念~7000行Python，从while循环到生产级Agent网关 | [GitHub](https://github.com/shareAI-lab/claw0) |
 | **hello-agents（Datawhale）** | 《从零开始构建智能体》，16章，含MCP实战、DeepResearch复现、多Agent协同 | [GitHub](https://github.com/datawhalechina/hello-agents) |
 | **OpenClaw** | 生产级个人AI助手框架，支持Telegram/Discord/Slack等 | [GitHub](https://github.com/openclaw/openclaw) |
