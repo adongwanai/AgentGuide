@@ -10,23 +10,25 @@ topic:
 
 ### 分类整理
 
+核验日期仅覆盖注明的资源与范围，具体依据见[资源核验记录](./resource-verification.md)。未标注日期的条目视为未核验；入门课程的旧版示例需对照当前官方 API，工程主线见[开发岗路线](../docs/05-roadmaps/learning-roadmap-development.md)。
+
 1. **综合教程与课程（理论+实践）**
     
-    1. **[《动手学大模型应用开发》](https://datawhalechina.github.io/llm-universe/#/)**: Datawhale的开源教程，覆盖大模型基础、开发与应用，适合初学者系统学习。
+    1. **[《动手学大模型应用开发》](https://datawhalechina.github.io/llm-universe/#/)**: Datawhale的开源教程，覆盖大模型基础、开发与应用，适合初学者系统学习。 **最近核验：2026-11-05（目录与定位；未运行示例）**
         
-    2. **[《面向开发者的 LLM 入门教程》](https://github.com/datawhalechina/llm-cookbook)**: 吴恩达大模型系列课程中文版，Datawhale翻译整理，适合开发者入门。
+    2. **[《面向开发者的 LLM 入门教程》](https://github.com/datawhalechina/llm-cookbook)**: 吴恩达大模型系列课程中文版，适合概念入门；其中旧版 LangChain 示例不作为当前工程路线，需对照官方迁移指南。 **最近核验：2026-11-05（目录与定位；未运行示例）**
         
-    3. **[《开源大模型食用指南》](https://github.com/datawhalechina/self-llm)**: 针对中国宝宝量身打造的基于Linux环境快速微调（全参数/Lora）、部署国内外开源大模型（LLM）/多模态大模型（MLLM）教程。
+    3. **[《开源大模型食用指南》](https://github.com/datawhalechina/self-llm)**: 针对中国宝宝量身打造的基于Linux环境快速微调（全参数/Lora）、部署国内外开源大模型（LLM）/多模态大模型（MLLM）教程。 **最近核验：2026-11-05（目录与定位；未运行示例）**
         
-    4. **[《动手学大模型Dive into LLMs》](https://github.com/Lordog/dive-into-llms)**: 系列编程实践教程（含PPT、实验手册和视频），由上海交通大学《人工智能安全技术》课程拓展而来，主题包括数学推理、GUI Agent、大模型对齐等。
+    4. **[《动手学大模型Dive into LLMs》](https://github.com/Lordog/dive-into-llms)**: 系列编程实践教程（含PPT、实验手册和视频），由上海交通大学《人工智能安全技术》课程拓展而来，主题包括数学推理、GUI Agent、大模型对齐等。 **最近核验：2026-11-05（目录与定位；未运行示例）**
         
-    5. **[《从零开始的大语言模型原理与实践教程》](https://github.com/datawhalechina/happy-llm)**: Datawhale出品，从原理到实践的系统教程。
+    5. **[《从零开始的大语言模型原理与实践教程》](https://github.com/datawhalechina/happy-llm)**: Datawhale出品，从原理到实践的系统教程。 **最近核验：2026-11-05（目录与定位；未运行示例）**
         
-    6. **[《AI-Guide-and-Demos》](https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN)**: 一份入门AI/LLM大模型的逐步指南，包含教程和演示代码，带你从API走进本地大模型部署和微调，代码文件提供Kaggle或Colab在线版本。
+    6. **[《AI-Guide-and-Demos》](https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN)**: 一份入门AI/LLM大模型的逐步指南，包含教程和演示代码，带你从API走进本地大模型部署和微调，代码文件提供Kaggle或Colab在线版本。 **最近核验：2026-11-05（目录与定位；未运行示例）**
         
-    7. **[Large Language Models (LLMs) with Colab notebooks](https://mlabonne.github.io/blog/)**: 提供Colab笔记本，边学边练，适合动手实践。
+    7. **[Large Language Models (LLMs) with Colab notebooks](https://mlabonne.github.io/blog/)**: 提供Colab笔记本，边学边练，适合动手实践。 **最近核验：2026-11-05（文章目录；未运行 Notebook）**
         
-    8. **[LLM-Action](https://github.com/liguodongiot/llm-action)**: 聚焦大模型实战项目，适合进阶开发者。
+    8. **[LLM-Action](https://github.com/liguodongiot/llm-action)**: 聚焦大模型实战项目，适合进阶开发者。 **最近核验：2026-11-05（目录与定位；未运行示例）**
         
 2. **视频资源（B站/YTB）**
     

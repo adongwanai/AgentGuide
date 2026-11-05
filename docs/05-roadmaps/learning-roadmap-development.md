@@ -13,6 +13,8 @@ topic:
 > **目标岗位**：AI Agent 开发工程师（应用型、工程型）  
 > **学习时长**：8 周（全职投入）  
 > **最终产出**：2-3 个生产级、可部署的 Agent 系统 + 完整的全栈技术能力
+>
+> **LangChain 版本口径**：当前实现从官方 `create_agent`、模型/消息、工具、middleware 与 checkpointer 入手；旧版课程可作概念参考，代码迁移对照 [v1 迁移指南](https://docs.langchain.com/oss/python/migrate/langchain-v1)。以下 LangChain 官方文档最近核验：2026-11-05（链接与 API 文档；未执行模型调用）。其他外链的核验范围见[资源核验记录](../../resources/resource-verification.md)。
 
 ---
 
@@ -84,7 +86,7 @@ topic:
 - **课程**: [微软: Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners)
 - **课程**: [HuggingFace NLP Course](https://huggingface.co/learn/nlp-course/chapter1/1)
 - **教程**: [《动手学大模型应用开发》](https://datawhalechina.github.io/llm-universe/#/) - Datawhale开源教程
-- **教程**: [《面向开发者的 LLM 入门教程》](https://github.com/datawhalechina/llm-cookbook) - 吴恩达课程中文版
+- **文档**: [LangChain 官方 Quickstart](https://docs.langchain.com/oss/python/langchain/quickstart) - 当前 Agent API 入门；按页面要求安装 Python 与 provider 包
 - **教程**: [《开源大模型食用指南》](https://github.com/datawhalechina/self-llm) - 快速微调与部署教程
 - **教程**: [《AI-Guide-and-Demos》](https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN) - API到本地部署微调指南
 - **书籍**: [《Build a Large Language Model (From Scratch)》](https://github.com/rasbt/LLMs-from-scratch)
@@ -94,7 +96,7 @@ topic:
 - **Agent框架**: [AutoGen](https://github.com/microsoft/autogen), [CrewAI](https://github.com/joaomdmoura/crewAI), [AgentScope](https://github.com/modelscope/agentscope)
 - **向量数据库**: [Milvus](https://github.com/milvus-io/milvus), [Qdrant](https://github.com/qdrant/qdrant), [Chroma](https://github.com/chroma-core/chroma)
 - **推理引擎**: [vLLM](https://github.com/vllm-project/vllm), [SGLang](https://github.com/sgl-project/sglang), [Ollama](https://github.com/ollama/ollama)
-- **评估工具**: [RAGAs](https://github.com/explodinggradients/ragas), [DeepEval](https://github.com/confident-ai/deepeval), [LangSmith](https://docs.smith.langchain.com/)
+- **评估工具**: [RAGAs](https://github.com/vibrantlabsai/ragas), [DeepEval](https://github.com/confident-ai/deepeval), [LangSmith](https://docs.langchain.com/langsmith/observability)
 
 ### 🌐 学习社区与资源
 - **社区**: [HuggingFace](https://huggingface.co/), [ModelScope](https://modelscope.cn/), [魔乐社区](https://modelers.cn/)
@@ -111,18 +113,18 @@ topic:
 
 > **学习内容:**
 > - **后端基础**: FastAPI 路由、异步 I/O、Pydantic 数据校验
-> - **LangChain 核心**: LLM, Prompt Templates, Output Parsers, LCEL
+> - **LangChain 核心**: 模型、消息、工具、结构化输出与 `create_agent`；LCEL 用于需要显式组合的调用链
 > - **Naive RAG 流程**: Document Loaders, Text Splitters, Embeddings, Vector Stores
 > - **向量数据库**: FAISS/ChromaDB 本地化使用
 >
 > **手撕系列:**
 > - [ ] FastAPI 搭建 "Hello, World" API 服务
-> - [ ] LangChain LCEL 编写第一个 LLM Chain
+> - [ ] 用模型/消息接口完成一次调用，再用 `create_agent` 接入一个工具
 > - [ ] 30分钟手撕一个完整的 Naive RAG 应用
 >
 > **解锁技能:**
 > - 熟练使用 FastAPI 搭建 API
-> - 掌握 LangChain 核心组件与 LCEL 表达式语言
+> - 理解模型调用、消息状态、工具执行与 Agent Loop 的边界
 > - 能够从零开始，快速构建一个基于文档问答的 RAG Demo
 
 **🌟 每日学习计划**
@@ -130,10 +132,10 @@ topic:
 | **天数** | **学习主题**           | **资源链接**                                                                                                                                                                                                                                                                                                                                      | **目标**                                   |
 | ------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
 | 1      | FastAPI 快速入门       | 教程: [FastAPI Official Tutorial](https://fastapi.tiangolo.com/tutorial/)                                                                                                                                                                                                                                                                       | 掌握 FastAPI 基础，能够创建路由、处理请求                |
-| 2      | LangChain 核心概念     | 文档: [LangChain Quickstart](https://python.langchain.com/v0.1/docs/get_started/quickstart/)<br>课程: [吴恩达: LangChain for LLM Application Development](https://learn.deeplearning.ai/langchain/lesson/1/introduction)<br>课程: [Building Systems with the ChatGPT API](https://learn.deeplearning.ai/chatgpt-building-system/lesson/1/introduction) | 理解 LangChain 六大核心模块，熟练使用 LCEL            |
+| 2 | LangChain 当前 API | 文档: [Quickstart](https://docs.langchain.com/oss/python/langchain/quickstart)<br>文档: [Models](https://docs.langchain.com/oss/python/langchain/models)<br>迁移: [LangChain v1](https://docs.langchain.com/oss/python/migrate/langchain-v1) | 跑通模型/消息调用与 `create_agent`；理解工具、状态和 middleware |
 | 3      | RAG Part 1: 加载与分割  | 文档: [LlamaIndex Loaders](https://developers.llamaindex.ai/python/framework/module_guides/loading/documents_and_nodes/)<br>工具: [Unstructured.io](https://unstructured-io.github.io/unstructured/), [MinerU](https://github.com/opendatalab/MinerU), [Docling](https://github.com/DS4SD/docling)                                                    | 掌握不同格式文档 (PDF, MD) 的加载和文本分块策略            |
 | 4      | RAG Part 2: 向量化与存储 | 教程: [FAISS Intro](https://github.com/facebookresearch/faiss/wiki/Getting-started)<br>教程: [Sentence Transformers](https://www.sbert.net/)                                                                                                                                                                                                      | 理解 Embedding 原理，使用 FAISS/Chroma 构建本地向量索引 |
-| 5-6    | 手撕 Naive RAG 系统    | 教程: [RAG from Scratch](https://github.com/langchain-ai/rag-from-scratch)<br>概念: [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/)<br>教程: [动手学大模型应用开发](https://datawhalechina.github.io/llm-universe/#/)<br>参考: [面向开发者的LLM入门教程](https://github.com/datawhalechina/llm-cookbook)                                                                                                   | 整合 FastAPI + LangChain，完成一个端到端的文档问答 API  |
+| 5-6 | 手撕 Naive RAG 系统 | 文档: [Semantic Search / Knowledge Base](https://docs.langchain.com/oss/python/langchain/knowledge-base)<br>文档: [Retrieval 与 RAG 架构](https://docs.langchain.com/oss/python/deepagents/retrieval)<br>概念: [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) | 整合文档加载、分块、检索与生成，完成 FastAPI 文档问答 API；记录依赖版本 |
 | 7      | 周度总结与项目部署          |                                                                                                                                                                                                                                                                                                                                               | 将本周的 RAG 项目用 Docker 打包，并成功运行             |
 
 ---
@@ -194,12 +196,12 @@ topic:
 
 | **天数** | **学习主题**            | **资源链接**                                                                                                                                                                                                                     | **目标**                                      |
 | ------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| 15     | Agent 核心概念          | 博客: [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/)<br>文档: [LangChain Agents](https://python.langchain.com/v0.1/docs/modules/agents/)<br>论文: [ReAct](https://arxiv.org/abs/2210.03629) | 理解 ReAct 框架，并运行一个 LangChain 官方的 Agent 示例    |
-| 16     | 自定义工具开发             | 教程: [LangChain Custom Tools](https://python.langchain.com/v0.1/docs/modules/tools/custom_tools/)<br>参考: [MCP协议](https://smithery.ai/), [MCP教程](https://www.youtube.com/watch?v=McNRkd5CxFY)                                  | 编写一个查询天气的自定义工具，并集成到 Agent 中                 |
-| 17     | SQL & 数据库工具         | 教程: [LangChain SQL Agent](https://python.langchain.com/v0.1/docs/use_cases/sql/)                                                                                                                                             | 构建一个能根据自然语言查询数据库的 SQL Agent                 |
+| 15     | Agent 核心概念          | 博客: [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/)<br>文档: [LangChain Agents](https://docs.langchain.com/oss/python/langchain/agents)<br>论文: [ReAct](https://arxiv.org/abs/2210.03629) | 理解 ReAct 框架，并运行一个 LangChain 官方的 Agent 示例    |
+| 16     | 自定义工具开发             | 教程: [LangChain Custom Tools](https://docs.langchain.com/oss/python/langchain/tools)<br>参考: [MCP协议](https://smithery.ai/), [MCP教程](https://www.youtube.com/watch?v=McNRkd5CxFY)                                  | 编写一个查询天气的自定义工具，并集成到 Agent 中                 |
+| 17     | SQL & 数据库工具         | 教程: [LangChain SQL Agent](https://docs.langchain.com/oss/python/langchain/sql-agent)                                                                                                                                             | 构建一个能根据自然语言查询数据库的 SQL Agent                 |
 | 18     | Function Calling 实战 | 文档: [OpenAI Function Calling](https://platform.openai.com/docs/guides/function-calling)<br>指南: [GPT Best Practices](https://platform.openai.com/docs/guides/gpt-best-practices)                                              | 使用 OpenAI API 实现一个能根据用户问题调用函数的 Agent        |
-| 19     | Agent Memory        | 文档: [LangChain Memory](https://python.langchain.com/v0.1/docs/modules/memory/)<br>工具: [Mem0](https://github.com/mem0ai/mem0), [MemoryScope](https://github.com/modelscope/MemoryScope)                                       | 为 Agent 添加对话历史记忆 (ConversationBufferMemory) |
-| 20     | Agent 错误处理          | 教程: [Error Handling in Agents](https://python.langchain.com/docs/modules/agents/how_to/handle_parsing_errors)                                                                                                                | 为工具调用添加重试机制 (`tenacity` 库) 和降级策略            |
+| 19     | Agent Memory        | 文档: [LangChain Memory](https://docs.langchain.com/oss/python/langchain/short-term-memory)<br>工具: [Mem0](https://github.com/mem0ai/mem0), [MemoryScope](https://github.com/modelscope/MemoryScope)                                       | 用消息状态、`thread_id` 和 checkpointer 保存会话，验证线程隔离与恢复 |
+| 20     | Agent 错误处理          | 教程: [Error Handling in Agents](https://docs.langchain.com/oss/python/langchain/middleware/custom)                                                                                                                | 通过 middleware 返回可诊断的工具失败；区分可重试错误与业务失败            |
 | 21     | 周度总结与项目构建           |                                                                                                                                                                                                                              | 构建一个集成 RAG 和 Web 搜索工具的 "研究助手" Agent         |
 
 ---
@@ -229,8 +231,8 @@ topic:
 | ------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
 | 22     | 性能瓶颈分析           | 工具: [py-spy](https://github.com/benfred/py-spy), [Scalene](https://github.com/plasma-umass/scalene)                                                                                                                                                                                                                                                                    | 学习使用 `cProfile`, `py-spy` 等工具分析现有 Agent 系统的性能瓶颈      |
 | 23     | 缓存优化 (Redis)     | 教程: [FastAPI with Redis](https://testdriven.io/blog/fastapi-redis/)<br>工具: [LiteLLM Caching](https://docs.litellm.ai/docs/caching)                                                                                                                                                                                                                                     | 为 Agent 系统添加 Redis 缓存，缓存 LLM 响应                      |
-| 24-25  | 异步处理 (Async)     | 教程: [FastAPI Async](https://fastapi.tiangolo.com/async/)<br>示例: [LangChain Async](https://python.langchain.com/docs/how_to/async/)                                                                                                                                                                                                                                     | 将系统中 I/O 密集型操作 (如 API 调用) 改造为异步                      |
-| 26     | 批处理优化 (Batching) | 教程: [Batch Processing](https://python.langchain.com/docs/how_to/batch/)                                                                                                                                                                                                                                                                                                | 实现 Embedding 和 Reranker 的批处理，提升吞吐量                   |
+| 24-25  | 异步处理 (Async)     | 教程: [FastAPI Async](https://fastapi.tiangolo.com/async/)<br>示例: [LangChain Async](https://docs.langchain.com/oss/python/langchain/models)                                                                                                                                                                                                                                     | 将系统中 I/O 密集型操作 (如 API 调用) 改造为异步                      |
+| 26     | 批处理优化 (Batching) | 教程: [Batch Processing](https://docs.langchain.com/oss/python/langchain/models#batch)                                                                                                                                                                                                                                                                                                | 实现 Embedding 和 Reranker 的批处理，提升吞吐量                   |
 | 27     | 高性能推理 (vLLM)     | 文档: [vLLM Quickstart](https://docs.vllm.ai/en/latest/getting_started/quickstart.html)<br>替代: [SGLang](https://github.com/sgl-project/sglang), [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM), [LMDeploy](https://github.com/InternLM/lmdeploy)<br>概览: [Awesome Inference](https://github.com/WangRongsheng/awesome-LLM-resources#%E6%8E%A8%E7%90%86-inference) | 使用 vLLM 部署一个开源模型 (如 Llama 3)，并测试其吞吐量                 |
 | 28     | 周度总结与性能压测        |                                                                                                                                                                                                                                                                                                                                                                        | 使用 `locust` 或 `jmeter` 对优化前后的系统进行压测，并记录 QPS, P99 等指标 |
 
@@ -260,7 +262,7 @@ topic:
 
 | **天数** | **学习主题**              | **资源链接**                                                                                                                                                                   | **目标**                                   |
 | ------ | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| 29     | 链路追踪 (LangSmith)      | 文档: [LangSmith](https://docs.smith.langchain.com/)<br>替代: [OpenTelemetry](https://opentelemetry.io/docs/languages/python/), [LangFuse](https://langfuse.com/)              | 将 LangSmith 集成到现有 Agent 应用中，分析调用链路       |
+| 29     | 链路追踪 (LangSmith)      | 文档: [LangSmith](https://docs.langchain.com/langsmith/observability)<br>替代: [OpenTelemetry](https://opentelemetry.io/docs/languages/python/), [LangFuse](https://langfuse.com/)              | 将 LangSmith 集成到现有 Agent 应用中，分析调用链路       |
 | 30     | 指标监控 (Prometheus)     | 教程: [Prometheus Python Client](https://github.com/prometheus/client_python)<br>集成: [FastAPI Instrumentator](https://github.com/trallnag/prometheus-fastapi-instrumentator) | 暴露 API 的 QPS, 延迟, 错误率等核心指标               |
 | 31     | 可视化 (Grafana)         | 教程: [Grafana Dashboard](https://grafana.com/docs/grafana/latest/getting-started/)                                                                                          | 安装 Grafana，并创建一个简单的监控大盘来展示 Prometheus 指标 |
 | 32     | 容器化 (Docker)          | 教程: [Docker for FastAPI](https://fastapi.tiangolo.com/deployment/docker/)<br>最佳实践: [Docker Best Practices](https://docs.docker.com/develop/dev-best-practices/)            | 为 FastAPI 应用编写 Dockerfile 并成功构建镜像        |

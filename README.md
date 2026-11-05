@@ -398,17 +398,19 @@ AgentGuide 围绕 **“做得出、跑得稳、测得准、讲得清”** 组织
 
 ### 新增优质资源
 
-| 资源 | 简介 | 链接 |
-|:---|:---|:---|
-| **learn-workbuddy** | 从 0 搭建一个 WorkBuddy-style Desktop Agent Harness：clean-room 教学复现 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计和真实模型评测，不提取源码，只复现核心机制 | [GitHub](https://github.com/adongwanai/learn-workbuddy) |
-| **Superpowers** | 由可组合 Skills 构成的 AI Coding 完整开发工作流，覆盖需求梳理、计划、TDD、系统调试、代码评审和完成前验证 | [GitHub](https://github.com/obra/superpowers) |
-| **Learn Claude Code** | 从零构建 Coding Agent Harness；当前主线 s01-s17，覆盖工具调用、权限、上下文压缩与协作，旧版章节编号另行保留 | [GitHub](https://github.com/shareAI-lab/learn-claude-code) |
-| **Harness 项目选型与二开** | 从轻量内核到企业平台、RAG 与自进化，按目标选项目、设计改动并建立评测和简历证据 | [去重项目清单](./resources/project-catalogs/agent-harness-projects.md) |
-| **claw0** | 10章10个核心概念~7000行Python，从while循环到生产级Agent网关 | [GitHub](https://github.com/shareAI-lab/claw0) |
-| **hello-agents（Datawhale）** | 《从零开始构建智能体》，16章，含MCP实战、DeepResearch复现、多Agent协同 | [GitHub](https://github.com/datawhalechina/hello-agents) |
-| **OpenClaw** | 生产级个人AI助手框架，支持Telegram/Discord/Slack等 | [GitHub](https://github.com/openclaw/openclaw) |
-| **Anthropic官方：Building Effective Agents** | Anthropic工程团队出的Agent设计原则，面试必读 | [链接](https://www.anthropic.com/engineering/building-effective-agents) |
-| **Vibe Coding 教程** | 从零掌握AI协作编程，Cursor/Claude Code实操指南，Vibe Coding面试攻略 | [链接](https://adongwanai.github.io/vibecoding/) |
+核验日期表示已访问上游并核对项目定位，不代表运行过全部示例。具体范围与版本限制见[资源核验记录](./resources/resource-verification.md)；其他未标注日期的外链视为未核验。
+
+| 资源 | 简介 | 链接 | 最近核验 |
+|:---|:---|:---|:---|
+| **learn-workbuddy** | 从 0 搭建一个 WorkBuddy-style Desktop Agent Harness：clean-room 教学复现 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计和真实模型评测，不提取源码，只复现核心机制 | [GitHub](https://github.com/adongwanai/learn-workbuddy) | 2026-11-05 |
+| **Superpowers** | 由可组合 Skills 构成的 AI Coding 完整开发工作流，覆盖需求梳理、计划、TDD、系统调试、代码评审和完成前验证 | [GitHub](https://github.com/obra/superpowers) | 2026-11-05 |
+| **Learn Claude Code** | 从零构建 Coding Agent Harness；当前主线 s01-s17，覆盖工具调用、权限、上下文压缩与协作，旧版章节编号另行保留 | [GitHub](https://github.com/shareAI-lab/learn-claude-code) | 2026-11-05 |
+| **Harness 项目选型与二开** | 从轻量内核到企业平台、RAG 与自进化，按目标选项目、设计改动并建立评测和简历证据 | [去重项目清单](./resources/project-catalogs/agent-harness-projects.md) | —（站内索引） |
+| **claw0** | 10章10个核心概念~7000行Python，从while循环到生产级Agent网关 | [GitHub](https://github.com/shareAI-lab/claw0) | 2026-11-05 |
+| **hello-agents（Datawhale）** | 系统性智能体教程，涵盖核心原理、上下文、Memory、协议、评估与多 Agent 实践 | [GitHub](https://github.com/datawhalechina/hello-agents) | 2026-11-05 |
+| **OpenClaw** | 可本地部署的个人 AI 助手，支持 Telegram、Discord、Slack 等消息渠道 | [GitHub](https://github.com/openclaw/openclaw) | 2026-11-05 |
+| **Anthropic官方：Building Effective Agents** | Anthropic 的经典 Agent 设计原则；原文已提示 2024 年的工具示例需参考当前文档 | [链接](https://www.anthropic.com/research/building-effective-agents) | 2026-11-05 |
+| **Vibe Coding 教程** | AI 协作编程基础课与实战专栏，区分免费基础课和 Premium 项目内容 | [链接](https://adongwanai.github.io/vibecoding/) | 2026-11-05 |
 
 > **后续实践重点**：在 Superpowers 的 Skills 工作流基础上，我将重点使用 `grill-me` / `grilling` 系列 Skills。它们会一次只追问一个问题，逐项压测计划、决策与设计中的假设、依赖、边界和取舍；达成共同理解后，再进入实现。
 
@@ -1994,6 +1996,12 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 5. 提交 Pull Request
 
 详细贡献指南请参考：[CONTRIBUTING.md](./CONTRIBUTING.md)
+
+## 许可与转载
+
+原创文档采用 [CC BY 4.0](./LICENSE)，原创代码（含文档内原创代码示例）采用 [MIT](./LICENSE-CODE)。转载或改编文档时请署名、链接原文及许可并注明修改；复制代码时保留版权和许可声明。
+
+第三方论文、图片、引用材料及未明确授权的历史外部贡献不自动纳入上述许可。具体范围与署名示例见 [LICENSING.md](./LICENSING.md)。
 
 ---
 
