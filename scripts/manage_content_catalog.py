@@ -8,6 +8,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 import sys
@@ -29,6 +30,9 @@ from content_metadata import (
 
 START = "<!-- AUTO-GENERATED-CONTENT:START -->"
 END = "<!-- AUTO-GENERATED-CONTENT:END -->"
+STATS_START = "<!-- AUTO-GENERATED-STATS:START -->"
+STATS_END = "<!-- AUTO-GENERATED-STATS:END -->"
+INTERVIEW_STATS = ROOT / "apps/InterviewGuide/src/data/stats.json"
 BACKLOG_HEADER = """# AgentGuide 内容 Backlog
 
 > 本页由 `python scripts/manage_content_catalog.py --write` 自动生成。以下文档保留在原路径，但当前不进入公开导航与站点资源索引。
@@ -240,8 +244,32 @@ def render_backlog(records: list[dict[str, object]]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_readme_stats(records: list[dict[str, object]]) -> str:
+    """首页数字一律由数据生成，避免 README 与站点、题库口径不一致。"""
+    guides = sum(
+        record["status"] in PUBLIC_STATUSES and record["type"] != "入口页"
+        for record in records
+    )
+    interview = json.loads(INTERVIEW_STATS.read_text(encoding="utf-8"))
+    line = (
+        f"<p><strong>{interview['totalQuestions']:,}</strong> 道 AI 面试题 · "
+        f"覆盖 <strong>{interview['totalCompanies']}</strong> 家公司 · "
+        f"<strong>{guides}</strong> 篇公开文档</p>"
+    )
+    return "\n".join((STATS_START, line, STATS_END))
+
+
+def replace_stats_block(text: str, block: str) -> str:
+    pattern = re.compile(re.escape(STATS_START) + r".*?" + re.escape(STATS_END), re.S)
+    return pattern.sub(lambda _: block, text)
+
+
 def expected_files(records: list[dict[str, object]]) -> dict[Path, str]:
     expected: dict[Path, str] = {}
+    readme = ROOT / "README.md"
+    readme_text = read_text(readme)
+    if STATS_START in readme_text:
+        expected[readme] = replace_stats_block(readme_text, render_readme_stats(records))
     for record in records:
         if record["type"] != "入口页" or record["status"] not in PUBLIC_STATUSES:
             continue
