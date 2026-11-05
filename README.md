@@ -2036,11 +2036,13 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 ### 💬 加入 AI Agent 学习社群
 
+<div align="center">
+  <img src="./assets/wechat-adong.jpg" alt="阿东玩AI 个人微信二维码" width="260">
+  <br/>
+  <sub>扫码添加阿东的个人微信</sub>
+</div>
+
 **为什么要加入社群？**
-![89491b5534a804fc5bbaab1cc7fa6c41.jpg](https://raw.githubusercontent.com/adongwanai/Awesome-Awesome-LLMs/main/89491b5534a804fc5bbaab1cc7fa6c41.jpg)
-
-
-
 
 - ✅ **每周技术分享**：Agent 最新论文解读、工程实践经验
 - ✅ **简历面试辅导**：免费简历诊断、模拟面试、内推机会
@@ -2050,7 +2052,7 @@ AgentGuide 提供 **简历级实战项目**，每个项目都提供：
 
 **如何加入？**
 
-1. 关注公众号「阿东玩AI」，回复「AgentGuide」获取入群二维码
+1. 扫描上方二维码，添加阿东的个人微信
 2. [小红书@阿东玩AI](https://www.xiaohongshu.com/user/profile/5f310fd50000000001009df5)，私信"加群"
 
 GitHub Issues 仅用于可复现的仓库问题和有明确交付物的核心改进，不处理加群申请。
