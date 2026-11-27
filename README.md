@@ -48,13 +48,14 @@
 
 [📚 查看完整文档导航](./docs/README.md)
 
-## 前沿研究：Follow RSI
+## 📡 阿东每日追踪与实战工具（日更）
 
-**Follow RSI** 是我维护的递归自我改进（RSI）进展追踪与 **Harness 自进化证据库**，重点关注 Agent 如何根据执行反馈改进可复用的提示、工具、技能与工作流。读论文时一起看留出集、同预算对照、跨模型迁移和代码等证据；未知项保留未知，新发现经人工审核后进入公开动态。
+除了这份系统学习指南，我还维护着几套每天更新的情报账本、自进化证据库与即插即用 Skills，方便你边学边盯紧一线前沿：
 
-- [进入 Follow RSI 网站](https://adongwanai.github.io/follow-rsi/)：查论文、证据卡片与阅读路线。
-- [先读《为什么 AI 还不会自我进化》](https://adongwanai.github.io/follow-rsi/articles/why-ai-self-improvement.html)：从评测与泛化问题理解自进化的边界。
-- [Follow RSI GitHub 仓库](https://github.com/adongwanai/follow-rsi)：Star 收藏，查看资料与审核记录。
+- 📰 **[阿东 AI 日报](https://adongwanai.github.io/adong-ai-daily/)**（[GitHub](https://github.com/adongwanai/adong-ai-daily)）：每天 09:00 自动直连 X 建设者推文、播客、GitHub Trending、HN、HF/arXiv 与 9 家中文科技源，跨源去重后给出一线工程视角主线与趋势判断（支持 RSS 订阅）。
+- 📑 **[HF 每日论文账本](https://adongwanai.github.io/hf-daily-papers/)**（[GitHub](https://github.com/adongwanai/hf-daily-papers)）：逐篇拆解 Hugging Face Daily Papers 的核心痛点、方法机制与实验指标，支持跨月检索与专题综述归档。
+- 🔄 **[Follow RSI：Harness 自进化证据库](https://adongwanai.github.io/follow-rsi/)**（[GitHub](https://github.com/adongwanai/follow-rsi)）：递归自我改进（RSI）进展追踪，重点关注 Agent 如何根据执行反馈改进提示、工具、技能与工作流（推荐先读 [《为什么 AI 还不会自我进化》](https://adongwanai.github.io/follow-rsi/articles/why-ai-self-improvement.html)）。
+- ⚡ **[adong-skills：实战 Agent Skills 合集](https://github.com/adongwanai/adong-skills)**：我自己日常在 Claude Code / Codex / Antigravity 里跑的 9 个自包含模块，包含全流程求职与模拟面试系统 `agent-career-kit`、顶会论文审稿去 AI 味 `vibe-paper-deai` 等。
 
 ## 📑 目录
 
@@ -71,8 +72,8 @@
 - [🔥 2026 前沿面试专题](./docs/04-interview/23-frontier-interview-guides/) - 自进化 Agent、Agentic RL、AI Infra、Coding Agent、世界模型、图像/语音生成
 
 **🛠️ 快速导航**：
-- [Follow RSI：Harness 自进化证据库](https://adongwanai.github.io/follow-rsi/) · [先读深度解读](https://adongwanai.github.io/follow-rsi/articles/why-ai-self-improvement.html)
-- ⭐ 阿东作品推荐：[**learn-workbuddy**](https://github.com/adongwanai/learn-workbuddy) - 从 0 搭建 WorkBuddy-style Desktop Agent Harness，clean-room 教学复现 Agent Loop、工具调用、上下文工程、长期记忆、Sidecar、权限审计和真实模型评测
+- 📡 每日情报与追踪：[阿东 AI 日报](https://adongwanai.github.io/adong-ai-daily/) · [HF 每日论文账本](https://adongwanai.github.io/hf-daily-papers/) · [Follow RSI 自进化证据库](https://adongwanai.github.io/follow-rsi/)
+- ⭐ 阿东实战开源推荐：[**learn-workbuddy**](https://github.com/adongwanai/learn-workbuddy)（24 章从 0 手搓桌面 Agent Harness） · [**learn-deepseek-harness**](https://github.com/adongwanai/learn-deepseek-harness)（12 章 Mini DeepSeek Harness 源码课） · [**adong-skills**](https://github.com/adongwanai/adong-skills)（9 款即插即用求职/科研/创作 Skills）
 - [🚀 10分钟快速开始](#-快速开始) | [💬 加入学习社群](#-联系作者--加入社群) | [❓ 常见问题](./FAQ.md)
 - [🧭 新手快速开始](./docs/00-getting-started/README.md) | [📚 完整文档导航](./docs/README.md) | [💼 项目导航](./projects/README.md)
 
