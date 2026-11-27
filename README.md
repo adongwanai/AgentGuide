@@ -52,6 +52,7 @@
 
 除了这份系统学习指南，我还维护着几套每天更新的情报账本、自进化证据库与即插即用 Skills，方便你边学边盯紧一线前沿：
 
+- 🖥️ **[阿东 IP 工作台（adong-media-desk）](https://github.com/adongwanai/adong-media-desk)**（[下载 v0.1.0](https://github.com/adongwanai/adong-media-desk/releases/tag/v0.1.0)）：融合两年自媒体经验搭建的本地个人 IP 全流程创作工作台（DeepSeek Harness 插件），打通选题雷达、原生 Agent 写稿去 AI 味、30 套公众号/小红书排版、口播录剪 MP4 与 11 平台复盘——把做出来的项目持续沉淀成公开可查的简历。
 - 📰 **[阿东 AI 日报](https://adongwanai.github.io/adong-ai-daily/)**（[GitHub](https://github.com/adongwanai/adong-ai-daily)）：每天 09:00 自动直连 X 建设者推文、播客、GitHub Trending、HN、HF/arXiv 与 9 家中文科技源，跨源去重后给出一线工程视角主线与趋势判断（支持 RSS 订阅）。
 - 📑 **[HF 每日论文账本](https://adongwanai.github.io/hf-daily-papers/)**（[GitHub](https://github.com/adongwanai/hf-daily-papers)）：逐篇拆解 Hugging Face Daily Papers 的核心痛点、方法机制与实验指标，支持跨月检索与专题综述归档。
 - 🔄 **[Follow RSI：Harness 自进化证据库](https://adongwanai.github.io/follow-rsi/)**（[GitHub](https://github.com/adongwanai/follow-rsi)）：递归自我改进（RSI）进展追踪，重点关注 Agent 如何根据执行反馈改进提示、工具、技能与工作流（推荐先读 [《为什么 AI 还不会自我进化》](https://adongwanai.github.io/follow-rsi/articles/why-ai-self-improvement.html)）。
@@ -73,7 +74,7 @@
 
 **🛠️ 快速导航**：
 - 📡 每日情报与追踪：[阿东 AI 日报](https://adongwanai.github.io/adong-ai-daily/) · [HF 每日论文账本](https://adongwanai.github.io/hf-daily-papers/) · [Follow RSI 自进化证据库](https://adongwanai.github.io/follow-rsi/)
-- ⭐ 阿东实战开源推荐：[**learn-workbuddy**](https://github.com/adongwanai/learn-workbuddy)（24 章从 0 手搓桌面 Agent Harness） · [**learn-deepseek-harness**](https://github.com/adongwanai/learn-deepseek-harness)（12 章 Mini DeepSeek Harness 源码课） · [**adong-skills**](https://github.com/adongwanai/adong-skills)（9 款即插即用求职/科研/创作 Skills）
+- ⭐ 阿东实战开源推荐：[**adong-media-desk（阿东IP工作台）**](https://github.com/adongwanai/adong-media-desk)（本地个人 IP 图文/口播/视频全流程创作台） · [**learn-workbuddy**](https://github.com/adongwanai/learn-workbuddy)（24 章从 0 手搓桌面 Agent Harness） · [**learn-deepseek-harness**](https://github.com/adongwanai/learn-deepseek-harness)（12 章 Mini DeepSeek Harness 源码课） · [**adong-skills**](https://github.com/adongwanai/adong-skills)（9 款即插即用求职/科研/创作 Skills）
 - [🚀 10分钟快速开始](#-快速开始) | [💬 加入学习社群](#-联系作者--加入社群) | [❓ 常见问题](./FAQ.md)
 - [🧭 新手快速开始](./docs/00-getting-started/README.md) | [📚 完整文档导航](./docs/README.md) | [💼 项目导航](./projects/README.md)
 
